@@ -1,6 +1,13 @@
-﻿namespace Meeting_Manegment_System.Data
+﻿using Microsoft.EntityFrameworkCore;
+
+namespace Meeting_Manegment_System.Data
 {
-    public class Class
+    public class AppDbContext :DbContext
     {
+        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
+        {
+            
+        }
+
     }
 }
