@@ -7,14 +7,14 @@ namespace Meeting_Manegment_System.Models
     {
         [Key, Column(Order = 0)]
         public int VotingId { get; set; }
-        public Voting voting { get; set; }  
+        public Voting? Voting { get; set; }  
         [Key, Column(Order = 1)]
         public int MeetingId { get; set; }
-        public Meeting meeting { get; set; }
+        public Meeting? Meeting { get; set; }
         [Key, Column(Order = 2)]
         public int MemberId { get; set; }
-        public Member Member { get; set; }
+        public Member? Member { get; set; }
         [Required]
-        public string Description { get; set; }
+        public string? Description { get; set; }
     }
 }
