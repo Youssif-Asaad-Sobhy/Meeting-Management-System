@@ -12,13 +12,13 @@ namespace Meeting_Manegment_System.Models
         [Required]
         public string Email { get; set; }
         public string Phone { get; set; }
-        public DateOnly StartDate { get; set; }
-        public DateOnly EndDate { get; set; }
+        public DateTime StartDate { get; set; }
+        public DateTime EndDate { get; set; }
         [Required]
         public string Password { get; set; }
 
         //Relations
-        public List<Member> Members { get; set; }
+        public List<MemberCommittee> MemberCommittees { get; set; }
         public List<MemberAnswers> MemberAnswers { get; set; } 
 
     }
