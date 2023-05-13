@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\MMV\\Meeting-Manegment-System\\Meeting Manegment System\\Meeting Manegment System\\Meeting Manegment System.csproj": {}
+    "C:\\Users\\Ziad\\source\\repos\\Meeting-Manegment-System\\Meeting Manegment System\\Meeting Manegment System\\Meeting Manegment System.csproj": {}
   },
   "projects": {
-    "D:\\MMV\\Meeting-Manegment-System\\Meeting Manegment System\\Meeting Manegment System\\Meeting Manegment System.csproj": {
+    "C:\\Users\\Ziad\\source\\repos\\Meeting-Manegment-System\\Meeting Manegment System\\Meeting Manegment System\\Meeting Manegment System.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\MMV\\Meeting-Manegment-System\\Meeting Manegment System\\Meeting Manegment System\\Meeting Manegment System.csproj",
+        "projectUniqueName": "C:\\Users\\Ziad\\source\\repos\\Meeting-Manegment-System\\Meeting Manegment System\\Meeting Manegment System\\Meeting Manegment System.csproj",
         "projectName": "Meeting Manegment System",
-        "projectPath": "D:\\MMV\\Meeting-Manegment-System\\Meeting Manegment System\\Meeting Manegment System\\Meeting Manegment System.csproj",
-        "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
-        "outputPath": "D:\\MMV\\Meeting-Manegment-System\\Meeting Manegment System\\Meeting Manegment System\\obj\\",
+        "projectPath": "C:\\Users\\Ziad\\source\\repos\\Meeting-Manegment-System\\Meeting Manegment System\\Meeting Manegment System\\Meeting Manegment System.csproj",
+        "packagesPath": "C:\\Users\\Ziad\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Ziad\\source\\repos\\Meeting-Manegment-System\\Meeting Manegment System\\Meeting Manegment System\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Ziad\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

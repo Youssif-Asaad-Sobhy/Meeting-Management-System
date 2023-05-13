@@ -3478,9 +3478,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\MMV\\Meeting-Manegment-System\\Meeting Manegment System\\Meeting Manegment System\\Meeting Manegment System.csproj",
-      "projectName": "Meeting Manegment System",
-      "projectPath": "D:\\MMV\\Meeting-Manegment-System\\Meeting Manegment System\\Meeting Manegment System\\Meeting Manegment System.csproj",
+      "projectUniqueName": "D:\\MMV\\Meeting-Manegment-System\\Meeting Manegment System\\Meeting Manegment System\\MeetingManagmentSystem.csproj",
+      "projectName": "MeetingManagmentSystem",
+      "projectPath": "D:\\MMV\\Meeting-Manegment-System\\Meeting Manegment System\\Meeting Manegment System\\MeetingManagmentSystem.csproj",
       "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
       "outputPath": "D:\\MMV\\Meeting-Manegment-System\\Meeting Manegment System\\Meeting Manegment System\\obj\\",
       "projectStyle": "PackageReference",
