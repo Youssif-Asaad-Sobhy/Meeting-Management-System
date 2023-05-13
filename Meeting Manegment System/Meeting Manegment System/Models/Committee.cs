@@ -8,8 +8,8 @@ namespace Meeting_Manegment_System.Models
         public string Name { get; set; }
 
         //Relationships
-         public List<MemberCommittee> member_Committees { get; set; }
-         public List<Meeting> meetings { get; set; }
+         public List<MemberCommittee> MemberCommittees { get; set; }
+         public List<Meeting> Meetings { get; set; }
         
         //Organiztion Relationship
         public int OrganizationId { get; set; }

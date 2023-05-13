@@ -7,7 +7,7 @@ namespace Meeting_Manegment_System.Models
     {
         [Key, Column(Order = 0)]
         public int VotingId { get; set; }
-        public Voting? Voting { get; set; }  
+        public Voting? Voting { get; set; }
         [Key, Column(Order = 1)]
         public int MeetingId { get; set; }
         public Meeting? Meeting { get; set; }

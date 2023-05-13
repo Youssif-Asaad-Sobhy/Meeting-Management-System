@@ -17,7 +17,7 @@ namespace Meeting_Manegment_System.Models
          public List<MemberAnswers> MemberAnswers { get; set; }
 
         //committee Relationship
-        public int Committee_Id { get; set; }
+        public int CommitteeId { get; set; }
         public Committee Committee { get; set; }
        
 
