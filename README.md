@@ -1,4 +1,4 @@
-# Meeting-Manegment-System
+# Meeting-Management-System
 # Introduction
 1.	Purpose :-
 The purpose of this document is to describe the requirement for the Meeting Management System . the target audience include all organizations that need a system to manage its meetings and save all information about every meeting .
