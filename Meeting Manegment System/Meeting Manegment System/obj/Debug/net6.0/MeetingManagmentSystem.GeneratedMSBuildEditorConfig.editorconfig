@@ -16,6 +16,10 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = D:\MMV\Meeting-Manegment-System\Meeting Manegment System\Meeting Manegment System
 build_property._RazorSourceGeneratorDebug = 
 
+[D:/MMV/Meeting-Manegment-System/Meeting Manegment System/Meeting Manegment System/Views/Commitees/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tbWl0ZWVzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/MMV/Meeting-Manegment-System/Meeting Manegment System/Meeting Manegment System/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
