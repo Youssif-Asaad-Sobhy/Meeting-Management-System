@@ -37,9 +37,9 @@ namespace Meeting_Manegment_System.Data
         }
 
 
-        public DbSet<Committee> Committees { get; set; }
-        public DbSet<Meeting> Meetings { get; set; }
-        public DbSet<Member> Members { get; set; }
+        public DbSet<Committee> Committee { get; set; }
+        public DbSet<Meeting> Meeting { get; set; }
+        public DbSet<Member> Member { get; set; }
         public DbSet<MemberAnswers> MembersAnswers { get; set; }
         public DbSet<MemberCommittee> MemberCommittees { get; set; }
         public DbSet<Organization> Organizations { get; set; }
