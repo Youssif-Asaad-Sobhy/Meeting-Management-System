@@ -1,8 +1,8 @@
 {
   "Files": [
     {
-      "Id": "D:\\MMV\\Meeting-Manegment-System\\Meeting Manegment System\\Meeting Manegment System\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\MeetingManagmentSystem.bundle.scp.css",
-      "PackagePath": "staticwebassets\\MeetingManagmentSystem.bundle.scp.css"
+      "Id": "D:\\MMV\\Meeting-Manegment-System\\Meeting Manegment System\\Meeting Manegment System\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\MeetingManagementSystem.bundle.scp.css",
+      "PackagePath": "staticwebassets\\MeetingManagementSystem.bundle.scp.css"
     },
     {
       "Id": "D:\\MMV\\Meeting-Manegment-System\\Meeting Manegment System\\Meeting Manegment System\\wwwroot\\css\\site.css",
@@ -245,20 +245,20 @@
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
     },
     {
-      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.MeetingManagmentSystem.Microsoft.AspNetCore.StaticWebAssets.props",
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.MeetingManagementSystem.Microsoft.AspNetCore.StaticWebAssets.props",
       "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
     },
     {
-      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.build.MeetingManagmentSystem.props",
-      "PackagePath": "build\\MeetingManagmentSystem.props"
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.build.MeetingManagementSystem.props",
+      "PackagePath": "build\\MeetingManagementSystem.props"
     },
     {
-      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.buildMultiTargeting.MeetingManagmentSystem.props",
-      "PackagePath": "buildMultiTargeting\\MeetingManagmentSystem.props"
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.buildMultiTargeting.MeetingManagementSystem.props",
+      "PackagePath": "buildMultiTargeting\\MeetingManagementSystem.props"
     },
     {
-      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.buildTransitive.MeetingManagmentSystem.props",
-      "PackagePath": "buildTransitive\\MeetingManagmentSystem.props"
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.buildTransitive.MeetingManagementSystem.props",
+      "PackagePath": "buildTransitive\\MeetingManagementSystem.props"
     }
   ],
   "ElementsToRemove": []
