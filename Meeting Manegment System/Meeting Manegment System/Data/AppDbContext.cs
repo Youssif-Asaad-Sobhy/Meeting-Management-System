@@ -15,13 +15,25 @@ namespace Meeting_Manegment_System.Data
                 am.VotingId,
                 am.MeetingId,
                 am.MemberId
-            });
-            modelBuilder.Entity<MemberAnswers>().HasOne(m => m.Voting).WithMany(m => m.MemberAnswers
-            ).HasForeignKey(m => m.VotingId);
-            modelBuilder.Entity<MemberAnswers>().HasOne(m => m.Meeting).WithMany(m => m.MemberAnswers
-            ).HasForeignKey(m => m.MeetingId);
-            modelBuilder.Entity<MemberAnswers>().HasOne(m => m.Member).WithMany(m => m.MemberAnswers
-            ).HasForeignKey(m => m.MemberId);
+            }); 
+            modelBuilder.Entity<MemberAnswers>()
+                .HasOne(m => m.Meeting)
+                .WithMany(m => m.MemberAnswers)
+                .HasForeignKey(m => m.MeetingId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<MemberAnswers>()
+                .HasOne(m => m.Member)
+                .WithMany(m => m.MemberAnswers)
+                .HasForeignKey(m => m.MemberId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<MemberAnswers>()
+                .HasOne(m => m.Voting)
+                .WithMany(m => m.MemberAnswers)
+                .HasForeignKey(m => m.VotingId)
+                .OnDelete(DeleteBehavior.Restrict);
+
 
             modelBuilder.Entity<MemberCommittee>().HasKey(am => new
             {

@@ -48,16 +48,26 @@ namespace Meeting_Manegment_System.Controllers
                         cnames.Add(temp);
                     }
                     ViewBag.Committees = cnames;
-                    return RedirectToAction("CommitteeSelect", "Login");
+                    return RedirectToAction("CommitteeSelect", "Login",model);
                 }
             }
             ModelState.AddModelError("", "Invalid username or password");
             return View(model);
         }
         [HttpPost]
-        public IActionResult CommitteeSelect(Committee model)
+        public IActionResult CommitteeSelect(MemberCommittee model)
         {
-            return RedirectToAction("Index", "Home");
+            string role = model.Role;
+            if (role == "President")
+            {
+                return RedirectToAction("Index", "PresidentController");
+            }
+            else if (role == "Vice")
+            {
+                return RedirectToAction("Index", "ViceController");
+            }
+            else return RedirectToAction("Index", "UserConroller");
+            return View();
         }
     }
 }
