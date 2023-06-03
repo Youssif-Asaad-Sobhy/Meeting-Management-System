@@ -19,20 +19,17 @@ namespace Meeting_Manegment_System.Data
             modelBuilder.Entity<MemberAnswers>()
                 .HasOne(m => m.Meeting)
                 .WithMany(m => m.MemberAnswers)
-                .HasForeignKey(m => m.MeetingId)
-                .OnDelete(DeleteBehavior.Restrict);
+                .HasForeignKey(m => m.MeetingId);
 
             modelBuilder.Entity<MemberAnswers>()
                 .HasOne(m => m.Member)
                 .WithMany(m => m.MemberAnswers)
-                .HasForeignKey(m => m.MemberId)
-                .OnDelete(DeleteBehavior.Restrict);
+                .HasForeignKey(m => m.MemberId);
 
             modelBuilder.Entity<MemberAnswers>()
                 .HasOne(m => m.Voting)
                 .WithMany(m => m.MemberAnswers)
-                .HasForeignKey(m => m.VotingId)
-                .OnDelete(DeleteBehavior.Restrict);
+                .HasForeignKey(m => m.VotingId);
 
 
             modelBuilder.Entity<MemberCommittee>().HasKey(am => new
@@ -44,7 +41,9 @@ namespace Meeting_Manegment_System.Data
             ).HasForeignKey(m => m.MemberId);
             modelBuilder.Entity<MemberCommittee>().HasOne(m => m.Committee).WithMany(m => m.MemberCommittees
             ).HasForeignKey(m => m.CommitteeId);
-
+            modelBuilder.Entity<Meeting>().HasKey(am => new { am.Id, am.CommitteeId });
+            modelBuilder.Entity<Report>().HasKey(am => new { am.Id, am.MeetingId });
+            modelBuilder.Entity<Voting>().HasKey(am => new { am.Id, am.MeetingId });
             base.OnModelCreating(modelBuilder);
         }
 

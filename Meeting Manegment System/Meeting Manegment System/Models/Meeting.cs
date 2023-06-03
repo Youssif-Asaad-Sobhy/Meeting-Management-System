@@ -6,7 +6,7 @@ namespace Meeting_Manegment_System.Models
     {
         [Key]
         public int Id { get; set; }
-
+        [Key]
         public int CommitteeId { get; set; }
         public string Goal { get; set; }
         public bool Emergency { get; set; }
