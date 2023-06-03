@@ -44,6 +44,18 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/MMV/Meeting-Manegment-System/Meeting Manegment System/Meeting Manegment System/Views/UserPageConroller/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclBhZ2VDb25yb2xsZXJcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/MMV/Meeting-Manegment-System/Meeting Manegment System/Meeting Manegment System/Views/UserPageConroller/President.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclBhZ2VDb25yb2xsZXJcUHJlc2lkZW50LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/MMV/Meeting-Manegment-System/Meeting Manegment System/Meeting Manegment System/Views/UserPageConroller/Vice.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclBhZ2VDb25yb2xsZXJcVmljZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/MMV/Meeting-Manegment-System/Meeting Manegment System/Meeting Manegment System/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 

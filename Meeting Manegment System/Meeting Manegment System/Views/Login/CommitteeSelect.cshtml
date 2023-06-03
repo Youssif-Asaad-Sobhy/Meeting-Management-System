@@ -9,17 +9,18 @@
     </div>
 </header>
 <form asp-action="Committeeselect" id="main-col">
-    <div class="container">
-        <div id="Select_committee">
+    <div class="container" >
+        <div id="Select_committee" style="height:fit-content;">
             <h3 style="margin: auto; margin-left: 110px;">اختيار اللجنة</h3>
             <select name="اللجان" id="committee_select">
-                @foreach(var item in commitees)
+                @*@foreach(var item in commitees)
                 {
                     <option value="@item.id">@item.Name</option>
-                }
+                }*@
+                <option>option 1</option>
             </select>
             <div class="center">
-                <button type="submit" id="button" name="button">تسجيل</button>
+                <button type="submit" id="button" name="button">دخول</button>
             </div>
         </div>
     </div>
