@@ -1,4 +1,6 @@
 using Meeting_Manegment_System.Data;
+using Meeting_Manegment_System.Interface;
+using Meeting_Manegment_System.Repository;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -8,6 +10,7 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<ApplicationDbContext>(Options => Options.UseSqlServer(
     builder.Configuration.GetConnectionString("DefualtConnectionString")
     ));
+builder.Services.AddScoped<IMemberRepository, MemberRepository>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

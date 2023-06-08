@@ -12,10 +12,10 @@ namespace Meeting_Manegment_System.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Members",
+                name: "Member",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
+                    MemberId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -26,47 +26,48 @@ namespace Meeting_Manegment_System.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Members", x => x.Id);
+                    table.PrimaryKey("PK_Member", x => x.MemberId);
                 });
 
             migrationBuilder.CreateTable(
                 name: "Organizations",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
+                    OrganizationId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Organizations", x => x.Id);
+                    table.PrimaryKey("PK_Organizations", x => x.OrganizationId);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Committees",
+                name: "Committee",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
+                    CommitteeId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    OrganizationId = table.Column<int>(type: "int", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    OrganizationId = table.Column<int>(type: "int", nullable: false)
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Committees", x => x.Id);
+                    table.PrimaryKey("PK_Committee", x => x.CommitteeId);
                     table.ForeignKey(
-                        name: "FK_Committees_Organizations_OrganizationId",
+                        name: "FK_Committee_Organizations_OrganizationId",
                         column: x => x.OrganizationId,
                         principalTable: "Organizations",
-                        principalColumn: "Id",
+                        principalColumn: "OrganizationId",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Meetings",
+                name: "Meeting",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
+                    MeetingId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     CommitteeId = table.Column<int>(type: "int", nullable: false),
                     Goal = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -75,37 +76,37 @@ namespace Meeting_Manegment_System.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Meetings", x => x.Id);
+                    table.PrimaryKey("PK_Meeting", x => x.MeetingId);
                     table.ForeignKey(
-                        name: "FK_Meetings_Committees_CommitteeId",
+                        name: "FK_Meeting_Committee_CommitteeId",
                         column: x => x.CommitteeId,
-                        principalTable: "Committees",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalTable: "Committee",
+                        principalColumn: "CommitteeId");
                 });
 
             migrationBuilder.CreateTable(
                 name: "MemberCommittees",
                 columns: table => new
                 {
+                    Id = table.Column<int>(type: "int", nullable: false),
                     CommitteeId = table.Column<int>(type: "int", nullable: false),
                     MemberId = table.Column<int>(type: "int", nullable: false),
-                    Role = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    Role = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_MemberCommittees", x => new { x.MemberId, x.CommitteeId });
                     table.ForeignKey(
-                        name: "FK_MemberCommittees_Committees_CommitteeId",
+                        name: "FK_MemberCommittees_Committee_CommitteeId",
                         column: x => x.CommitteeId,
-                        principalTable: "Committees",
-                        principalColumn: "Id",
+                        principalTable: "Committee",
+                        principalColumn: "CommitteeId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_MemberCommittees_Members_MemberId",
+                        name: "FK_MemberCommittees_Member_MemberId",
                         column: x => x.MemberId,
-                        principalTable: "Members",
-                        principalColumn: "Id",
+                        principalTable: "Member",
+                        principalColumn: "MemberId",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -115,17 +116,17 @@ namespace Meeting_Manegment_System.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    MeetingId = table.Column<int>(type: "int", nullable: false),
-                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    MeetingId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Reports", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Reports_Meetings_MeetingId",
+                        name: "FK_Reports_Meeting_MeetingId",
                         column: x => x.MeetingId,
-                        principalTable: "Meetings",
-                        principalColumn: "Id",
+                        principalTable: "Meeting",
+                        principalColumn: "MeetingId",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -133,19 +134,18 @@ namespace Meeting_Manegment_System.Migrations
                 name: "Votings",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    VotingId = table.Column<int>(type: "int", nullable: false),
                     MeetingId = table.Column<int>(type: "int", nullable: false),
                     Question = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Votings", x => x.Id);
+                    table.PrimaryKey("PK_Votings", x => new { x.VotingId, x.MeetingId });
                     table.ForeignKey(
-                        name: "FK_Votings_Meetings_MeetingId",
+                        name: "FK_Votings_Meeting_MeetingId",
                         column: x => x.MeetingId,
-                        principalTable: "Meetings",
-                        principalColumn: "Id",
+                        principalTable: "Meeting",
+                        principalColumn: "MeetingId",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -153,42 +153,42 @@ namespace Meeting_Manegment_System.Migrations
                 name: "MembersAnswers",
                 columns: table => new
                 {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     VotingId = table.Column<int>(type: "int", nullable: false),
                     MeetingId = table.Column<int>(type: "int", nullable: false),
                     MemberId = table.Column<int>(type: "int", nullable: false),
+                    CommitteeId = table.Column<int>(type: "int", nullable: false),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_MembersAnswers", x => new { x.VotingId, x.MeetingId, x.MemberId });
+                    table.PrimaryKey("PK_MembersAnswers", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_MembersAnswers_Meetings_MeetingId",
+                        name: "FK_MembersAnswers_Meeting_MeetingId",
                         column: x => x.MeetingId,
-                        principalTable: "Meetings",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalTable: "Meeting",
+                        principalColumn: "MeetingId");
                     table.ForeignKey(
-                        name: "FK_MembersAnswers_Members_MemberId",
+                        name: "FK_MembersAnswers_Member_MemberId",
                         column: x => x.MemberId,
-                        principalTable: "Members",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalTable: "Member",
+                        principalColumn: "MemberId");
                     table.ForeignKey(
-                        name: "FK_MembersAnswers_Votings_VotingId",
-                        column: x => x.VotingId,
+                        name: "FK_MembersAnswers_Votings_VotingId_MeetingId",
+                        columns: x => new { x.VotingId, x.MeetingId },
                         principalTable: "Votings",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumns: new[] { "VotingId", "MeetingId" });
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Committees_OrganizationId",
-                table: "Committees",
+                name: "IX_Committee_OrganizationId",
+                table: "Committee",
                 column: "OrganizationId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Meetings_CommitteeId",
-                table: "Meetings",
+                name: "IX_Meeting_CommitteeId",
+                table: "Meeting",
                 column: "CommitteeId");
 
             migrationBuilder.CreateIndex(
@@ -205,6 +205,11 @@ namespace Meeting_Manegment_System.Migrations
                 name: "IX_MembersAnswers_MemberId",
                 table: "MembersAnswers",
                 column: "MemberId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_MembersAnswers_VotingId_MeetingId",
+                table: "MembersAnswers",
+                columns: new[] { "VotingId", "MeetingId" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Reports_MeetingId",
@@ -230,16 +235,16 @@ namespace Meeting_Manegment_System.Migrations
                 name: "Reports");
 
             migrationBuilder.DropTable(
-                name: "Members");
+                name: "Member");
 
             migrationBuilder.DropTable(
                 name: "Votings");
 
             migrationBuilder.DropTable(
-                name: "Meetings");
+                name: "Meeting");
 
             migrationBuilder.DropTable(
-                name: "Committees");
+                name: "Committee");
 
             migrationBuilder.DropTable(
                 name: "Organizations");

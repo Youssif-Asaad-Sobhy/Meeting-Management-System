@@ -6,10 +6,10 @@ namespace Meeting_Manegment_System.Models
     public class Report
     {
         [Key]
-        public int Id { get; set; }
-        [Key]
-        public int MeetingId { get; set; }
+        public int ReportId { get; set; }
         public string Description { get; set; }
+        [Required]  
+        public int MeetingId { get; set; }
         public Meeting Meeting { get; set; }
     }
 }
