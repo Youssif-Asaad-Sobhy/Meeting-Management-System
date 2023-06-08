@@ -5,7 +5,7 @@ namespace Meeting_Manegment_System.Models
     public class Member
     {
         [Key]
-        public int Id { get; set; }
+        public int MemberId { get; set; }
         [Required]
         //Attributes
         public string Name { get; set; }

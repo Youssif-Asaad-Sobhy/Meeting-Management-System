@@ -24,11 +24,11 @@ namespace Meeting_Manegment_System.Migrations
 
             modelBuilder.Entity("Meeting_Manegment_System.Models.Committee", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("CommitteeId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CommitteeId"));
 
                     b.Property<string>("Description")
                         .IsRequired()
@@ -41,7 +41,7 @@ namespace Meeting_Manegment_System.Migrations
                     b.Property<int>("OrganizationId")
                         .HasColumnType("int");
 
-                    b.HasKey("Id");
+                    b.HasKey("CommitteeId");
 
                     b.HasIndex("OrganizationId");
 
@@ -50,11 +50,11 @@ namespace Meeting_Manegment_System.Migrations
 
             modelBuilder.Entity("Meeting_Manegment_System.Models.Meeting", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("MeetingId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MeetingId"));
 
                     b.Property<int>("CommitteeId")
                         .HasColumnType("int");
@@ -69,7 +69,7 @@ namespace Meeting_Manegment_System.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
+                    b.HasKey("MeetingId");
 
                     b.HasIndex("CommitteeId");
 
@@ -113,8 +113,18 @@ namespace Meeting_Manegment_System.Migrations
 
             modelBuilder.Entity("Meeting_Manegment_System.Models.MemberAnswers", b =>
                 {
-                    b.Property<int>("VotingId")
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("CommitteeId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("MeetingId")
                         .HasColumnType("int");
@@ -122,15 +132,16 @@ namespace Meeting_Manegment_System.Migrations
                     b.Property<int>("MemberId")
                         .HasColumnType("int");
 
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("VotingId")
+                        .HasColumnType("int");
 
-                    b.HasKey("VotingId", "MeetingId", "MemberId");
+                    b.HasKey("Id");
 
                     b.HasIndex("MeetingId");
 
                     b.HasIndex("MemberId");
+
+                    b.HasIndex("VotingId", "MeetingId");
 
                     b.ToTable("MembersAnswers");
                 });
@@ -143,8 +154,11 @@ namespace Meeting_Manegment_System.Migrations
                     b.Property<int>("CommitteeId")
                         .HasColumnType("int");
 
-                    b.Property<string>("Role")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("Id")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Role")
+                        .HasColumnType("int");
 
                     b.HasKey("MemberId", "CommitteeId");
 
@@ -155,17 +169,17 @@ namespace Meeting_Manegment_System.Migrations
 
             modelBuilder.Entity("Meeting_Manegment_System.Models.Organization", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("OrganizationId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("OrganizationId"));
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
+                    b.HasKey("OrganizationId");
 
                     b.ToTable("Organizations");
                 });
@@ -194,11 +208,8 @@ namespace Meeting_Manegment_System.Migrations
 
             modelBuilder.Entity("Meeting_Manegment_System.Models.Voting", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
+                    b.Property<int>("VotingId")
                         .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<int>("MeetingId")
                         .HasColumnType("int");
@@ -207,7 +218,7 @@ namespace Meeting_Manegment_System.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
+                    b.HasKey("VotingId", "MeetingId");
 
                     b.HasIndex("MeetingId");
 
@@ -230,7 +241,6 @@ namespace Meeting_Manegment_System.Migrations
                     b.HasOne("Meeting_Manegment_System.Models.Committee", "Committee")
                         .WithMany("Meetings")
                         .HasForeignKey("CommitteeId")
-                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Committee");
@@ -241,19 +251,16 @@ namespace Meeting_Manegment_System.Migrations
                     b.HasOne("Meeting_Manegment_System.Models.Meeting", "Meeting")
                         .WithMany("MemberAnswers")
                         .HasForeignKey("MeetingId")
-                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("Meeting_Manegment_System.Models.Member", "Member")
                         .WithMany("MemberAnswers")
                         .HasForeignKey("MemberId")
-                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("Meeting_Manegment_System.Models.Voting", "Voting")
                         .WithMany("MemberAnswers")
-                        .HasForeignKey("VotingId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .HasForeignKey("VotingId", "MeetingId")
                         .IsRequired();
 
                     b.Navigation("Meeting");

@@ -6,8 +6,8 @@ namespace Meeting_Manegment_System.Models
     public class Voting
     {
         [Key]
-        public int Id { get; set; }
-
+        public int VotingId { get; set; }
+        [Key]
         public int MeetingId { get; set; }
         public string Question { get; set; }
         public List<MemberAnswers> MemberAnswers { get; set; }

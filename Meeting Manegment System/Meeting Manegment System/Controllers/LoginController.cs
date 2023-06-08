@@ -37,14 +37,14 @@ namespace Meeting_Manegment_System.Controllers
                 if (isValidUser)
                 {
                     List<MemberCommittee> commits = new List<MemberCommittee>();
-                    commits =  _context.MemberCommittees.Where(x=>x.MemberId==model.Id).ToList();
+                    commits =  _context.MemberCommittees.Where(x=>x.MemberId==model.MemberId).ToList();
                     List<Cname> cnames = new List<Cname>(); 
                     Cname temp=new Cname();
                     foreach (var comm in commits)
                     {
-                        var name=_context.Committee.Where(x => x.Id == comm.CommitteeId).FirstOrDefault();
+                        var name=_context.Committee.Where(x => x.CommitteeId == comm.CommitteeId).FirstOrDefault();
                         temp.Name = name.Name;
-                        temp.id = name.Id;
+                        temp.id = name.CommitteeId;
                         cnames.Add(temp);
                     }
                     ViewBag.Committees = cnames;
@@ -57,7 +57,7 @@ namespace Meeting_Manegment_System.Controllers
         [HttpPost]
         public IActionResult CommitteeSelect(MemberCommittee model)
         {
-            string role = model.Role;
+            string role = model.Role.ToString();
             if (role == "President")
             {
                 return RedirectToAction("Index", "PresidentController");

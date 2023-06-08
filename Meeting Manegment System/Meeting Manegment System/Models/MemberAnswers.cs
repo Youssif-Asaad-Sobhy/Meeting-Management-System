@@ -7,15 +7,18 @@ namespace Meeting_Manegment_System.Models
     public class MemberAnswers
     {
         [Key]
-        public int VotingId { get; set; }
-        [Key]
-        public int MeetingId { get; set; }
-        [Key]
-        public int MemberId { get; set; }
-        public Voting? Voting { get; set; }
-        public Meeting? Meeting { get; set; }
-        public Member? Member { get; set; }
+        public int Id { get; set; }
         [Required]
-        public string? Description { get; set; }
+        public int VotingId { get; set; }
+        [Required]
+        public int MeetingId { get; set; }
+        [Required]
+        public int MemberId { get; set; }
+        [Required]
+        public int CommitteeId { get; set; }
+        public Voting Voting { get; set; }
+        public Meeting Meeting { get; set; }
+        public Member Member { get; set; }
+        public string Description { get; set; }
     }
 }
