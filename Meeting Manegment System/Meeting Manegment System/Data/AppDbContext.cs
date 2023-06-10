@@ -1,6 +1,7 @@
 ﻿using Meeting_Manegment_System.Models;
 using Microsoft.EntityFrameworkCore;
 using Meeting_Manegment_System.Models;
+
 namespace Meeting_Manegment_System.Data
 {
     public class ApplicationDbContext :DbContext
@@ -70,6 +71,10 @@ namespace Meeting_Manegment_System.Data
 
         }
 
+        internal void Delete(Organization organization)
+        {
+            throw new NotImplementedException();
+        }
 
         public DbSet<Committee> Committee { get; set; }
         public DbSet<Meeting> Meeting { get; set; }
