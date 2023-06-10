@@ -78,18 +78,15 @@ namespace Meeting_Manegment_System.Migrations
 
             modelBuilder.Entity("Meeting_Manegment_System.Models.Member", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("MemberId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MemberId"));
 
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("EndDate")
-                        .HasColumnType("datetime2");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -103,10 +100,7 @@ namespace Meeting_Manegment_System.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("StartDate")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
+                    b.HasKey("MemberId");
 
                     b.ToTable("Member");
                 });
@@ -154,11 +148,17 @@ namespace Meeting_Manegment_System.Migrations
                     b.Property<int>("CommitteeId")
                         .HasColumnType("int");
 
+                    b.Property<DateTime>("EndDate")
+                        .HasColumnType("datetime2");
+
                     b.Property<int>("Id")
                         .HasColumnType("int");
 
                     b.Property<int>("Role")
                         .HasColumnType("int");
+
+                    b.Property<DateTime>("StartDate")
+                        .HasColumnType("datetime2");
 
                     b.HasKey("MemberId", "CommitteeId");
 
@@ -186,11 +186,11 @@ namespace Meeting_Manegment_System.Migrations
 
             modelBuilder.Entity("Meeting_Manegment_System.Models.Report", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("ReportId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ReportId"));
 
                     b.Property<string>("Description")
                         .IsRequired()
@@ -199,7 +199,7 @@ namespace Meeting_Manegment_System.Migrations
                     b.Property<int>("MeetingId")
                         .HasColumnType("int");
 
-                    b.HasKey("Id");
+                    b.HasKey("ReportId");
 
                     b.HasIndex("MeetingId");
 

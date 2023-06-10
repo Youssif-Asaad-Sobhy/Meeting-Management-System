@@ -1,6 +1,7 @@
 ﻿using Meeting_Manegment_System.Data;
 using Meeting_Manegment_System.Interface;
 using Meeting_Manegment_System.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace Meeting_Manegment_System.Repository
 {
@@ -11,6 +12,20 @@ namespace Meeting_Manegment_System.Repository
         {
             _context = context;
         }
+        public List<Committee> GetCommitteesByMemberId(int memberId)
+        {
+            var committeeIds = _context.MemberCommittees
+            .Where(mc => mc.MemberId == memberId)
+            .Select(mc => mc.CommitteeId)
+            .ToList();
+
+            var committees = _context.Committee
+                .Where(c => committeeIds.Contains(c.CommitteeId))
+                .ToList();
+
+            return committees;
+        }
+
         public bool Add(MemberCommittee memberCommittee)
         {
             _context.Add(memberCommittee);
@@ -22,22 +37,16 @@ namespace Meeting_Manegment_System.Repository
             _context.Remove(memberCommittee);
             return Save();
         }
-
-        public bool Save(MemberCommittee memberCommittee)
-        {
-            var saved = _context.SaveChanges();
-            return saved> 0 ? true : false;
-        }
-
-        public bool Save()
-        {
-            throw new NotImplementedException();
-        }
-
         public bool Update(MemberCommittee memberCommittee)
         {
             _context.Update(memberCommittee);
             return Save();
         }
+        public bool Save()
+        {
+            var saved = _context.SaveChanges();
+            return saved> 0 ? true : false;
+        }
+
     }
 }
