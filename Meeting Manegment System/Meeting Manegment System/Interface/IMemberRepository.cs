@@ -4,6 +4,7 @@ namespace Meeting_Manegment_System.Interface
 {
     public interface IMemberRepository
     {
+        Member GetMemberByEmail(string Email);
         Member GetMemberById(int id);
         Member IsMember(Member member);
         bool Add(Member member);

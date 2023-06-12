@@ -12,6 +12,10 @@ namespace Meeting_Manegment_System.Repository
         {
             _context = context;
         }
+        public Member GetMemberByEmail(string email)
+        {
+            return _context.Member.Where(x => x.Email == email).FirstOrDefault();
+        }
         public Member GetMemberById(int id)
         {
             return _context.Member.Where(x=>x.MemberId == id).FirstOrDefault();

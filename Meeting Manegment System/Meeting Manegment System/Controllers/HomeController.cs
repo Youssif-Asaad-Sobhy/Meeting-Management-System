@@ -1,5 +1,6 @@
 ﻿using Meeting_Manegment_System.Interface;
 using Meeting_Manegment_System.Models;
+using Meeting_Manegment_System.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -22,6 +23,12 @@ namespace Meeting_Manegment_System.Controllers
         {
             return View("Index");
         }
+        [HttpGet]
+        public IActionResult ForgetPassword()
+        {
+            ViewBag.Email = 0;
+            return View(new ForgetPasswordView());
+        }
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Login(Member member)
@@ -33,6 +40,15 @@ namespace Meeting_Manegment_System.Controllers
             }
             ViewBag.IsGood = false;
             return View("Index");
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult ForgetPassword(ForgetPasswordView model) 
+        {
+            if(_member.GetMemberByEmail(model.Email)!=null)
+                ViewBag.Email = 1;
+            else ViewBag.Email = 2;
+            return View();
         }
     }
 }

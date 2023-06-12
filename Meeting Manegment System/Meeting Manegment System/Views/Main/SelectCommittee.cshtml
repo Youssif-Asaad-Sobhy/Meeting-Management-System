@@ -19,9 +19,13 @@
                 </div>
                 <div class="info">
                     <h3>@item.Name</h3>
-                    <a asp-for="SelectedId" value="@item.CommitteeId"></a>
-                    <span asp-validation-for="@item.CommitteeId"></span>
-                    <a asp-action="SelectCommittee" method="post" class="card-btn">دخول اللجنة</a>
+                    <form asp-action="SelectCommittee" method="post">
+                        <input type="hidden" asp-for="SelectedId" value="@item.CommitteeId"/>
+                        <span asp-validation-for="SelectedId"></span>
+                        <input type="hidden" asp-for="member.MemberId" value="@Model.member.MemberId"/>
+                        <span asp-validation-for="@Model.member.MemberId"></span>
+                        <input type="submit" value="دخول اللجنة"  class="card-btn" />
+                    </form>
                 </div>
             </div>
         }

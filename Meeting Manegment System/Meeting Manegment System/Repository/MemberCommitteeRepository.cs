@@ -12,17 +12,19 @@ namespace Meeting_Manegment_System.Repository
         {
             _context = context;
         }
+        public List<MemberCommittee> GetMembersInCommittee(int CommitteeId)
+        {
+            return _context.MemberCommittees.Include(x=>x.Member).Where(x=>x.CommitteeId==CommitteeId).ToList();
+        }
         public List<Committee> GetCommitteesByMemberId(int memberId)
         {
             var committeeIds = _context.MemberCommittees
             .Where(mc => mc.MemberId == memberId)
             .Select(mc => mc.CommitteeId)
             .ToList();
-
             var committees = _context.Committee
                 .Where(c => committeeIds.Contains(c.CommitteeId))
                 .ToList();
-
             return committees;
         }
 
