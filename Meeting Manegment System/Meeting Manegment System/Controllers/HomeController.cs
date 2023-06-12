@@ -1,4 +1,6 @@
-﻿using Meeting_Manegment_System.Models;
+﻿using Meeting_Manegment_System.Interface;
+using Meeting_Manegment_System.Models;
+using Meeting_Manegment_System.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -6,27 +8,47 @@ namespace Meeting_Manegment_System.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private IMemberRepository _member;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(IMemberRepository memberRepository) 
         {
-            _logger = logger;
+            _member = memberRepository;
         }
-
         public IActionResult Index()
         {
+            ViewBag.IsGood = true;
             return View();
         }
-
-        public IActionResult Privacy()
+        public IActionResult Login()
         {
-            return View();
+            return View("Index");
         }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
+        [HttpGet]
+        public IActionResult ForgetPassword()
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            ViewBag.Email = 0;
+            return View(new ForgetPasswordView());
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Login(Member member)
+        {
+            member = _member.IsMember(member);
+            if (member!=null)
+            {
+                return RedirectToAction("SelectCommittee","Main",new { id = member.MemberId });
+            }
+            ViewBag.IsGood = false;
+            return View("Index");
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult ForgetPassword(ForgetPasswordView model) 
+        {
+            if(_member.GetMemberByEmail(model.Email)!=null)
+                ViewBag.Email = 1;
+            else ViewBag.Email = 2;
+            return View();
         }
     }
 }

@@ -1,0 +1,38 @@
+﻿@using Meeting_Manegment_System.ViewModels;
+@model SelectCommitteeView
+
+<header>
+    <a href="#" class="logo">meetme</a>
+
+    <a href="#" class="logo">Org icon </a>
+
+</header>
+
+<section class="cards">
+    <h2 class="title">Commities</h2>
+    <div class="content">
+        @foreach(var item in Model.commits)
+        {
+            <div class="card">
+                <div class="icon">
+                    <i class="fa-solid fa-folder-open"></i>
+                </div>
+                <div class="info">
+                    <h3>@item.Name</h3>
+                    <form asp-action="SelectCommittee" method="post">
+                        <input type="hidden" asp-for="SelectedId" value="@item.CommitteeId"/>
+                        <span asp-validation-for="SelectedId"></span>
+                        <input type="hidden" asp-for="member.MemberId" value="@Model.member.MemberId"/>
+                        <span asp-validation-for="@Model.member.MemberId"></span>
+                        <input type="submit" value="دخول اللجنة"  class="card-btn" />
+                    </form>
+                </div>
+            </div>
+        }
+    </div>
+</section>
+
+<footer>
+    <p>جميع الحقوق محفوظة &copy; 2023 by team 7</p>
+</footer>
+
