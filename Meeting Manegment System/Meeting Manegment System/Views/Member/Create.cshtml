@@ -1,0 +1,32 @@
+﻿@model Member
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<header>
+    <a href="#" class="logo">meetme</a>
+
+    <a href="#" class="logo">Org icon </a>
+
+</header>
+<section class="add-member-main_sectionee">
+    <div class="add-member-containeree">
+        <form class="formee" method="post" asp-action="Create">
+            <h2> اضافة عضو جديد</h2>
+            <input asp-for="Name" type="text" class="box" placeholder="اسم العضو">
+            <span asp-validation-for="Name"></span>
+            <input asp-for="Email" type="text" class="box" placeholder="البريد الالكتروني">
+            <span asp-validation-for="Email"></span>
+            <input asp-for="Phone" type="text" class="box" placeholder="رقم الهاتف">
+            <span asp-validation-for="Phone"></span>
+            <input asp-for="Password" type="text" class="box" placeholder="كلمة المرور">
+            <span asp-validation-for="Password"></span>
+            <input type="submit" value="اضافة" id="submit">
+        </form>
+    </div>
+</section>
+
+<footer>
+    <p>جميع الحقوق محفوظة &copy; 2023 by team 7</p>
+</footer>

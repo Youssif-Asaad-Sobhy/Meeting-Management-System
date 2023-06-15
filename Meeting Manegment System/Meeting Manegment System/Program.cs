@@ -11,6 +11,13 @@ builder.Services.AddDbContext<ApplicationDbContext>(Options => Options.UseSqlSer
     builder.Configuration.GetConnectionString("DefualtConnectionString")
     ));
 builder.Services.AddScoped<IMemberRepository, MemberRepository>();
+builder.Services.AddScoped<IReportRepository, ReportRepository>();
+builder.Services.AddScoped<IVotingRepository, VotingRepository>();
+builder.Services.AddScoped<IMeetingRepository, MeetingRepository>();
+builder.Services.AddScoped<ICommitteeRepository, CommitteeRepository>();
+builder.Services.AddScoped<IMemberAnswerRepository, MemberAnswerRepository>();
+builder.Services.AddScoped<IOrganizationRepository, OrganizationRctorepository>();
+builder.Services.AddScoped<IMemberCommitteeRepository, MemberCommitteeRepository>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

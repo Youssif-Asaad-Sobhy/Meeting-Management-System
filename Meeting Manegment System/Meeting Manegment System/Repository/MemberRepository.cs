@@ -12,9 +12,21 @@ namespace Meeting_Manegment_System.Repository
         {
             _context = context;
         }
+        public Member GetMemberByEmail(string email)
+        {
+            return _context.Member.Where(x => x.Email == email).FirstOrDefault();
+        }
+        public Member GetMemberById(int id)
+        {
+            return _context.Member.Where(x=>x.MemberId == id).FirstOrDefault();
+        }
+        public Member IsMember(Member member)
+        {
+            return _context.Member.FirstOrDefault(x=>x.Email==member.Email && x.Password==member.Password);
+        }
         public bool Add(Member member)
         {
-            _context.Add(member);
+            _context.Member.Add(member);
             return Save();
         }
 

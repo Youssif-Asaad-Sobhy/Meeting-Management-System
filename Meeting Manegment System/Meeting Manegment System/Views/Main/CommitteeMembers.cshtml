@@ -1,0 +1,65 @@
+﻿@using Meeting_Manegment_System.ViewModels
+@model CommitteeMembersView
+
+<header>
+    <a href="#" class="logo">meetme</a>
+
+    <a href="#" class="logo">Org icon </a>
+
+</header>
+
+<nav class="navigation">
+    <a href="#">الحساب الشخصي</a>
+    <a href="#">تسجيل الجروج</a>
+    <a href="#">البحث عن موضوعات</a>
+    <a href="#">الجلسات السابقة</a>
+    <a href="#">جلسة قيد الاجراء</a>
+    <a asp-action="CommitteeMembers">تشكيل المجلس</a>
+    <a asp-action="SelectCommittee">الصفحة الرئيسية</a>
+    <input type="hidden" asp-for="Member.MemberId" value="@Model.Member.MemberId" />
+    <span asp-validation-for="@Model.Member.MemberId"></span>
+</nav>
+
+<section class="main_section">
+    <div class="table-responsive">
+        <table class="table">
+            <thead id="thead">
+                <tr>
+                    <th>المدة المتبقية</th>
+                    <th>تاريخ نهاية العضوية</th>
+                    <th>تاريخ بداية العضوية</th>
+                    <th>الدور</th>
+                    <th>الوظيفة</th>
+                    <th>اسم العضو</th>
+                    <th>الرقم</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    var i = 1;
+                    foreach(var item in Model.members)
+                    {
+                        var rem = (item.EndDate - DateTime.Now);
+                        var remm = rem.TotalDays;
+                        var years=(int) remm / 365;
+                        var days =(int) remm % 365;
+                        <td>@years Y @days D</td>
+                        <td>@item.EndDate</td>
+                        <td>@item.StartDate</td>
+                        <td>@item.Role</td>
+                        <td>@item.Role</td>
+                        <td>@item.Member.Name</td>
+                        <td>@i</td>
+                        i++;
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+
+</section>
+
+<footer>
+    <p>جميع الحقوق محفوظة &copy; 2023 by team 7</p>
+</footer>
+

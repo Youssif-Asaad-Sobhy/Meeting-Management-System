@@ -16,8 +16,12 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\Ziad\Downloads\Meeting-Management-System\Meeting Manegment System\Meeting Manegment System
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/Ziad/Downloads/Meeting-Management-System/Meeting Manegment System/Meeting Manegment System/Views/Commitees/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tbWl0ZWVzXEluZGV4LmNzaHRtbA==
+[C:/Users/Ziad/Downloads/Meeting-Management-System/Meeting Manegment System/Meeting Manegment System/Views/Committee/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tbWl0dGVlXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Ziad/Downloads/Meeting-Management-System/Meeting Manegment System/Meeting Manegment System/Views/Home/ForgetPassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxGb3JnZXRQYXNzd29yZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Ziad/Downloads/Meeting-Management-System/Meeting Manegment System/Meeting Manegment System/Views/Home/Index.cshtml]
@@ -28,12 +32,32 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Ziad/Downloads/Meeting-Management-System/Meeting Manegment System/Meeting Manegment System/Views/Login/CommitteeSelect.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cQ29tbWl0dGVlU2VsZWN0LmNzaHRtbA==
+[C:/Users/Ziad/Downloads/Meeting-Management-System/Meeting Manegment System/Meeting Manegment System/Views/Main/CommitteeMembers.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFpblxDb21taXR0ZWVNZW1iZXJzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Ziad/Downloads/Meeting-Management-System/Meeting Manegment System/Meeting Manegment System/Views/Login/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cSW5kZXguY3NodG1s
+[C:/Users/Ziad/Downloads/Meeting-Management-System/Meeting Manegment System/Meeting Manegment System/Views/Main/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFpblxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Ziad/Downloads/Meeting-Management-System/Meeting Manegment System/Meeting Manegment System/Views/Main/SelectCommittee.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFpblxTZWxlY3RDb21taXR0ZWUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Ziad/Downloads/Meeting-Management-System/Meeting Manegment System/Meeting Manegment System/Views/MemberCommittee/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVtYmVyQ29tbWl0dGVlXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Ziad/Downloads/Meeting-Management-System/Meeting Manegment System/Meeting Manegment System/Views/MemberCommittee/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVtYmVyQ29tbWl0dGVlXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Ziad/Downloads/Meeting-Management-System/Meeting Manegment System/Meeting Manegment System/Views/Member/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVtYmVyXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Ziad/Downloads/Meeting-Management-System/Meeting Manegment System/Meeting Manegment System/Views/PreviousMeeting/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJldmlvdXNNZWV0aW5nXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Ziad/Downloads/Meeting-Management-System/Meeting Manegment System/Meeting Manegment System/Views/Shared/Error.cshtml]
@@ -42,18 +66,6 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/Ziad/Downloads/Meeting-Management-System/Meeting Manegment System/Meeting Manegment System/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Ziad/Downloads/Meeting-Management-System/Meeting Manegment System/Meeting Manegment System/Views/UserPageConroller/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclBhZ2VDb25yb2xsZXJcSW5kZXguY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Ziad/Downloads/Meeting-Management-System/Meeting Manegment System/Meeting Manegment System/Views/UserPageConroller/President.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclBhZ2VDb25yb2xsZXJcUHJlc2lkZW50LmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Ziad/Downloads/Meeting-Management-System/Meeting Manegment System/Meeting Manegment System/Views/UserPageConroller/Vice.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclBhZ2VDb25yb2xsZXJcVmljZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Ziad/Downloads/Meeting-Management-System/Meeting Manegment System/Meeting Manegment System/Views/_ViewImports.cshtml]
