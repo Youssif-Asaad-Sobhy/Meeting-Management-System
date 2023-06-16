@@ -19,7 +19,6 @@ namespace Meeting_Manegment_System.Controllers
         {
             return View();
         }
-        [HttpGet("SelectCommittee")]
         public IActionResult SelectCommittee(int id)
         {
             SelectCommitteeView model = new ();
@@ -30,13 +29,13 @@ namespace Meeting_Manegment_System.Controllers
         }
         public IActionResult CommitteeMembers(int MemberId,int CommitteeId)
         {
-            CommitteeMembersView model=new CommitteeMembersView();
+            CommitteeMembersView model=new();
             model.members = _memberCommittee.GetMembersInCommittee(CommitteeId);
             model.Member.MemberId = MemberId;
             return View(model);
         }
        
-        [HttpPost("SelectCommittee")]
+        [HttpPost]
         public IActionResult SelectCommittee(SelectCommitteeView model)
         {
             return RedirectToAction("CommitteeMembers", new { MemberId = model.member.MemberId, CommitteeId = model.SelectedId });

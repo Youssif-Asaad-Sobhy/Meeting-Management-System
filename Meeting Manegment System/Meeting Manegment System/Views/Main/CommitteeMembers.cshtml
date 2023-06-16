@@ -14,8 +14,8 @@
     <a href="#">البحث عن موضوعات</a>
     <a href="#">الجلسات السابقة</a>
     <a href="#">جلسة قيد الاجراء</a>
-    <a asp-action="CommitteeMembers">تشكيل المجلس</a>
-    <input type="submit" href="@Url.Action("SelectCommittee", "Main", new { id = Model.Member.MemberId })" method="get" value="الصفحه الرئيسية" />
+    <a href="@Url.Action("CommitteeMembers","Main",new {MemberId=Model.Member.MemberId,CommitteeId=Model.members[0].CommitteeId})">تشكيل المجلس</a>
+    <a href="@Url.Action("SelectCommittee","Main",new { id=Model.Member.MemberId})">الصفحه الرئيسية</a>
 </nav>
 
 <section class="main_section">
