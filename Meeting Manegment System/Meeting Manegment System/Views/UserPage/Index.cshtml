@@ -1,0 +1,41 @@
+﻿@model Member
+
+<header>
+    <a href="#" class="logo">meetme</a>
+
+    <a href="#" class="logo">Org icon </a>
+
+</header>
+
+<nav class="navigation">
+    <a href="#">الحساب الشخصي</a>
+    <a href="#">تسجيل الجروج</a>
+    <a href="#">البحث عن موضوعات</a>
+    <a href="#">الجلسات السابقة</a>
+    <a href="#">جلسة قيد الاجراء</a>
+    <a href="#">تشكيل المجلس</a>
+    <a href="#">الصفحة الرئيسية</a>
+</nav>
+
+<div class="user-info">
+    <p>وظيفة المستخدم</p>
+    <p>اسم المستخدم</p>
+</div>
+
+<section class="user-action">
+    <div class="card-content">
+        <div class="card2">
+            <div class="icon2">
+                <i class="fa-solid fa-unlock"></i>
+            </div>
+            <div class="info2">
+                <!-- <h3>اسم اللجنة الاولى</h3> -->
+                <a href="@Url.Action("ForgetPassword","UserPage",new{id=Model.MemberId})" class="card2-btn">تغيير كلمة المرور</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>جميع الحقوق محفوظة &copy; 2023 by team 7</p>
+</footer>
