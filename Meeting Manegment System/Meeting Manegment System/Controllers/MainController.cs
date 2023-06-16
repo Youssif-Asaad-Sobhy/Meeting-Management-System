@@ -2,6 +2,7 @@
 using Meeting_Manegment_System.Models;
 using Meeting_Manegment_System.ViewModels;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.CodeAnalysis;
 
 namespace Meeting_Manegment_System.Controllers
 {
@@ -9,27 +10,31 @@ namespace Meeting_Manegment_System.Controllers
     {
         private IMemberCommitteeRepository _memberCommittee;
         private IMemberRepository _member;
-
-        public MainController(IMemberCommitteeRepository memberCommitteeRepository, IMemberRepository memberRepository)
+        private IHttpContextAccessor _session;
+        public MainController(IHttpContextAccessor session,IMemberCommitteeRepository memberCommitteeRepository, IMemberRepository memberRepository)
         {
             _memberCommittee = memberCommitteeRepository;
             _member = memberRepository;
+            _session = session;
         }
         public IActionResult Index()
         {
             return View();
         }
-        public IActionResult SelectCommittee(int id)
+        public IActionResult SelectCommittee()
         {
+            int id =(int) _session.HttpContext.Session.GetInt32("MemberId");
             SelectCommitteeView model = new ();
             var member = _member.GetMemberById(id);
             model.member = member;
             model.commits = _memberCommittee.GetCommitteesByMemberId(id);
             return View(model);
         }
-        public IActionResult CommitteeMembers(int MemberId,int CommitteeId)
+        public IActionResult CommitteeMembers()
         {
-            CommitteeMembersView model=new();
+            int MemberId = (int)_session.HttpContext.Session.GetInt32("MemberId");
+            int CommitteeId = (int)_session.HttpContext.Session.GetInt32("CommitteeId");
+            CommitteeMembersView model =new();
             model.members = _memberCommittee.GetMembersInCommittee(CommitteeId);
             model.Member.MemberId = MemberId;
             return View(model);
@@ -38,7 +43,8 @@ namespace Meeting_Manegment_System.Controllers
         [HttpPost]
         public IActionResult SelectCommittee(SelectCommitteeView model)
         {
-            return RedirectToAction("CommitteeMembers", new { MemberId = model.member.MemberId, CommitteeId = model.SelectedId });
+            HttpContext.Session.SetInt32("CommitteeId",model.SelectedId);
+            return RedirectToAction("CommitteeMembers");
         }
     }
 }

@@ -9,13 +9,13 @@
 </header>
 
 <nav class="navigation">
-    <a href="#">الحساب الشخصي</a>
+    <a href="@Url.Action("Index","UserPage")">الحساب الشخصي</a>
     <a href="#">تسجيل الجروج</a>
     <a href="#">البحث عن موضوعات</a>
     <a href="#">الجلسات السابقة</a>
     <a href="#">جلسة قيد الاجراء</a>
-    <a href="@Url.Action("CommitteeMembers","Main",new {MemberId=Model.Member.MemberId,CommitteeId=Model.members[0].CommitteeId})">تشكيل المجلس</a>
-    <a href="@Url.Action("SelectCommittee","Main",new { id=Model.Member.MemberId})">الصفحه الرئيسية</a>
+    <a href="@Url.Action("CommitteeMembers","Main")">تشكيل المجلس</a>
+    <a href="@Url.Action("SelectCommittee","Main")">الصفحه الرئيسية</a>
 </nav>
 
 <section class="main_section">
