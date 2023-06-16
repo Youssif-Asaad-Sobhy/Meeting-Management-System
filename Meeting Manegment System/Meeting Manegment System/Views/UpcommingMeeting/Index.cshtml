@@ -1,0 +1,87 @@
+﻿@model List<MemberMeeting>
+
+<header>
+    <a href="#" class="logo">meetme</a>
+
+    <a href="#" class="logo">Org icon </a>
+
+</header>
+
+<nav class="navigation">
+    <a href="@Url.Action("Index","UserPage")">الحساب الشخصي</a>
+    <a href="#">تسجيل الخروج</a>
+    <a href="#">البحث عن موضوعات</a>
+    <a href="@Url.Action("Index","PreviousMeeting")">الجلسات السابقة</a>
+    <a href="@Url.Action("Index","UpcommingMeeting")">جلسة قيد الاجراء</a>
+    <a href="@Url.Action("CommitteeMembers","Main")">تشكيل المجلس</a>
+    <a href="@Url.Action("SelectCommittee","Main")">الصفحه الرئيسية</a>
+</nav>
+
+<div class="process-bar">
+    <p>
+        جلسة قيد الاجراء
+    </p>
+</div>
+
+<section class="main_section">
+    <div class="table-responsive">
+        <table class="table">
+            <thead id="thead">
+                <tr>
+                    <th>التفاصيل / حالة الحضور</th>
+                    <th>نوع الجلسة</th>
+                    <th>تاريخ الجلسة</th>
+                    <th>رقم الجلسة </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach(var item in Model)
+                {
+                <tr>
+                    <td>
+                        @if(item.Response==State.NotAnswerd)
+                        {
+                            <button>
+                                <b>
+                                    <span class="material-symbols-outlined">close</span>
+                                    اعتذار
+                                </b>
+                            </button>
+                            <button>
+                                <b>
+                                    <span class="material-symbols-outlined">done</span>
+                                    حضور
+                                </b>
+                            </button>
+                        }
+                        else
+                        {
+                                <button>
+                                    <b>
+                                        <span class="material-symbols-outlined">done</span>
+                                        الغاء الرد
+                                    </b>
+                                </button>
+                        }
+                    <button>
+                        <b>
+                            <span class="material-symbols-outlined">info</span>
+                            التفاصيل
+                        </b>
+                    </button>
+                    </td>
+                    <td>@item.Meeting.Emergency>0?"طارئه":"عاديه"</td>
+                    <td>@item.Meeting.Date</td>
+                    <td>@item.MeetingId</td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+</section>
+
+<footer>
+    <p>جميع الحقوق محفوظة &copy; 2023 by team 7</p>
+</footer>
+

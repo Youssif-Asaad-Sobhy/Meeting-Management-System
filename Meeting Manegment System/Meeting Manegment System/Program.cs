@@ -18,10 +18,11 @@ builder.Services.AddScoped<IReportRepository, ReportRepository>();
 builder.Services.AddScoped<IVotingRepository, VotingRepository>();
 builder.Services.AddScoped<IMeetingRepository, MeetingRepository>();
 builder.Services.AddScoped<ICommitteeRepository, CommitteeRepository>();
+builder.Services.AddSingleton<IHttpContextAccessor,HttpContextAccessor>();
 builder.Services.AddScoped<IMemberAnswerRepository, MemberAnswerRepository>();
+builder.Services.AddScoped<IMemberMeetingRepository, MemberMeetingRepository>();
 builder.Services.AddScoped<IOrganizationRepository, OrganizationRctorepository>();
 builder.Services.AddScoped<IMemberCommitteeRepository, MemberCommitteeRepository>();
-builder.Services.AddSingleton<IHttpContextAccessor,HttpContextAccessor>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

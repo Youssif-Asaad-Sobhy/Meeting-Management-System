@@ -8,13 +8,13 @@
 </header>
 
 <nav class="navigation">
-    <a href="#">الحساب الشخصي</a>
+    <a href="@Url.Action("Index","UserPage")">الحساب الشخصي</a>
     <a href="#">تسجيل الجروج</a>
     <a href="#">البحث عن موضوعات</a>
-    <a href="#">الجلسات السابقة</a>
+    <a href="@Url.Action("Index","PreviousMeeting")">الجلسات السابقة</a>
     <a href="#">جلسة قيد الاجراء</a>
-    <a href="#">تشكيل المجلس</a>
-    <a href="#">الصفحة الرئيسية</a>
+    <a href="@Url.Action("CommitteeMembers","Main")">تشكيل المجلس</a>
+    <a href="@Url.Action("SelectCommittee","Main")">الصفحه الرئيسية</a>
 </nav>
 
 <div class="previous_meet_searchbar">

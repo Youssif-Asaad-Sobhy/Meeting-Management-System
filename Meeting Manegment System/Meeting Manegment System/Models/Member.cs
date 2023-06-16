@@ -18,6 +18,7 @@ namespace Meeting_Manegment_System.Models
         //Relations
         public List<MemberCommittee>? MemberCommittees { get; set; }
         public List<MemberAnswers>? MemberAnswers { get; set; } 
+        public List<MemberMeeting> memberMeetings { get; set; }
 
     }
 }

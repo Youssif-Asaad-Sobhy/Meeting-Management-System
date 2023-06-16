@@ -27,6 +27,7 @@ namespace Meeting_Manegment_System.Controllers
             return View(new Member());
         }
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult ForgetPassword(string curpassword, string newpassword)
         {
             int id = (int)_session.HttpContext.Session.GetInt32("MemberId");

@@ -39,11 +39,15 @@ namespace Meeting_Manegment_System.Controllers
             model.Member.MemberId = MemberId;
             return View(model);
         }
-       
+        public IActionResult Logout()
+        {
+            _session.HttpContext.Session.Clear();
+            return RedirectToAction("Login","Home");
+        }
         [HttpPost]
         public IActionResult SelectCommittee(SelectCommitteeView model)
         {
-            HttpContext.Session.SetInt32("CommitteeId",model.SelectedId);
+            _session.HttpContext.Session.SetInt32("CommitteeId",model.SelectedId);
             return RedirectToAction("CommitteeMembers");
         }
     }
