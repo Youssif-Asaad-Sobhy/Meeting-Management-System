@@ -1,0 +1,24 @@
+﻿@model Member
+
+<header>
+    <a href="#" class="logo">meetme</a>
+
+    <a href="#" class="logo">Org icon </a>
+
+</header>
+<section class="main_sectionee">
+    <div class="containeree">
+        <form  class="formee" >
+            <h2> تغيير كلمة المرور</h2>
+            <input type="hidden" name="id" value="@Model.MemberId">
+            <input type="password" name="curpassword" class="box" placeholder="ادخل كلمة المرور القديمة">
+            <input type="password" name="newpassword" class="box" placeholder="ادخل كلمة المرور الجديدة">
+            <input type="password" name="newpassword" class="box" placeholder="تأكيد كلمة المرور الجديدة">
+            <input asp-action="ForgetPassword" type="submit" value="حفظ" id="submit">
+        </form>
+    </div>
+</section>
+
+<footer>
+    <p>جميع الحقوق محفوظة &copy; 2023 by team 7</p>
+</footer>
