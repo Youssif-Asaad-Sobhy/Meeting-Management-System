@@ -60,6 +60,21 @@ namespace Meeting_Manegment_System.Data
                 .WithMany(m => m.MemberCommittees)
                 .HasForeignKey(m => m.MemberId);
 
+            modelBuilder.Entity<MemberMeeting>()
+                .HasOne(m => m.Member)
+                .WithMany(m => m.memberMeetings)
+                .HasForeignKey(m => m.MemberId)
+                .HasPrincipalKey(m => m.MemberId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<MemberMeeting>()
+                .HasOne(m => m.Meeting)
+                .WithMany(m => m.memberMeetings)
+                .HasForeignKey(m => m.MeetingId)
+                .HasPrincipalKey(m => m.MeetingId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+
             modelBuilder.Entity<MemberCommittee>()
                 .HasOne(m => m.Committee)
                 .WithMany(m => m.MemberCommittees)
@@ -77,6 +92,7 @@ namespace Meeting_Manegment_System.Data
         }
 
         public DbSet<Committee> Committee { get; set; }
+        public DbSet<MemberMeeting> MemberMeeting { get; set; }
         public DbSet<Meeting> Meeting { get; set; }
         public DbSet<Member> Member { get; set; }
         public DbSet<MemberAnswers> MembersAnswers { get; set; }

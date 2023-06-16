@@ -9,13 +9,13 @@
 </header>
 
 <nav class="navigation">
-    <a href="#">الحساب الشخصي</a>
-    <a href="#">تسجيل الجروج</a>
+    <a href="@Url.Action("Index","UserPage")">الحساب الشخصي</a>
+    <a href="@Url.Action("Logout","Main")">تسجيل الخروج</a>
     <a href="#">البحث عن موضوعات</a>
-    <a href="#">الجلسات السابقة</a>
-    <a href="#">جلسة قيد الاجراء</a>
-    <a asp-action="CommitteeMembers">تشكيل المجلس</a>
-    <input type="submit" href="@Url.Action("SelectCommittee", "Main", new { id = Model.Member.MemberId })" method="get" value="الصفحه الرئيسية" />
+    <a href="@Url.Action("Index","PreviousMeeting")">الجلسات السابقة</a>
+    <a href="@Url.Action("Index","UpcommingMeeting")">جلسة قيد الاجراء</a>
+    <a href="@Url.Action("CommitteeMembers","Main")">تشكيل المجلس</a>
+    <a href="@Url.Action("SelectCommittee","Main")">الصفحه الرئيسية</a>
 </nav>
 
 <section class="main_section">

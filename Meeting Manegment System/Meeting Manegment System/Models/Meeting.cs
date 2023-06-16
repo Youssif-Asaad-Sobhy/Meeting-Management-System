@@ -14,7 +14,7 @@ namespace Meeting_Manegment_System.Models
         public List<Report> Reports { get; set; }
         public List<Voting> Votings { get; set; }
         public List<MemberAnswers> MemberAnswers { get; set; }
-       
+        public List<MemberMeeting> memberMeetings { get; set; }
 
     }
     

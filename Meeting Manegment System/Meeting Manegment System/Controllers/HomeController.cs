@@ -9,10 +9,11 @@ namespace Meeting_Manegment_System.Controllers
     public class HomeController : Controller
     {
         private IMemberRepository _member;
-
-        public HomeController(IMemberRepository memberRepository) 
+        private IHttpContextAccessor _session;
+        public HomeController(IMemberRepository memberRepository,IHttpContextAccessor session) 
         {
             _member = memberRepository;
+            _session = session;
         }
         public IActionResult Index()
         {
@@ -36,7 +37,8 @@ namespace Meeting_Manegment_System.Controllers
             member = _member.IsMember(member);
             if (member!=null)
             {
-                return RedirectToAction("SelectCommittee","Main",new { id = member.MemberId });
+                _session.HttpContext.Session.SetInt32("MemberId",member.MemberId);
+                return RedirectToAction("SelectCommittee","Main");
             }
             ViewBag.IsGood = false;
             return View("Index");

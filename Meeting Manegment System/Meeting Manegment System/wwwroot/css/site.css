@@ -233,7 +233,6 @@ footer p {
     border-radius: 20px;
     text-align: right;
 }
-
 #submit {
     padding: 10px 30px;
     width: 40%;
@@ -347,6 +346,7 @@ footer p {
     .card-btn:hover {
         background-color: rgb(114, 133, 167);
         transform: scale(1.1);
+        cursor:pointer;
     }
 
 /*             forget password          */
@@ -464,7 +464,6 @@ footer p {
 .info2 {
     text-align: center;
 }
-
 .card2-btn {
     color: whitesmoke;
     background-color: #002b36;
@@ -548,7 +547,7 @@ footer p {
 .add-member-containeree {
     display: flex;
     width: 60%;
-    height: 750px;
+    height: 700px;
     justify-content: center;
 }
 
@@ -560,4 +559,15 @@ footer p {
     display: flex;
 }
 
-/**/
+.add-member-formee {
+    display: flex;
+    flex-direction: column;
+    width: 55%;
+    align-items: center;
+    background-color: whitesmoke;
+    box-shadow: 0 5px 25px rgba(1 1 1 /15%);
+}
+
+    .add-member-formee h2 {
+        margin-top: 20px;
+    }
