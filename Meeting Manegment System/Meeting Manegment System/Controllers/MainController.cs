@@ -19,21 +19,14 @@ namespace Meeting_Manegment_System.Controllers
         {
             return View();
         }
+        [HttpGet("SelectCommittee")]
         public IActionResult SelectCommittee(int id)
         {
-            SelectCommitteeView model = new SelectCommitteeView();
+            SelectCommitteeView model = new ();
             var member = _member.GetMemberById(id);
             model.member = member;
             model.commits = _memberCommittee.GetCommitteesByMemberId(id);
             return View(model);
-        }
-        public IActionResult SelectCommittee(CommitteeMembersView model)
-        {
-            SelectCommitteeView m = new SelectCommitteeView();
-            var member = _member.GetMemberById(model.Member.MemberId);
-            m.member = member;
-            m.commits = _memberCommittee.GetCommitteesByMemberId(model.Member.MemberId);
-            return View(m);
         }
         public IActionResult CommitteeMembers(int MemberId,int CommitteeId)
         {
@@ -42,8 +35,8 @@ namespace Meeting_Manegment_System.Controllers
             model.Member.MemberId = MemberId;
             return View(model);
         }
-        [HttpPost]
-        [ValidateAntiForgeryToken]
+       
+        [HttpPost("SelectCommittee")]
         public IActionResult SelectCommittee(SelectCommitteeView model)
         {
             return RedirectToAction("CommitteeMembers", new { MemberId = model.member.MemberId, CommitteeId = model.SelectedId });
