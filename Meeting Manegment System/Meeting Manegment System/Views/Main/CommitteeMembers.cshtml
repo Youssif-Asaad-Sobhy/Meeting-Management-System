@@ -15,9 +15,7 @@
     <a href="#">الجلسات السابقة</a>
     <a href="#">جلسة قيد الاجراء</a>
     <a asp-action="CommitteeMembers">تشكيل المجلس</a>
-    <a asp-action="SelectCommittee">الصفحة الرئيسية</a>
-    <input type="hidden" asp-for="Member.MemberId" value="@Model.Member.MemberId" />
-    <span asp-validation-for="@Model.Member.MemberId"></span>
+    <input type="submit" href="@Url.Action("SelectCommittee", "Main", new { id = Model.Member.MemberId })" method="get" value="الصفحه الرئيسية" />
 </nav>
 
 <section class="main_section">

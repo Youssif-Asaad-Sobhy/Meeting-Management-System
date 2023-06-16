@@ -22,9 +22,9 @@
                     <form asp-action="SelectCommittee" method="post">
                         <input type="hidden" asp-for="SelectedId" value="@item.CommitteeId"/>
                         <span asp-validation-for="SelectedId"></span>
-                        <input type="hidden" asp-for="member.MemberId" value="@Model.member.MemberId"/>
-                        <span asp-validation-for="@Model.member.MemberId"></span>
-                        <input type="submit" value="دخول اللجنة"  class="card-btn" />
+                        <input type="hidden" asp-for="member.MemberId" value="member.MemberId"/>
+                        <span asp-validation-for="member.MemberId"></span>
+                        <input type="submit"  value="دخول اللجنة" class="card-btn" />
                     </form>
                 </div>
             </div>
