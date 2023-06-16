@@ -14,9 +14,10 @@
     <a href="#">البحث عن موضوعات</a>
     <a href="#">الجلسات السابقة</a>
     <a href="#">جلسة قيد الاجراء</a>
-    <a href="#">تشكيل المجلس</a>
-    <a href="#">الصفحة الرئيسية</a>
-
+    <a asp-action="CommitteeMembers">تشكيل المجلس</a>
+    <a asp-action="SelectCommittee">الصفحة الرئيسية</a>
+    <input type="hidden" asp-for="Member.MemberId" value="@Model.Member.MemberId" />
+    <span asp-validation-for="@Model.Member.MemberId"></span>
 </nav>
 
 <section class="main_section">

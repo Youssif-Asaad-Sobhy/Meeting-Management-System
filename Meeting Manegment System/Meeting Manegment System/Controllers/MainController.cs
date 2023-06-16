@@ -27,6 +27,14 @@ namespace Meeting_Manegment_System.Controllers
             model.commits = _memberCommittee.GetCommitteesByMemberId(id);
             return View(model);
         }
+        public IActionResult SelectCommittee(CommitteeMembersView model)
+        {
+            SelectCommitteeView m = new SelectCommitteeView();
+            var member = _member.GetMemberById(model.Member.MemberId);
+            m.member = member;
+            m.commits = _memberCommittee.GetCommitteesByMemberId(model.Member.MemberId);
+            return View(m);
+        }
         public IActionResult CommitteeMembers(int MemberId,int CommitteeId)
         {
             CommitteeMembersView model=new CommitteeMembersView();

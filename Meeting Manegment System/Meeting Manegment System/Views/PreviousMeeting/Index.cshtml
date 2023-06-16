@@ -1,0 +1,99 @@
+﻿@using Meeting_Manegment_System.ViewModels
+@model PreviousMeetingView
+<header>
+    <a href="#" class="logo">meetme</a>
+
+    <a href="#" class="logo">Org icon </a>
+
+</header>
+
+<nav class="navigation">
+    <a href="#">الحساب الشخصي</a>
+    <a href="#">تسجيل الجروج</a>
+    <a href="#">البحث عن موضوعات</a>
+    <a href="#">الجلسات السابقة</a>
+    <a href="#">جلسة قيد الاجراء</a>
+    <a href="#">تشكيل المجلس</a>
+    <a href="#">الصفحة الرئيسية</a>
+</nav>
+
+<div class="previous_meet_searchbar">
+    <form>
+        <button type="submit" id="search">بحث</button>
+        <input for="search" type="search" placeholder="ابحث">
+    </form>
+
+    <p>
+        الجلسات السابقة
+    </p>
+</div>
+
+<div class="filter-bar">
+
+
+    <div class="filter-options" id="date-filter">
+        <input type="date" id="filter-date">
+        <label for="filter-date"> الى</label>
+    </div>
+    <div class="filter-options" id="datee-filter">
+        <input type="date" id="filter-date">
+        <label for="filter-date"> من</label>
+    </div>
+
+    <label>:التاريخ</label>
+
+    <div class="Filter-type" id="type-number-filter">
+        <select id="type">
+            <option value="type1">الكل</option>
+            <option value="type1">عادية</option>
+            <option value="type2">طارئة</option>
+        </select>
+        <label for="type">نوع الجلسة</label>
+    </div>
+    <div class="filter-num" id="num-filter">
+        <input type="number" id="number">
+        <label for="number">رقم الجلسة</label>
+    </div>
+</div>
+
+
+<section class="main_section">
+    <div class="table-responsive">
+        <table class="table">
+            <thead id="thead">
+                <tr>
+                    <th>التفاصيل / طباعة محضر الجلسة</th>
+                    <th>نوع الجلسة</th>
+                    <th>تاريخ الجلسة</th>
+                    <th>رقم الجلسة </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.meetings)
+                {
+                    <tr>
+                        <td>
+                            <button>
+                                <span class="material-symbols-outlined">print</span>
+                                طباعة محضر الجلسة
+
+                            </button>
+                            <button>
+                                <span class="material-symbols-outlined">info</span>
+                                التفاصيل
+                            </button>
+                        </td>
+                        <td>@item.Emergency</td>
+                        <td>@item.Date</td>
+                        <td>@item.MeetingId</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+</section>
+
+<footer>
+    <p>جميع الحقوق محفوظة &copy; 2023 by team 7</p>
+</footer>
