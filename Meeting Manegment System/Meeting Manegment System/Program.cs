@@ -1,8 +1,12 @@
 using Meeting_Manegment_System.Data;
 using Meeting_Manegment_System.Interface;
+using Meeting_Manegment_System.Models;
 using Meeting_Manegment_System.Repository;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection.Extensions;
+using Microsoft.EntityFrameworkCore.SqlServer;
+using Microsoft.Extensions.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -23,6 +27,12 @@ builder.Services.AddScoped<IMemberAnswerRepository, MemberAnswerRepository>();
 builder.Services.AddScoped<IMemberMeetingRepository, MemberMeetingRepository>();
 builder.Services.AddScoped<IOrganizationRepository, OrganizationRctorepository>();
 builder.Services.AddScoped<IMemberCommitteeRepository, MemberCommitteeRepository>();
+builder.Services.AddScoped<UserManager<ApplicationUser>>();
+builder.Services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<ApplicationDbContext>();
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+});
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -37,9 +47,10 @@ app.UseStaticFiles();
 
 app.UseRouting();
 app.UseSession();
+app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=AccountManager}/{action=Login}/{id?}");
 
 app.Run();
