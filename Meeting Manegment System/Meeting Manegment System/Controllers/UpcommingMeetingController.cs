@@ -17,7 +17,15 @@ namespace Meeting_Manegment_System.Controllers
         {
             int MemberId = (int)_session.HttpContext.Session.GetInt32("MemberId");
             List<MemberMeeting> model = _memberMeeting.GetMemberMeetingsByMemberId(MemberId);
+            model.Sort((m1, m2) => m1.Meeting.Date.CompareTo(m2.Meeting.Date));
             return View(model);
+        }
+        public IActionResult AddResponse(int Response,int id)
+        {
+            MemberMeeting model = _memberMeeting.GetMemberMeetingById(id);
+            model.Response = (State)Response;
+            _memberMeeting.Update(model);
+            return RedirectToAction("Index");
         }
     }
 }

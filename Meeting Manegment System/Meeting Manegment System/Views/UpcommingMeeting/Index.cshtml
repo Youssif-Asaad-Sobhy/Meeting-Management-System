@@ -8,9 +8,8 @@
 </header>
 
 <nav class="navigation">
-    <a href="@Url.Action("Index","UserPage")">الحساب الشخصي</a>
     <a href="@Url.Action("Logout","Main")">تسجيل الخروج</a>
-    <a href="#">البحث عن موضوعات</a>
+    <a href="@Url.Action("Index","UserPage")">الحساب الشخصي</a>
     <a href="@Url.Action("Index","PreviousMeeting")">الجلسات السابقة</a>
     <a href="@Url.Action("Index","UpcommingMeeting")">جلسة قيد الاجراء</a>
     <a href="@Url.Action("CommitteeMembers","Main")">تشكيل المجلس</a>
@@ -28,6 +27,7 @@
         <table class="table">
             <thead id="thead">
                 <tr>
+                    <th>الرد</th>
                     <th>التفاصيل / حالة الحضور</th>
                     <th>نوع الجلسة</th>
                     <th>تاريخ الجلسة</th>
@@ -37,31 +37,51 @@
             <tbody>
                 @foreach(var item in Model)
                 {
-                <tr>
+                    <tr>
+                        <td>
+                            @if (item.Response == State.NotAnswerd)
+                            {
+                                <text>لم يتم الرد</text>
+                            }
+                            else if(item.Response==State.Attend)
+                            {
+                                <text>حضور</text>
+                            }
+                            else
+                            {
+                                 <text>اعتذار</text>
+                            }
+                        </td>
                     <td>
                         @if(item.Response==State.NotAnswerd)
                         {
                             <button>
-                                <b>
-                                    <span class="material-symbols-outlined">close</span>
-                                    اعتذار
-                                </b>
+                                    <a style="text-decoration: none;color:black;" href="@Url.Action("AddResponse","UpcommingMeeting",new{Response=0,id=item.MemberMeetingId})">
+                                    <b>
+                                        <span class="material-symbols-outlined">close</span>
+                                        اعتذار
+                                    </b>
+                                </a>
                             </button>
                             <button>
-                                <b>
-                                    <span class="material-symbols-outlined">done</span>
-                                    حضور
-                                </b>
+                                    <a style="text-decoration: none;color:black;" href="@Url.Action("AddResponse","UpcommingMeeting",new{Response=1,id=item.MemberMeetingId})">
+                                    <b>
+                                        <span class="material-symbols-outlined">done</span>
+                                        حضور
+                                    </b>
+                                </a>
                             </button>
                         }
                         else
                         {
-                                <button>
+                            <button>
+                                    <a style="text-decoration: none;color:black;" href="@Url.Action("AddResponse","UpcommingMeeting",new{Response=2,id=item.MemberMeetingId})">
                                     <b>
                                         <span class="material-symbols-outlined">done</span>
                                         الغاء الرد
                                     </b>
-                                </button>
+                                </a>
+                            </button>
                         }
                     <button>
                         <b>
@@ -70,7 +90,14 @@
                         </b>
                     </button>
                     </td>
-                    <td>@item.Meeting.Emergency>0?"طارئه":"عاديه"</td>
+                        @if (item.Meeting.Emergency)
+                        {
+                            <td>طارئة</td>
+                        } 
+                        else
+                        {
+                            <td>عادية</td>
+                        }
                     <td>@item.Meeting.Date</td>
                     <td>@item.MeetingId</td>
                 </tr>

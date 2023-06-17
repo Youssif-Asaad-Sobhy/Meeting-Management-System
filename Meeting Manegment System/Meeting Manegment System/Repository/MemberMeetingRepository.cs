@@ -12,10 +12,14 @@ namespace Meeting_Manegment_System.Repository
         {
             _context = context;
         }
+        public MemberMeeting GetMemberMeetingById(int Id)
+        {
+            return _context.MemberMeeting.FirstOrDefault(x => x.MemberMeetingId == Id);
+        }
         public List<MemberMeeting> GetMemberMeetingsByMemberId(int memberId)
         {
             List<MemberMeeting> Models = new();
-            Models = _context.MemberMeeting.Include(x=>x.Meeting).Where(x=>x.MemberId== memberId && x.Meeting.Date>=DateTime.Now).ToList();
+            Models = _context.MemberMeeting.Include(x=>x.Meeting).Where(x=>x.MemberId== memberId && x.Meeting.Date >= DateTime.Now).ToList();
             return Models;
         }
         public bool Add(MemberMeeting memberMeeting)

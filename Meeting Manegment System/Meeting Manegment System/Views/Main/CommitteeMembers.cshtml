@@ -9,15 +9,18 @@
 </header>
 
 <nav class="navigation">
-    <a href="@Url.Action("Index","UserPage")">الحساب الشخصي</a>
     <a href="@Url.Action("Logout","Main")">تسجيل الخروج</a>
-    <a href="#">البحث عن موضوعات</a>
+    <a href="@Url.Action("Index","UserPage")">الحساب الشخصي</a>
     <a href="@Url.Action("Index","PreviousMeeting")">الجلسات السابقة</a>
     <a href="@Url.Action("Index","UpcommingMeeting")">جلسة قيد الاجراء</a>
     <a href="@Url.Action("CommitteeMembers","Main")">تشكيل المجلس</a>
     <a href="@Url.Action("SelectCommittee","Main")">الصفحه الرئيسية</a>
 </nav>
-
+<div class="process-bar">
+    <p>
+        تشكيل المجلس
+    </p>
+</div>
 <section class="main_section">
     <div class="table-responsive">
         <table class="table">
