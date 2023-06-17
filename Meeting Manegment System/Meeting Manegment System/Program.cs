@@ -28,7 +28,6 @@ builder.Services.AddScoped<IMemberMeetingRepository, MemberMeetingRepository>();
 builder.Services.AddScoped<IOrganizationRepository, OrganizationRctorepository>();
 builder.Services.AddScoped<IMemberCommitteeRepository, MemberCommitteeRepository>();
 builder.Services.AddScoped<UserManager<ApplicationUser>>();
-builder.Services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddAuthentication(options =>
 {
     options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
