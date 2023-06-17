@@ -1,6 +1,22 @@
 {
   "format": 1,
   "restore": {
+<<<<<<< HEAD
+    "C:\\Users\\Mohamed Osama\\Desktop\\Meeting-Management-System\\Meeting Manegment System\\Meeting Manegment System\\MeetingManagementSystem.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\Mohamed Osama\\Desktop\\Meeting-Management-System\\Meeting Manegment System\\Meeting Manegment System\\MeetingManagementSystem.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Mohamed Osama\\Desktop\\Meeting-Management-System\\Meeting Manegment System\\Meeting Manegment System\\MeetingManagementSystem.csproj",
+        "projectName": "MeetingManagementSystem",
+        "projectPath": "C:\\Users\\Mohamed Osama\\Desktop\\Meeting-Management-System\\Meeting Manegment System\\Meeting Manegment System\\MeetingManagementSystem.csproj",
+        "packagesPath": "C:\\Users\\Mohamed Osama\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Mohamed Osama\\Desktop\\Meeting-Management-System\\Meeting Manegment System\\Meeting Manegment System\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Mohamed Osama\\AppData\\Roaming\\NuGet\\NuGet.Config",
+=======
     "C:\\Users\\Ziad\\Downloads\\Meeting-Management-System\\Meeting Manegment System\\Meeting Manegment System\\MeetingManagementSystem.csproj": {}
   },
   "projects": {
@@ -15,6 +31,7 @@
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Ziad\\AppData\\Roaming\\NuGet\\NuGet.Config",
+>>>>>>> c7ef2895dddcc8473c77ac24dd7a18bb358e87a5
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -40,6 +57,10 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.18, )"
+            },
             "Microsoft.AspNetCore.Session": {
               "target": "Package",
               "version": "[2.1.1, )"
@@ -88,7 +109,11 @@
               "privateAssets": "all"
             }
           },
+<<<<<<< HEAD
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
+=======
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+>>>>>>> c7ef2895dddcc8473c77ac24dd7a18bb358e87a5
         }
       }
     }
