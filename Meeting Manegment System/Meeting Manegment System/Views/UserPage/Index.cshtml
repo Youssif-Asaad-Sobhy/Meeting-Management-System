@@ -8,11 +8,10 @@
 </header>
 
 <nav class="navigation">
+    <a href="@Url.Action("Logout","Main")">تسجيل الخروج</a>
     <a href="@Url.Action("Index","UserPage")">الحساب الشخصي</a>
-    <a href="#">تسجيل الجروج</a>
-    <a href="#">البحث عن موضوعات</a>
-    <a href="#">الجلسات السابقة</a>
-    <a href="#">جلسة قيد الاجراء</a>
+    <a href="@Url.Action("Index","PreviousMeeting")">الجلسات السابقة</a>
+    <a href="@Url.Action("Index","UpcommingMeeting")">جلسة قيد الاجراء</a>
     <a href="@Url.Action("CommitteeMembers","Main")">تشكيل المجلس</a>
     <a href="@Url.Action("SelectCommittee","Main")">الصفحه الرئيسية</a>
 </nav>
@@ -29,7 +28,6 @@
                 <i class="fa-solid fa-unlock"></i>
             </div>
             <div class="info2">
-                <!-- <h3>اسم اللجنة الاولى</h3> -->
                 <a href="@Url.Action("ForgetPassword","UserPage")" class="card2-btn">تغيير كلمة المرور</a>
             </div>
         </div>
