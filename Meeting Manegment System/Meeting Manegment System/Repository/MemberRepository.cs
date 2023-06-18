@@ -12,10 +12,6 @@ namespace Meeting_Manegment_System.Repository
         {
             _context = context;
         }
-        public List<Member> GetMembersExeptId(int Id) 
-        { 
-            return _context.Member.Where(x=>x.MemberId != Id).ToList();
-        }
         public Member GetMemberByEmail(string email)
         {
             return _context.Member.Where(x => x.Email == email).FirstOrDefault();
