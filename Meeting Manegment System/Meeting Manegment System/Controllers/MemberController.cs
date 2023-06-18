@@ -14,19 +14,10 @@ namespace Meeting_Manegment_System.Controllers
         }
         public IActionResult Index()
         {
-            if (HttpContext.Session.GetInt32("Role") == null || (RoleType)HttpContext.Session.GetInt32("Role") != RoleType.Admin)
-            {
-                return RedirectToAction("Login", "Home");
-            }
-            List<Member> model =_member.GetMembersExeptId((int)HttpContext.Session.GetInt32("MemberId"));
-            return View(model);
+            return View();
         }
         public IActionResult Create() 
         {
-            if(HttpContext.Session.GetInt32("Role") == null|| (RoleType)HttpContext.Session.GetInt32("Role")!=RoleType.Admin)
-            {
-                return RedirectToAction("Login", "Home");
-            }
             Member model = new Member();
             return View(model);
         }

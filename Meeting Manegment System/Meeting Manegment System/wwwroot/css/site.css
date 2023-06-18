@@ -33,8 +33,8 @@ header {
     .navigation a {
         text-decoration: none;
         color: #f0f0f0;
-        font-size: 20px;
-        font-weight: 400;
+        font-size: 1.1em;
+        font-weight: 500;
     }
 
         .navigation a:hover {
@@ -342,7 +342,6 @@ footer p {
     border-radius: 15px;
     margin-bottom: 40px;
     transition: 0.7s ease;
-    cursor:pointer;
 }
 
     .card-btn:hover {
@@ -733,7 +732,6 @@ footer p {
     .info_info input {
         margin-right: 10px;
         border-radius: 20px;
-        cursor:pointer;
     }
 
 .info_info_place {
@@ -753,7 +751,7 @@ footer p {
         /*border-radius: 20px;*/
     }
 
-/*    ----------------------------------------------------------------------------------------------*/
+/*    ????----------------------------------------------------------------------------------------------*/
 .information-formee {
     margin: 50px;
     display: flex;
@@ -936,39 +934,4 @@ footer p {
     color: #002b36;
     font-size: 1.2em;
     text-align: center;
-}
-
-/*sign up design*/
-
-.sign_up-form {
-    display: flex;
-    flex-direction: column;
-    width: 50%;
-    align-items: center;
-    background-color: whitesmoke;
-}
-
-.sign_up-container {
-    display: flex;
-    width: 65%;
-    height: 580px;
-    /* border: 3px black solid; */
-    margin: auto;
-    margin-top: 50px;
-}
-
-.sign_up-form h2 {
-    font-size: 3rem;
-    margin: 40px;
-}
-
-#upload {
-    display: none;
-}
-
-#upload_label {
-    border-radius: 20px;
-    padding: 9px 7px 6px 7px;
-    background-color: rgb(126, 144, 175);
-    border: hidden;
 }
