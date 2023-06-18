@@ -19,6 +19,5 @@ namespace Meeting_Manegment_System.Models
         public Voting Voting { get; set; }
         public Meeting Meeting { get; set; }
         public Member Member { get; set; }
-        public string Description { get; set; }
     }
 }
