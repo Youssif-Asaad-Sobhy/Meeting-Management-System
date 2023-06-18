@@ -1,0 +1,80 @@
+﻿@model List<Member>
+
+
+<header>
+    <a href="#" class="logo">meetme</a>
+
+    <a href="#" class="logo">old trafford</a>
+
+</header>
+
+<nav class="navigation">
+    <a href="@Url.Action("Logout","Main")">تسجيل الخروج</a>
+    <a href="@Url.Action("Index","UserPage")">الحساب الشخصي</a>
+    <a href="@Url.Action("Index","PreviousMeeting")">الجلسات السابقة</a>
+    <a href="@Url.Action("Index","UpcommingMeeting")">جلسة قيد الاجراء</a>
+    <a href="@Url.Action("CommitteeMembers","Main")">تشكيل المجلس</a>
+    <a href="@Url.Action("SelectCommittee","Main")">الصفحه الرئيسية</a>
+</nav>
+<div class="user-info">
+    <p></p>
+    <p></p>
+</div>
+<div class="info_page_head">
+    <p>
+        الاعضاء
+    </p>
+</div>
+
+<section class="main_section">
+    <div class="table-responsive">
+        <table class="table">
+            <thead id="thead">
+                <tr>
+                    <th>حذف / تعديل</th>
+                    <th>الايميل</th>
+                    <th>رقم الهاتف</th>
+                    <th>اسم العضو</th>
+                    <th>الرقم</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    int i = 1;
+                    foreach(var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                <button>
+                                    <span class="material-symbols-outlined">
+                                        edit_note
+                                    </span>
+                                    <a href="@Url.Action("Edit","Member",new {member=item})">
+                                    تعديل البيانات
+                                    </a>
+                                </button>
+                                <button>
+                                    <span class="material-symbols-outlined">
+                                        close
+                                    </span>
+                                    <a href="@Url.Action("Delete","Member",new {member=item})">
+                                        حذف
+                                    </a>
+                                </button>
+                            </td>
+                            <td>@item.Email</td>
+                            <td>@item.Phone</td>
+                            <td>@item.Name</td>
+                            <td>@i</td>
+                        </tr>
+                        i++;
+                    }
+                }
+             </tbody>
+        </table>
+    </div>
+</section>
+
+<footer>
+    <p>جميع الحقوق محفوظة &copy; 2023 by team 7</p>
+</footer>

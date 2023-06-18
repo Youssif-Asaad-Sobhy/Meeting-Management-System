@@ -1,5 +1,8 @@
-﻿@model Member
-
+﻿@using Meeting_Manegment_System.ViewModels
+@model ProfilePageView
+@{
+    
+}
 <header>
     <a href="#" class="logo">meetme</a>
 
@@ -17,21 +20,79 @@
 </nav>
 
 <div class="user-info">
-    <p>asdf</p>
-    <p>@Model.Name</p>
+    <p>@{
+            <text>
+                @Model.Role.ToString()
+            </text>
+        }</p>
+    <p>@Model.Member.Name</p>
 </div>
 
 <section class="user-action">
-    <div class="card-content">
-        <div class="card2">
-            <div class="icon2">
-                <i class="fa-solid fa-unlock"></i>
+    @if(Model.Role==RoleType.Admin)
+    {
+        <div class="card-content">
+            <div class="card2">
+                <div class="icon2">
+                    <i class="fa-solid fa-unlock"></i>
+                </div>
+                <div class="info2">
+                    <a href="@Url.Action("ForgetPassword","UserPage")" class="card2-btn">تغيير كلمة المرور</a>
+                </div>
             </div>
-            <div class="info2">
-                <a href="@Url.Action("ForgetPassword","UserPage")" class="card2-btn">تغيير كلمة المرور</a>
+
+            <div class="card2">
+                <div class="icon2">
+                    <i class="fa-sharp fa-solid fa-user-plus"></i>
+                </div>
+                <div class="info2">
+                    <a href="@Url.Action("NewMember")" class="card2-btn">اضافة عضو جديد</a>
+                </div>
+            </div>
+
+            <div class="card2">
+                <div class="icon2">
+                    <i class="fa-solid fa-user-minus"></i>
+                </div>
+                <div class="info2">
+                    <a href="@Url.Action("Delete")" class="card2-btn">ازالة عضو</a>
+                </div>
+            </div>
+
+            <div class="card2">
+                <div class="icon2">
+                    <i class="fa-solid fa-users"></i>
+                </div>
+                <div class="info2">
+                    <a href="#" class="card2-btn">اضافة لجنة جديدة</a>
+                </div>
+            </div>
+
+            <div class="card2">
+                <div class="icon2">
+                    <span class="material-symbols-outlined icon_plus">
+                        group_remove
+                        </span>
+                </div>
+                <div class="info2">
+                    <a href="" class="card2-btn">ازالة لجنة</a>
+                </div>
             </div>
         </div>
-    </div>
+    }
+    else
+    {
+        <div class="card-content">
+            <div class="card2">
+                <div class="icon2">
+                    <i class="fa-solid fa-unlock"></i>
+                </div>
+                <div class="info2">
+                    <a href="@Url.Action("ForgetPassword","UserPage")" class="card2-btn">تغيير كلمة المرور</a>
+                </div>
+            </div>
+        </div>
+    }
 </section>
 
 <footer>
