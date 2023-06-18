@@ -2,15 +2,20 @@
 using Meeting_Manegment_System.Interface;
 using Meeting_Manegment_System.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Mvc;
+
 
 namespace Meeting_Manegment_System.Repository
 {
     public class MemberMeetingRepository : IMemberMeetingRepository
     {
         private ApplicationDbContext _context;
-        public MemberMeetingRepository(ApplicationDbContext context)
+        private IHttpContextAccessor _session;
+
+        public MemberMeetingRepository(ApplicationDbContext context,IHttpContextAccessor httpContextAccessor)
         {
             _context = context;
+            _session = httpContextAccessor;
         }
         public MemberMeeting GetMemberMeetingById(int Id)
         {
@@ -19,7 +24,7 @@ namespace Meeting_Manegment_System.Repository
         public List<MemberMeeting> GetMemberMeetingsByMemberId(int memberId)
         {
             List<MemberMeeting> Models = new();
-            Models = _context.MemberMeeting.Include(x=>x.Meeting).Where(x=>x.MemberId== memberId && x.Meeting.Date >= DateTime.Now).ToList();
+            Models = _context.MemberMeeting.Include(x => x.Meeting).Where(x => x.MemberId == memberId && x.Meeting.Date >= DateTime.Now && x.Meeting.CommitteeId == (int) _session.HttpContext.Session.GetInt32("CommitteeId")).ToList();
             return Models;
         }
         public bool Add(MemberMeeting memberMeeting)
