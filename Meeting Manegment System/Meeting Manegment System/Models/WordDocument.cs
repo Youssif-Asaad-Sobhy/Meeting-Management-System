@@ -10,5 +10,6 @@ namespace Meeting_Manegment_System.Models
         public string FileName { get; set; }
         [Required]
         public byte[] FileContent { get; set; }
+        public int? MeetingId { get; set; }
     }
 }
