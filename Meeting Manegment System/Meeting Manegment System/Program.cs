@@ -39,7 +39,7 @@ app.UseStaticFiles();
 
 //Seed DataBase
 AppDbInitializer.Seed(app);
-
+AppDbInitializer.SeedUsersAndRulesAsync(app).Wait();
 
 app.UseRouting();
 app.UseSession();

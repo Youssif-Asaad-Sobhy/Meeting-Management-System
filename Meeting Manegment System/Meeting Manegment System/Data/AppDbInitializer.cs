@@ -1,4 +1,6 @@
-﻿using Meeting_Manegment_System.Models;
+﻿using Meeting_Manegment_System.Data.Static;
+using Meeting_Manegment_System.Models;
+using Microsoft.AspNetCore.Identity;
 
 namespace Meeting_Manegment_System.Data
 {
@@ -686,6 +688,87 @@ namespace Meeting_Manegment_System.Data
                 //    });
                 //    context.SaveChanges();
                 //}
+            }
+        }
+        public static async Task SeedUsersAndRulesAsync(IApplicationBuilder applicationBuilder)
+        {
+            using (var serviceScope = applicationBuilder.ApplicationServices.CreateScope())
+            {
+                //Roles
+                var roleManager = serviceScope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+
+                if (!await roleManager.RoleExistsAsync(UserRoles.Admin))
+                    await roleManager.CreateAsync(new IdentityRole(UserRoles.Admin));
+
+                if (!await roleManager.RoleExistsAsync(UserRoles.User))
+                    await roleManager.CreateAsync(new IdentityRole(UserRoles.User));
+
+                if (!await roleManager.RoleExistsAsync(UserRoles.Presedint))
+                    await roleManager.CreateAsync(new IdentityRole(UserRoles.Presedint));
+
+                if (!await roleManager.RoleExistsAsync(UserRoles.VicePresedint))
+                    await roleManager.CreateAsync(new IdentityRole(UserRoles.VicePresedint));
+
+                if (!await roleManager.RoleExistsAsync(UserRoles.Secretary))
+                    await roleManager.CreateAsync(new IdentityRole(UserRoles.Secretary));
+
+                //Users
+                var userManager = serviceScope.ServiceProvider.GetRequiredService<UserManager<ApplicationUser>>();
+                string adminUserEmail = "admin@meeting.com";
+                var adminUser = await userManager.FindByEmailAsync(adminUserEmail);
+                if(adminUser == null)
+                {
+                    var newAdminUser = new ApplicationUser()
+                    {
+                        FullName = "Admin User",
+                        Email = adminUserEmail,
+                        EmailConfirmed = true
+                    };
+                    await userManager.CreateAsync(newAdminUser, "Admin@123");
+                    await userManager.AddToRoleAsync(newAdminUser, UserRoles.Admin); 
+                }
+
+                string appUserEmail = "user@meeting.com";
+                var appUser = await userManager.FindByEmailAsync(appUserEmail);
+                if (appUser == null)
+                {
+                    var newAppUser = new ApplicationUser()
+                    {
+                        FullName = "app User",
+                        Email = appUserEmail,
+                        EmailConfirmed = true
+                    };
+                    await userManager.CreateAsync(newAppUser, "User@123");
+                    await userManager.AddToRoleAsync(newAppUser, UserRoles.User);
+                }
+
+                string PresidentEmail = "presedint@meeting.com";
+                var President = await userManager.FindByEmailAsync(PresidentEmail);
+                if (appUser == null)
+                {
+                    var newPresedint = new ApplicationUser()
+                    {
+                        FullName = "Presedint",
+                        Email = PresidentEmail,
+                        EmailConfirmed = true
+                    };
+                    await userManager.CreateAsync(newPresedint, "Presedint@123");
+                    await userManager.AddToRoleAsync(newPresedint, UserRoles.Presedint);
+                }
+
+                string VicePresidentEmail = "vicepresedint@meeting.com";
+                var vicePresident = await userManager.FindByEmailAsync(VicePresidentEmail);
+                if (appUser == null)
+                {
+                    var newVicePresedint = new ApplicationUser()
+                    {
+                        FullName = "Vice Presedint",
+                        Email = VicePresidentEmail,
+                        EmailConfirmed = true
+                    };
+                    await userManager.CreateAsync(newVicePresedint, "VicePresedint@123");
+                    await userManager.AddToRoleAsync(newVicePresedint, UserRoles.VicePresedint);
+                }
             }
         }
     }

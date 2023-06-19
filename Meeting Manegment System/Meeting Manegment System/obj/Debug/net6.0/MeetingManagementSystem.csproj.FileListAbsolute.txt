@@ -865,3 +865,8 @@ F:\Meeting-Management-System\Meeting Manegment System\Meeting Manegment System\o
 F:\Meeting-Management-System\Meeting Manegment System\Meeting Manegment System\obj\Debug\net6.0\MeetingManagementSystem.csproj.CopyComplete
 F:\Meeting-Management-System\Meeting Manegment System\Meeting Manegment System\obj\Debug\net6.0\MeetingManagementSystem.genruntimeconfig.cache
 F:\Meeting-Management-System\Meeting Manegment System\Meeting Manegment System\obj\Debug\net6.0\ref\MeetingManagementSystem.dll
+F:\Meeting-Management-System\Meeting Manegment System\Meeting Manegment System\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+F:\Meeting-Management-System\Meeting Manegment System\Meeting Manegment System\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+F:\Meeting-Management-System\Meeting Manegment System\Meeting Manegment System\bin\Debug\net6.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+F:\Meeting-Management-System\Meeting Manegment System\Meeting Manegment System\bin\Debug\net6.0\Microsoft.Extensions.Identity.Core.dll
+F:\Meeting-Management-System\Meeting Manegment System\Meeting Manegment System\bin\Debug\net6.0\Microsoft.Extensions.Identity.Stores.dll
