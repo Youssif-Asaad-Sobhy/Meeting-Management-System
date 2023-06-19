@@ -69,17 +69,9 @@ namespace Meeting_Manegment_System.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("WordDocumentId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("WordDocumentId1")
-                        .HasColumnType("int");
-
                     b.HasKey("MeetingId");
 
                     b.HasIndex("CommitteeId");
-
-                    b.HasIndex("WordDocumentId1");
 
                     b.ToTable("Meeting");
                 });
@@ -259,30 +251,6 @@ namespace Meeting_Manegment_System.Migrations
                     b.ToTable("Votings");
                 });
 
-            modelBuilder.Entity("Meeting_Manegment_System.Models.WordDocument", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<byte[]>("FileContent")
-                        .IsRequired()
-                        .HasColumnType("varbinary(max)");
-
-                    b.Property<string>("FileName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("MeetingId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("WordDocuments");
-                });
-
             modelBuilder.Entity("Meeting_Manegment_System.Models.Committee", b =>
                 {
                     b.HasOne("Meeting_Manegment_System.Models.Organization", "Organization")
@@ -301,13 +269,7 @@ namespace Meeting_Manegment_System.Migrations
                         .HasForeignKey("CommitteeId")
                         .IsRequired();
 
-                    b.HasOne("Meeting_Manegment_System.Models.WordDocument", "WordDocument")
-                        .WithMany()
-                        .HasForeignKey("WordDocumentId1");
-
                     b.Navigation("Committee");
-
-                    b.Navigation("WordDocument");
                 });
 
             modelBuilder.Entity("Meeting_Manegment_System.Models.MemberAnswers", b =>
@@ -375,7 +337,7 @@ namespace Meeting_Manegment_System.Migrations
             modelBuilder.Entity("Meeting_Manegment_System.Models.Report", b =>
                 {
                     b.HasOne("Meeting_Manegment_System.Models.Meeting", "Meeting")
-                        .WithMany()
+                        .WithMany("Reports")
                         .HasForeignKey("MeetingId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -404,6 +366,8 @@ namespace Meeting_Manegment_System.Migrations
             modelBuilder.Entity("Meeting_Manegment_System.Models.Meeting", b =>
                 {
                     b.Navigation("MemberAnswers");
+
+                    b.Navigation("Reports");
 
                     b.Navigation("Votings");
 
