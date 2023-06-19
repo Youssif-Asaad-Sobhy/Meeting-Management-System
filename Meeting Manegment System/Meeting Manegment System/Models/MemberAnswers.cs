@@ -16,9 +16,9 @@ namespace Meeting_Manegment_System.Models
         public int MemberId { get; set; }
         [Required]
         public int CommitteeId { get; set; }
+        public string? Comment { get; set; }
         public Voting Voting { get; set; }
         public Meeting Meeting { get; set; }
         public Member Member { get; set; }
-        public string Description { get; set; }
     }
 }

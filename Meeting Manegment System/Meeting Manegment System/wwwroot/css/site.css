@@ -718,16 +718,14 @@ footer p {
     background-color: whitesmoke;
     width: 30em;
     box-shadow: 0 3px 10px rgba(1 1 1 /10%);
-    border-radius: 10px;
-    padding: 25px;
-    margin: 15px;
+    padding: 15px;
+    margin: 10px;
     justify-content: center;
 }
 
     .info_info select {
         width: 50%;
         margin-right: 10px;
-        border-radius: 20px;
     }
 
     .info_info input {
@@ -812,7 +810,6 @@ footer p {
 
     .infoo_infoo_place input {
         margin-right: 40px;
-        border-radius: 20px;
     }
 
 .box_infoo {

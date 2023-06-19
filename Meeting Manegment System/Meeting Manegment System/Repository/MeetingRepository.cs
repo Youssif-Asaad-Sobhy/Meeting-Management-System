@@ -13,7 +13,7 @@ namespace Meeting_Manegment_System.Repository
         }
        public List<Meeting> GetMeetingByCommitteeId(int id)
         {
-            return _context.Meeting.Where(x => x.CommitteeId == id).ToList();
+            return _context.Meeting.Where(x => x.CommitteeId == id&&x.EndDate<=DateTime.Now).ToList();
         }
         public Meeting GetMeetingById(int id)
         {

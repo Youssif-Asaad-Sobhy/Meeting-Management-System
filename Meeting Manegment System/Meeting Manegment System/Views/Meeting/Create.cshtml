@@ -1,0 +1,103 @@
+﻿@model Meeting
+
+<header>
+    <a href="#" class="logo">meetme</a>
+
+    <a href="#" class="logo">old trafford</a>
+
+</header>
+
+<nav class="navigation">
+    <a href="#">الحساب الشخصي</a>
+    <a href="#">تسجيل الجروج</a>
+
+    <a href="#">الجلسات السابقة</a>
+    <a href="#">جلسة قيد الاجراء</a>
+    <a href="#">تشكيل المجلس</a>
+    <a href="#">الصفحة الرئيسية</a>
+</nav>
+<div class="user-info">
+    <p>وظيفة المستخدم</p>
+    <p>اسم المستخدم</p>
+</div>
+<div class="info_page_head">
+    <p>
+        انشاء جلسة جديده
+    </p>
+</div>
+
+
+<section class="information-main_sectione">
+    <form class="information-forme" onsubmit="return validateTimeRange();" asp-action="Create" method="post">
+        <h2>تفاصيل الجلسة</h2>
+        <div class="info_info_place">
+            <input type="text" asp-for="@Model.Name"  class="box_info">
+            <span asp-validation-for="@Model.Name"></span>
+            <label>اسم الجلسة</label>
+        </div>
+        <div class="info_info_place">
+            <input type="datetime" id="end_time" asp-for="@Model.EndDate" class="box_info">
+            <span asp-validation-for="@Model.EndDate"></span>
+                <label>الى</label>
+            </div>
+        <div class="info_info_place">
+            <input type="datetime" id="start_time" asp-for="@Model.StartDate" class="box_info">
+            <span asp-validation-for="@Model.StartDate"></span>
+                <label>من</label>
+            </div>
+        <label>التوقيت</label>
+        <div class="info_info_place">
+            <input type="text" asp-for="@Model.Place" class="box_info">
+            <span asp-validation-for="@Model.Place"></span>
+        </div>
+        <label>مكان الانعقاد</label>
+        <div class="info_info_place">
+            <textarea asp-for="@Model.Goal" cols="35" rows="6"></textarea>
+            <span asp-validation-for="@Model.Goal"></span>
+        </div>
+        <label>اهداف الجلسه</label>
+        <div class="info_info" id="type-number-filter">
+            <select id="type" asp-for="@Model.Emergency">
+                <option value=0>عادية</option>
+                <option value=1>طارئة</option>
+            </select>
+            <span asp-validation-for="@Model.Emergency"></span>
+            <label for="type">نوع الجلسة</label>
+        </div>
+        <input type="submit"/>
+    </form>
+
+</section>
+
+<footer>
+    <p>جميع الحقوق محفوظة &copy; 2023 by team 7</p>
+</footer>
+
+
+
+<script>
+    function validateDateTimeRange() {
+        var startTime = document.getElementById("start_time").value;
+        var endTime = document.getElementById("end_time").value;
+
+        if (startTime === "") {
+            alert("Please enter the start date and time (من).");
+            return false;
+        }
+
+        if (endTime === "") {
+            alert("Please enter the end date and time (الى).");
+            return false;
+        }
+
+        var startDateTime = new Date(startTime);
+        var endDateTime = new Date(endTime);
+
+        if (startDateTime.getTime() > endDateTime.getTime() && startDateTime.getDate() >= endDateTime.getDate()) {
+            alert("End date and time must be after the start date and time.");
+            return false;
+        }
+
+        return true;
+    }
+</script>

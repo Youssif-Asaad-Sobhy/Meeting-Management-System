@@ -29,18 +29,9 @@
 </div>
 
 <section class="user-action">
+    <div class="card-content">
     @if(Model.Role==RoleType.Admin)
     {
-        <div class="card-content">
-            <div class="card2">
-                <div class="icon2">
-                    <i class="fa-solid fa-unlock"></i>
-                </div>
-                <div class="info2">
-                    <a href="@Url.Action("ForgetPassword","UserPage")" class="card2-btn">تغيير كلمة المرور</a>
-                </div>
-            </div>
-
             <div class="card2">
                 <div class="icon2">
                     <i class="fa-sharp fa-solid fa-user-plus"></i>
@@ -78,21 +69,28 @@
                     <a href="" class="card2-btn">ازالة لجنة</a>
                 </div>
             </div>
-        </div>
     }
-    else
+    @if(Model.Role!=RoleType.Member)
     {
-        <div class="card-content">
             <div class="card2">
                 <div class="icon2">
-                    <i class="fa-solid fa-unlock"></i>
+                    <i class="fa-solid fa-people-line"></i>
                 </div>
                 <div class="info2">
-                    <a href="@Url.Action("ForgetPassword","UserPage")" class="card2-btn">تغيير كلمة المرور</a>
+                    <a href="@Url.Action("Create","Meeting")" class="card2-btn">انشاء جلسة جديدة</a>
                 </div>
             </div>
-        </div>
     }
+
+    <div class="card2">
+        <div class="icon2">
+            <i class="fa-solid fa-unlock"></i>
+        </div>
+        <div class="info2">
+            <a href="@Url.Action("ForgetPassword","UserPage")" class="card2-btn">تغيير كلمة المرور</a>
+        </div>
+    </div>
+    </div>
 </section>
 
 <footer>

@@ -24,7 +24,7 @@ namespace Meeting_Manegment_System.Repository
         public List<MemberMeeting> GetMemberMeetingsByMemberId(int memberId)
         {
             List<MemberMeeting> Models = new();
-            Models = _context.MemberMeeting.Include(x => x.Meeting).Where(x => x.MemberId == memberId && x.Meeting.Date >= DateTime.Now && x.Meeting.CommitteeId == (int) _session.HttpContext.Session.GetInt32("CommitteeId")).ToList();
+            Models = _context.MemberMeeting.Include(x => x.Meeting).Where(x => x.Meeting.EndDate >= DateTime.Now && x.Meeting.CommitteeId == (int) _session.HttpContext.Session.GetInt32("CommitteeId")).ToList();
             return Models;
         }
         public bool Add(MemberMeeting memberMeeting)
