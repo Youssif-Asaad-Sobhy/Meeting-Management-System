@@ -10,12 +10,19 @@ namespace Meeting_Manegment_System.Controllers
     {
         private IMemberCommitteeRepository _memberCommittee;
         private IMemberRepository _member;
-        private IHttpContextAccessor _session;
-        public MainController(IHttpContextAccessor session,IMemberCommitteeRepository memberCommitteeRepository, IMemberRepository memberRepository)
+        public MainController(IMemberCommitteeRepository memberCommitteeRepository, IMemberRepository memberRepository)
         {
             _memberCommittee = memberCommitteeRepository;
             _member = memberRepository;
-            _session = session;
+        }
+        public IActionResult Delete(Member member)
+        {
+            RoleType role =(RoleType) HttpContext.Session.GetInt32("Role");
+            if (role==null&&role!=RoleType.Admin)
+            {
+                return RedirectToAction("Login", "Home");
+            }
+            return RedirectToAction("Index", "Member");
         }
         public IActionResult Index()
         {
@@ -23,7 +30,7 @@ namespace Meeting_Manegment_System.Controllers
         }
         public IActionResult SelectCommittee()
         {
-            int id =(int) _session.HttpContext.Session.GetInt32("MemberId");
+            int id =(int) HttpContext.Session.GetInt32("MemberId");
             SelectCommitteeView model = new ();
             var member = _member.GetMemberById(id);
             model.member = member;
@@ -32,8 +39,9 @@ namespace Meeting_Manegment_System.Controllers
         }
         public IActionResult CommitteeMembers()
         {
-            int MemberId = (int)_session.HttpContext.Session.GetInt32("MemberId");
-            int CommitteeId = (int)_session.HttpContext.Session.GetInt32("CommitteeId");
+            int MemberId = (int)HttpContext.Session.GetInt32("MemberId");
+            int CommitteeId = (int)HttpContext.Session.GetInt32("CommitteeId");
+            HttpContext.Session.SetInt32("Role",(int) _memberCommittee.GetRoleTypeById(MemberId, CommitteeId));
             CommitteeMembersView model =new();
             model.members = _memberCommittee.GetMembersInCommittee(CommitteeId);
             model.Member.MemberId = MemberId;
@@ -41,13 +49,13 @@ namespace Meeting_Manegment_System.Controllers
         }
         public IActionResult Logout()
         {
-            _session.HttpContext.Session.Clear();
+            HttpContext.Session.Clear();
             return RedirectToAction("Login","Home");
         }
         [HttpPost]
         public IActionResult SelectCommittee(SelectCommitteeView model)
         {
-            _session.HttpContext.Session.SetInt32("CommitteeId",model.SelectedId);
+            HttpContext.Session.SetInt32("CommitteeId",model.SelectedId);
             return RedirectToAction("CommitteeMembers");
         }
     }

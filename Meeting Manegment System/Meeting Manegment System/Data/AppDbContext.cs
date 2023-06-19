@@ -1,10 +1,10 @@
 ﻿using Meeting_Manegment_System.Models;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Meeting_Manegment_System.Models;
 
 namespace Meeting_Manegment_System.Data
 {
-    public class ApplicationDbContext :IdentityDbContext<ApplicationUser>
+    public class ApplicationDbContext :DbContext
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {  

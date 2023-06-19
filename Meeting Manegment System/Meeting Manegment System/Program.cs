@@ -43,7 +43,3 @@ app.MapControllerRoute(
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
-
-var application = builder.Build();
-AppDbInitializer.Seed(app);
-AppDbInitializer.SeedUsersAndRoles(app).Wait();

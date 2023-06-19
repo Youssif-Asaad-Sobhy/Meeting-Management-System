@@ -4,6 +4,7 @@ namespace Meeting_Manegment_System.Models
 {
     public enum RoleType
     {
+        Admin,
         Member,
         Vice,
         Secretary,
