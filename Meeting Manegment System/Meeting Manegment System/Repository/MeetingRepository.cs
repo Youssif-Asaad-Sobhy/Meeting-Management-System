@@ -17,7 +17,7 @@ namespace Meeting_Manegment_System.Repository
         }
         public Meeting GetMeetingById(int id)
         {
-            return _context.Meeting.Where(x => x.MeetingId == id).FirstOrDefault();
+            return _context.Meeting.FirstOrDefault(x => x.MeetingId == id);
         }
         public bool Add(Meeting meeting)
         {

@@ -10,7 +10,7 @@ namespace Meeting_Manegment_System.Models
         [Key]
         public int MeetingId { get; set; }
         public string Question { get; set; }
-        public string Description { get; set; }
+        public string? Description { get; set; }
         public List<MemberAnswers> MemberAnswers { get; set; }
         public Meeting Meeting { get; set; }
 

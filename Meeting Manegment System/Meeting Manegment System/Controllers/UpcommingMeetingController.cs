@@ -8,15 +8,17 @@ namespace Meeting_Manegment_System.Controllers
     {
         private IHttpContextAccessor _session;
         private IMemberMeetingRepository _memberMeeting;
-        public UpcommingMeetingController(IMemberMeetingRepository memberMeetingRepository,IHttpContextAccessor httpContextAccessor)
+        private IMeetingRepository _meeting;
+        public UpcommingMeetingController(IMeetingRepository meeting,IMemberMeetingRepository memberMeetingRepository,IHttpContextAccessor httpContextAccessor)
         {
             _session = httpContextAccessor;
             _memberMeeting = memberMeetingRepository;
+            _meeting=meeting;
         }
         public IActionResult Index()
         {
-            int MemberId = (int)_session.HttpContext.Session.GetInt32("MemberId");
-            List<MemberMeeting> model = _memberMeeting.GetMemberMeetingsByMemberId(MemberId);
+            int CommitteeId = (int)_session.HttpContext.Session.GetInt32("CommitteeId");
+            List<MemberMeeting> model = _memberMeeting.GetMemberMeetingsByCommitteeId(CommitteeId);
             model.Sort((m1, m2) => m1.Meeting.StartDate.CompareTo(m2.Meeting.StartDate));
             return View(model);
         }
@@ -26,6 +28,11 @@ namespace Meeting_Manegment_System.Controllers
             model.Response = (State)Response;
             _memberMeeting.Update(model);
             return RedirectToAction("Index");
+        }
+        public IActionResult Details(int id)
+        {
+            Meeting model=_meeting.GetMeetingById(id);
+            return View(model);
         }
     }
 }

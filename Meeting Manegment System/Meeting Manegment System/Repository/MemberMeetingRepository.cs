@@ -21,11 +21,32 @@ namespace Meeting_Manegment_System.Repository
         {
             return _context.MemberMeeting.FirstOrDefault(x => x.MemberMeetingId == Id);
         }
-        public List<MemberMeeting> GetMemberMeetingsByMemberId(int memberId)
+        public List<MemberMeeting> GetMemberMeetingsByCommitteeId(int CommitteeId)
         {
-            List<MemberMeeting> Models = new();
-            Models = _context.MemberMeeting.Include(x => x.Meeting).Where(x => x.Meeting.EndDate >= DateTime.Now && x.Meeting.CommitteeId == (int) _session.HttpContext.Session.GetInt32("CommitteeId")).ToList();
-            return Models;
+            List<Meeting> Models = new();
+            Models = _context.Meeting.Where(x =>x.EndDate >= DateTime.Now && x.CommitteeId == CommitteeId).ToList();
+            List<MemberMeeting> ret = new();
+            int memberid = (int)_session.HttpContext.Session.GetInt32("MemberId");
+            foreach (Meeting meeting in Models)
+            {
+                MemberMeeting membermeeting = _context.MemberMeeting.FirstOrDefault(x => x.MemberId == memberid && x.MeetingId == meeting.MeetingId);
+                if(membermeeting != null)
+                {
+                    ret.Add(membermeeting);
+                }
+                else
+                {
+                    membermeeting = new MemberMeeting
+                    {
+                         MemberId=memberid,
+                         MeetingId=meeting.MeetingId,
+                         Response=State.NotAnswerd
+                    };
+                    Add(membermeeting);
+                    ret.Add(membermeeting);
+                }
+            }
+            return ret;
         }
         public bool Add(MemberMeeting memberMeeting)
         {

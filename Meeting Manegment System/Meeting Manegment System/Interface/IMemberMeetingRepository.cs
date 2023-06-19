@@ -4,7 +4,7 @@ namespace Meeting_Manegment_System.Interface
 {
     public interface IMemberMeetingRepository
     {
-        List<MemberMeeting> GetMemberMeetingsByMemberId(int memberId);
+        List<MemberMeeting> GetMemberMeetingsByCommitteeId(int CommmitteeId);
         MemberMeeting GetMemberMeetingById(int Id);
         bool Add(MemberMeeting memberMeeting);
         bool Delete(MemberMeeting memberMeeting);
