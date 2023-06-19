@@ -17,7 +17,6 @@ namespace Meeting_Manegment_System.Controllers
         {
             return View();
         }
-        [HttpPost]
         public IActionResult Download(int id)
         {
             WordDocument wordDoc = _document.GetFileById(id);
