@@ -44,6 +44,7 @@
                         var remm = rem.TotalDays;
                         var years=(int) remm / 365;
                         var days =(int) remm % 365;
+                        <tr>
                         <td>@years Y @days D</td>
                         <td>@item.EndDate</td>
                         <td>@item.StartDate</td>
@@ -51,6 +52,7 @@
                         <td>@item.Role</td>
                         <td>@item.Member.Name</td>
                         <td>@i</td>
+                        </tr>
                         i++;
                     }
                 }

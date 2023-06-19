@@ -10851,19 +10851,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Mohamed Osama\\.nuget\\packages\\": {}
+    "C:\\Users\\HP\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\Meeting-Management-System\\Meeting Manegment System\\Meeting Manegment System\\MeetingManagementSystem.csproj",
+      "projectUniqueName": "D:\\MMV\\Meeting-Manegment-System\\Meeting Manegment System\\Meeting Manegment System\\MeetingManagementSystem.csproj",
       "projectName": "MeetingManagementSystem",
-      "projectPath": "F:\\Meeting-Management-System\\Meeting Manegment System\\Meeting Manegment System\\MeetingManagementSystem.csproj",
-      "packagesPath": "C:\\Users\\Mohamed Osama\\.nuget\\packages\\",
-      "outputPath": "F:\\Meeting-Management-System\\Meeting Manegment System\\Meeting Manegment System\\obj\\",
+      "projectPath": "D:\\MMV\\Meeting-Manegment-System\\Meeting Manegment System\\Meeting Manegment System\\MeetingManagementSystem.csproj",
+      "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
+      "outputPath": "D:\\MMV\\Meeting-Manegment-System\\Meeting Manegment System\\Meeting Manegment System\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Mohamed Osama\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -10871,6 +10871,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\sdk\\7.0.302\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -10937,7 +10938,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
       }
     }
   }

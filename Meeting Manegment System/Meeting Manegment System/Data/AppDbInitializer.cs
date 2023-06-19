@@ -42,7 +42,7 @@ namespace Meeting_Manegment_System.Data
                             Description = "Description 2"
                         },
                         new Committee {
-                            CommitteeId = 3,
+                            //CommitteeId = 3,
                             OrganizationId = 1,
                             Name = "Committee 3",
                             Description = "Description 3"
@@ -72,61 +72,101 @@ namespace Meeting_Manegment_System.Data
                             //MeetingId = 1,
                             CommitteeId = 5,
                             Goal = "Goal 1",
-                            Emergency = false
+                            Emergency = false,
+                            Name="Meet 1",
+                            Place = "online",
+                            StartDate = DateTime.Now,
+                            EndDate = DateTime.Now.AddDays(2)
                         },
                         new Meeting {
                             //MeetingId = 2, 
                             CommitteeId = 5,
                             Goal = "Goal 2",
-                            Emergency = true
+                            Emergency = true,
+                            Name="Meet 2",
+                            Place = "online",
+                            StartDate = new DateTime(2023, 6, 15, 9, 30, 0, 0),
+                            EndDate = new DateTime(2023, 6, 15, 11, 30, 0, 0)
                         },
                         new Meeting { 
                             //MeetingId = 3, 
-                            CommitteeId = 6,
+                            CommitteeId = 5,
                             Goal = "Goal 3",
-                            Emergency = false
+                            Emergency = false,
+                            Name="Meet 3",
+                            Place = "online",
+                            StartDate = new DateTime(2023, 6, 20, 14, 30, 0, 0),
+                            EndDate = new DateTime(2023, 6, 20, 16, 30, 0, 0)
                         },
                         new Meeting { 
                             //MeetingId = 4,
-                            CommitteeId = 6,
+                            CommitteeId = 5,
                             Goal = "Goal 4",
-                            Emergency = false
+                            Emergency = false,
+                            Name="Meet 4",
+                            Place = "online",
+                            StartDate = new DateTime(2023, 5, 12, 9, 30, 0, 0),
+                            EndDate = new DateTime(2023, 5, 13, 11, 30, 0, 0)
                         },
                         new Meeting {
                             //MeetingId = 5,
-                            CommitteeId = 7,
+                            CommitteeId = 4,
                             Goal = "Goal 5",
-                            Emergency = true
+                            Emergency = true,
+                            Name="Meet 5",
+                            Place = "offline",
+                            StartDate = new DateTime(2023, 7, 17, 9, 30, 0, 0),
+                            EndDate = new DateTime(2023, 7, 18, 11, 30, 0, 0)
                         },
                         new Meeting {
                             //MeetingId = 6,
-                            CommitteeId = 7,
+                            CommitteeId = 4,
                             Goal = "Goal 6",
-                            Emergency = false
+                            Emergency = false,
+                            Name="Meet 6",
+                            Place = "FCI",
+                            StartDate = new DateTime(2023, 9, 21, 9, 30, 0, 0),
+                            EndDate = new DateTime(2023, 9, 23, 11, 30, 0, 0)
                         },
                         new Meeting {
                             //MeetingId = 7, 
-                            CommitteeId = 8,
+                            CommitteeId = 3,
                             Goal = "Goal 7",
-                            Emergency = false
+                            Emergency = false,
+                            Name="Meet 7",
+                            Place = "online",
+                            StartDate = new DateTime(2023, 10, 11, 9, 30, 0, 0),
+                            EndDate = new DateTime(2023, 10, 13, 11, 30, 0, 0)
                         },
                         new Meeting { 
                             //MeetingId = 8,
-                            CommitteeId = 8,
+                            CommitteeId = 2,
                             Goal = "Goal 8",
-                            Emergency = true
+                            Emergency = true,
+                            Name="Meet 8",
+                            Place = "online",
+                            StartDate = new DateTime(2023, 12, 2, 9, 30, 0, 0),
+                            EndDate = new DateTime(2023, 12, 3, 11, 30, 0, 0)
                         },
                         new Meeting {
                             //MeetingId = 9,
-                            CommitteeId = 9,
+                            CommitteeId = 1,
                             Goal = "Goal 9",
-                            Emergency = false
+                            Emergency = false,
+                            Name="Meet 9",
+                            Place = "onsite",
+                            StartDate = new DateTime(2023, 12, 31, 9, 30, 0, 0),
+                            EndDate = new DateTime(2024, 1, 6, 11, 30, 0, 0)
                         },
                         new Meeting { 
                             //MeetingId = 10,
-                            CommitteeId = 9,
+                            CommitteeId = 2,
                             Goal = "Goal 10",
-                            Emergency = true
+                            Emergency = true,
+                            Name="Meet 10",
+                            Place = "onsite",
+                            StartDate = new DateTime(2023, 3, 3, 9, 30, 0, 0),
+                            EndDate = new DateTime(2023, 3, 6, 11, 30, 0, 0)
                         }
 
                     });
@@ -363,113 +403,54 @@ namespace Meeting_Manegment_System.Data
                     context.Votings.AddRange(new List<Voting>()
                     {
                         new Voting { 
-                            //VotingId = 1, 
-                            MeetingId = 5,
+                            VotingId = 1, 
+                            MeetingId = 1,
                             Question = "Question 1"
                         },
                         new Voting { 
-                            //VotingId = 2, 
-                            MeetingId = 6,
+                            VotingId = 2, 
+                            MeetingId = 2,
                             Question = "Question 2"
                         },
                         new Voting {
-                            //VotingId = 3,
-                            MeetingId = 7,
+                            VotingId = 3,
+                            MeetingId = 3,
                             Question = "Question 3"
                         },
                         new Voting {
-                            //VotingId = 4, 
-                            MeetingId = 8,
+                            VotingId = 4, 
+                            MeetingId = 4,
                             Question = "Question 4"
                         },
                         new Voting {
-                            //VotingId = 5, 
-                            MeetingId = 9,
+                            VotingId = 5, 
+                            MeetingId = 5,
                             Question = "Question 5"
                         },
                         new Voting {
-                            //VotingId = 6,
-                            MeetingId = 10,
+                            VotingId = 6,
+                            MeetingId = 1,
                             Question = "Question 6"
                         },
                         new Voting {
-                            //VotingId = 7,
-                            MeetingId = 11,
+                            VotingId = 7,
+                            MeetingId = 2,
                             Question = "Question 7"
                         },
                         new Voting {
-                            //VotingId = 8, 
-                            MeetingId = 12,
+                            VotingId = 8, 
+                            MeetingId = 3,
                             Question = "Question 8"
                         },
                         new Voting {
-                            //VotingId = 9,
-                            MeetingId = 13,
+                            VotingId = 9,
+                            MeetingId = 4,
                             Question = "Question 9"
                         },
                         new Voting {
-                            //VotingId = 10,
-                            MeetingId = 14,
+                            VotingId = 10,
+                            MeetingId = 5,
                             Question = "Question 10"
-                        }
-
-                    });
-                    context.SaveChanges();
-                }
-                //Report
-                if (!context.Reports.Any())
-                {
-                    context.Reports.AddRange(new List<Report>()
-                    {
-                        new Report { 
-                            //ReportId = 1,
-                            Description = "Report 1 Description",
-                            MeetingId = 5
-                        },
-                        new Report {
-                            //ReportId = 2, 
-                            Description = "Report 2 Description",
-                            MeetingId = 6
-                        },
-                        new Report { 
-                            //ReportId = 3, 
-                            Description = "Report 3 Description",
-                            MeetingId = 7
-                        },
-                        new Report {
-                            //ReportId = 4,
-                            Description = "Report 4 Description",
-                            MeetingId = 8
-                        },
-                        new Report {
-                            //ReportId = 5,
-                            Description = "Report 5 Description",
-                            MeetingId = 9
-                        },
-                        new Report { 
-                            //ReportId = 6,
-                            Description = "Report 6 Description",
-                            MeetingId = 10
-                        },
-                        new Report { 
-                            //ReportId = 7,
-                            Description = "Report 7 Description",
-                            MeetingId = 11
-                        },
-                        new Report {
-                            //ReportId = 8,
-                            Description = "Report 8 Description",
-                            MeetingId = 12
-                        },
-                        new Report {
-                            //ReportId = 9, 
-                            Description = "Report 9 Description",
-                            MeetingId = 13
-                        },
-                        new Report {
-                            //ReportId = 10,
-                            Description = "Report 10 Description",
-                            MeetingId = 14
                         }
 
                     });
@@ -482,7 +463,7 @@ namespace Meeting_Manegment_System.Data
                     {
                         new MemberCommittee { 
                            // Id = 1, 
-                            CommitteeId = 5,
+                            CommitteeId = 1,
                             MemberId = 1,
                             Role = RoleType.President,
                             StartDate = DateTime.Now,
@@ -490,23 +471,79 @@ namespace Meeting_Manegment_System.Data
                         },
                         new MemberCommittee { 
                            // Id = 1, 
-                            CommitteeId = 8,
-                            MemberId = 1,
-                            Role = RoleType.Member,
-                            StartDate = DateTime.Now,
-                            EndDate = DateTime.Now.AddDays(30)
-                        },
-                        new MemberCommittee { 
-                           // Id = 1, 
-                            CommitteeId = 9,
-                            MemberId = 1,
+                            CommitteeId = 1,
+                            MemberId = 2,
                             Role = RoleType.Secretary,
                             StartDate = DateTime.Now,
                             EndDate = DateTime.Now.AddDays(30)
                         },
                         new MemberCommittee { 
                            // Id = 1, 
-                            CommitteeId = 6,
+                            CommitteeId = 1,
+                            MemberId = 3,
+                            Role = RoleType.Vice,
+                            StartDate = DateTime.Now,
+                            EndDate = DateTime.Now.AddDays(30)
+                        },
+                        new MemberCommittee { 
+                           // Id = 1, 
+                            CommitteeId = 1,
+                            MemberId = 4,
+                            Role = RoleType.Member,
+                            StartDate = DateTime.Now,
+                            EndDate = DateTime.Now.AddDays(30)
+                        },
+                        new MemberCommittee { 
+                            //Id = 4, 
+                            CommitteeId = 2,
+                            MemberId = 2,
+                            Role = RoleType.President,
+                            StartDate = DateTime.Now,
+                            EndDate = DateTime.Now.AddDays(30)
+                        },
+                        new MemberCommittee {
+                            //Id = 3,
+                            CommitteeId = 2,
+                            MemberId = 3,
+                            Role = RoleType.Secretary,
+                            StartDate = DateTime.Now,
+                            EndDate = DateTime.Now.AddDays(30)
+                        },
+                        new MemberCommittee { 
+                            //Id = 2, 
+                            CommitteeId = 2,
+                            MemberId = 4,
+                            Role = RoleType.Vice,
+                            StartDate = DateTime.Now,
+                            EndDate = DateTime.Now.AddDays(30)
+                        },
+                        new MemberCommittee { 
+                            //Id = 2, 
+                            CommitteeId = 2,
+                            MemberId = 1,
+                            Role = RoleType.Member,
+                            StartDate = DateTime.Now,
+                            EndDate = DateTime.Now.AddDays(30)
+                        },
+                        new MemberCommittee { 
+                            //Id = 4, 
+                            CommitteeId = 3,
+                            MemberId = 3,
+                            Role = RoleType.President,
+                            StartDate = DateTime.Now,
+                            EndDate = DateTime.Now.AddDays(30)
+                        },
+                        new MemberCommittee {
+                            //Id = 3,
+                            CommitteeId = 3,
+                            MemberId = 4,
+                            Role = RoleType.Secretary,
+                            StartDate = DateTime.Now,
+                            EndDate = DateTime.Now.AddDays(30)
+                        },
+                        new MemberCommittee { 
+                            //Id = 2, 
+                            CommitteeId = 3,
                             MemberId = 1,
                             Role = RoleType.Vice,
                             StartDate = DateTime.Now,
@@ -514,233 +551,49 @@ namespace Meeting_Manegment_System.Data
                         },
                         new MemberCommittee { 
                             //Id = 2, 
-                            CommitteeId = 5,
+                            CommitteeId = 3,
                             MemberId = 2,
-                            Role = RoleType.Vice,
-                            StartDate = DateTime.Now,
-                            EndDate = DateTime.Now.AddDays(30)
-                        },
-                        new MemberCommittee {
-                            //Id = 3,
-                            CommitteeId = 5,
-                            MemberId = 3,
-                            Role = RoleType.Secretary,
+                            Role = RoleType.Member,
                             StartDate = DateTime.Now,
                             EndDate = DateTime.Now.AddDays(30)
                         },
                         new MemberCommittee { 
                             //Id = 4, 
-                            CommitteeId = 6,
+                            CommitteeId = 4,
                             MemberId = 4,
                             Role = RoleType.President,
                             StartDate = DateTime.Now,
                             EndDate = DateTime.Now.AddDays(30)
                         },
                         new MemberCommittee {
-                            //Id = 5,
-                            CommitteeId = 6,
-                            MemberId = 5,
-                            Role = RoleType.Vice,
-                            StartDate = DateTime.Now,
-                            EndDate = DateTime.Now.AddDays(30)
-                        },
-                        new MemberCommittee {
-                            //Id = 6, 
-                            CommitteeId = 6,
-                            MemberId = 6,
-                            Role = RoleType.Secretary,
-                            StartDate = DateTime.Now,
-                            EndDate = DateTime.Now.AddDays(30)
-                        },
-                        new MemberCommittee {
-                            //Id = 7, 
-                            CommitteeId = 7,
-                            MemberId = 7,
-                            Role = RoleType.President,
-                            StartDate = DateTime.Now,
-                            EndDate = DateTime.Now.AddDays(30)
-                        },
-                        new MemberCommittee {
-                            //Id = 8, 
-                            CommitteeId = 7,
-                            MemberId = 8,
-                            Role = RoleType.Vice,
-                            StartDate = DateTime.Now,
-                            EndDate = DateTime.Now.AddDays(30)
-                        },
-                        new MemberCommittee {
-                            //Id = 9,
-                            CommitteeId = 7,
-                            MemberId = 9,
-                            Role = RoleType.Secretary,
-                            StartDate = DateTime.Now,
-                            EndDate = DateTime.Now.AddDays(30)
-                        },
-                        new MemberCommittee {
-                            //Id = 10,
-                            CommitteeId = 8,
-                            MemberId = 10,
-                            Role = RoleType.President,
-                            StartDate = DateTime.Now,
-                            EndDate = DateTime.Now.AddDays(30)
-                        },
-                        new MemberCommittee { 
-                            //Id = 11, 
-                            CommitteeId = 8,
-                            MemberId = 11,
-                            Role = RoleType.Vice,
-                            StartDate = DateTime.Now,
-                            EndDate = DateTime.Now.AddDays(30)
-                        },
-                        new MemberCommittee {
-                            //Id = 12, 
-                            CommitteeId = 8,
-                            MemberId = 12,
+                            //Id = 3,
+                            CommitteeId = 4,
+                            MemberId = 1,
                             Role = RoleType.Secretary,
                             StartDate = DateTime.Now,
                             EndDate = DateTime.Now.AddDays(30)
                         },
                         new MemberCommittee { 
-                            //Id = 13, 
-                            CommitteeId = 9,
-                            MemberId = 13,
-                            Role = RoleType.President,
-                            StartDate = DateTime.Now,
-                            EndDate = DateTime.Now.AddDays(30)
-                        },
-                        new MemberCommittee { 
-                           // Id = 14, 
-                            CommitteeId = 9,
-                            MemberId = 14,
+                            //Id = 2, 
+                            CommitteeId = 4,
+                            MemberId = 2,
                             Role = RoleType.Vice,
                             StartDate = DateTime.Now,
                             EndDate = DateTime.Now.AddDays(30)
                         },
                         new MemberCommittee { 
-                            //Id = 15, 
-                            CommitteeId = 9,
-                            MemberId = 15,
-                            Role = RoleType.Secretary,
-                            StartDate = DateTime.Now,
-                            EndDate = DateTime.Now.AddDays(30)
-                        },
-                        new MemberCommittee {
-                            //Id = 16, 
-                            CommitteeId = 5,
-                            MemberId = 16,
-                            Role = RoleType.Member,
-                            StartDate = DateTime.Now,
-                            EndDate = DateTime.Now.AddDays(30)
-                        },
-                        new MemberCommittee {
-                            //Id = 17,
-                            CommitteeId = 6,
-                            MemberId = 17,
-                            Role = RoleType.Member,
-                            StartDate = DateTime.Now,
-                            EndDate = DateTime.Now.AddDays(30)
-                        },
-                        new MemberCommittee {
-                            //Id = 18, 
-                            CommitteeId = 7,
-                            MemberId = 18,
-                            Role = RoleType.Member,
-                            StartDate = DateTime.Now,
-                            EndDate = DateTime.Now.AddDays(30)
-                        },
-                        new MemberCommittee {
-                            //Id = 19,
-                            CommitteeId = 8,
-                            MemberId = 19,
-                            Role = RoleType.Member,
-                            StartDate = DateTime.Now,
-                            EndDate = DateTime.Now.AddDays(30)
-                        },
-                        new MemberCommittee {
-                            //Id = 20,
-                            CommitteeId = 9,
-                            MemberId = 20,
-                            Role = RoleType.Member,
-                            StartDate = DateTime.Now,
-                            EndDate = DateTime.Now.AddDays(30)
-                        },
-                        new MemberCommittee { 
-                            //Id = 21,
-                            CommitteeId = 5,
-                            MemberId = 21,
-                            Role = RoleType.Member,
-                            StartDate = DateTime.Now,
-                            EndDate = DateTime.Now.AddDays(30)
-                        },
-                        new MemberCommittee {
-                            //Id = 22, 
-                            CommitteeId = 6,
-                            MemberId = 22,
-                            Role = RoleType.Member,
-                            StartDate = DateTime.Now,
-                            EndDate = DateTime.Now.AddDays(30)
-                        },
-                        new MemberCommittee {
-                            //Id = 23,
-                            CommitteeId = 7,
-                            MemberId = 23,
-                            Role = RoleType.Member,
-                            StartDate = DateTime.Now,
-                            EndDate = DateTime.Now.AddDays(30)
-                        },
-                        new MemberCommittee {
-                            //Id = 24,
-                            CommitteeId = 8,
-                            MemberId = 24,
-                            Role = RoleType.Member,
-                            StartDate = DateTime.Now,
-                            EndDate = DateTime.Now.AddDays(30)
-                        },
-                        new MemberCommittee {
-                            //Id = 25,
-                            CommitteeId = 9,
-                            MemberId = 25,
-                            Role = RoleType.Member,
-                            StartDate = DateTime.Now,
-                            EndDate = DateTime.Now.AddDays(30)
-                        },
-                        new MemberCommittee { 
-                            //Id = 26,
-                            CommitteeId = 5,
-                            MemberId = 26,
-                            Role = RoleType.Member,
-                            StartDate = DateTime.Now,
-                            EndDate = DateTime.Now.AddDays(30)
-                        },
-                        new MemberCommittee { 
-                           // Id = 27,
-                            CommitteeId = 6,
-                            MemberId = 27,
-                            Role = RoleType.Member,
-                            StartDate = DateTime.Now,
-                            EndDate = DateTime.Now.AddDays(30)
-                        },
-                        new MemberCommittee {
-                           // Id = 28,
-                            CommitteeId = 7,
-                            MemberId = 28,
-                            Role = RoleType.Member,
-                            StartDate = DateTime.Now,
-                            EndDate = DateTime.Now.AddDays(30)
-                        },
-                        new MemberCommittee { 
-                           // Id = 29,
-                            CommitteeId = 8,
-                            MemberId = 29,
+                            //Id = 2, 
+                            CommitteeId = 4,
+                            MemberId = 3,
                             Role = RoleType.Member,
                             StartDate = DateTime.Now,
                             EndDate = DateTime.Now.AddDays(30)
                         },
                         new MemberCommittee {
                            // Id = 30, 
-                            CommitteeId = 9,
-                            MemberId = 30,
-                            Role = RoleType.Member,
+                            CommitteeId = 4,
+                            MemberId = 31,
+                            Role = RoleType.Admin,
                             StartDate = DateTime.Now,
                             EndDate = DateTime.Now.AddDays(30)
                         }
@@ -799,40 +652,40 @@ namespace Meeting_Manegment_System.Data
                     context.SaveChanges();
                 }
                 //Member Answer
-                if (!context.MembersAnswers.Any())
-                {
-                    context.MembersAnswers.AddRange(new List<MemberAnswers>()
-                    {
-                        new MemberAnswers
-                        {
-                           // Id = 1,
-                            VotingId = 1,
-                            MeetingId = 5,
-                            MemberId = 1,
-                            CommitteeId = 5,
-                            Comment = "موافق"
-                        },
-                        new MemberAnswers
-                        {
-                           // Id = 2,
-                            VotingId = 1,
-                            MeetingId = 5,
-                            MemberId = 2,
-                            CommitteeId = 5,
-                            Comment = "غير موافق"
-                        },
-                        new MemberAnswers
-                        {
-                           // Id = 3,
-                            VotingId = 1,
-                            MeetingId = 5,
-                            MemberId = 3,
-                            CommitteeId = 5,
-                            Comment = "ممتنع"
-                        }
-                    });
-                    context.SaveChanges();
-                }
+                //if (!context.MembersAnswers.Any())
+                //{
+                //    context.MembersAnswers.AddRange(new List<MemberAnswers>()
+                //    {
+                //        new MemberAnswers
+                //        {
+                //           // Id = 1,
+                //            VotingId = 1,
+                //            MeetingId = 1,
+                //            MemberId = 1,
+                //            CommitteeId = 3,
+                //            Comment = "موافق"
+                //        },
+                //        new MemberAnswers
+                //        {
+                //           // Id = 2,
+                //            VotingId = 1,
+                //            MeetingId = 2,
+                //            MemberId = 2,
+                //            CommitteeId = 2,
+                //            Comment = "غير موافق"
+                //        },
+                //        new MemberAnswers
+                //        {
+                //           // Id = 3,
+                //            VotingId = 1,
+                //            MeetingId = 3,
+                //            MemberId = 3,
+                //            CommitteeId = 1,
+                //            Comment = "ممتنع"
+                //        }
+                //    });
+                //    context.SaveChanges();
+                //}
             }
         }
     }

@@ -30,7 +30,8 @@
                     <th>الرد</th>
                     <th>التفاصيل / حالة الحضور</th>
                     <th>نوع الجلسة</th>
-                    <th>تاريخ الجلسة</th>
+                    <th>تاريخ نهاية الجلسة</th>
+                    <th>تاريخ بداية الجلسة</th>
                     <th>رقم الجلسة </th>
                 </tr>
             </thead>
@@ -53,7 +54,21 @@
                             }
                         </td>
                     <td>
-                        @if(item.Response==State.NotAnswerd)
+                        @if(item.Meeting.StartDate>=DateTime.Now&&item.Meeting.EndDate<=DateTime.Now)
+                        {
+                            if(item.Response==State.Attend)
+                            {
+                                <button>
+                                    <a style="text-decoration: none;color:black;" href="@Url.Action("EnterMeeting","UpcommingMeeting",new{MeetingId = item.Meeting.MeetingId})">
+                                        <b>
+                                            <span class="material-symbols-outlined">close</span>
+                                            دخول
+                                        </b>
+                                    </a>
+                                </button>    
+                            }
+                        }
+                        else if(item.Response==State.NotAnswerd)
                         {
                             <button>
                                     <a style="text-decoration: none;color:black;" href="@Url.Action("AddResponse","UpcommingMeeting",new{Response=0,id=item.MemberMeetingId})">
@@ -84,10 +99,10 @@
                             </button>
                         }
                     <button>
-                        <b>
+                                <a style="text-decoration: none;color:black;" href="@Url.Action("Details","UpcommingMeeting",new{id=@item.MeetingId})">
                             <span class="material-symbols-outlined">info</span>
                             التفاصيل
-                        </b>
+                        </a>
                     </button>
                     </td>
                         @if (item.Meeting.Emergency)
@@ -98,8 +113,9 @@
                         {
                             <td>عادية</td>
                         }
+                    <td>@item.Meeting.EndDate</td>
                     <td>@item.Meeting.StartDate</td>
-                    <td>@item.MeetingId</td>
+                    <td>@item.Meeting.MeetingId</td>
                 </tr>
                 }
             </tbody>
