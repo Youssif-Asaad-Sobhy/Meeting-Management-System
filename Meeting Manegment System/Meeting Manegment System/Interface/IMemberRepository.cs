@@ -6,7 +6,6 @@ namespace Meeting_Manegment_System.Interface
     {
         Member GetMemberByEmail(string Email);
         Member GetMemberById(int id);
-        List<Member> GetMembersExeptId(int Id);
         Member IsMember(Member member);
         bool Add(Member member);
         bool Delete(Member member);
