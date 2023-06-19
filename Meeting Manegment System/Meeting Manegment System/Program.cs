@@ -37,6 +37,10 @@ if (!app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
+//Seed DataBase
+AppDbInitializer.Seed(app);
+
+
 app.UseRouting();
 app.UseSession();
 app.UseAuthorization();
