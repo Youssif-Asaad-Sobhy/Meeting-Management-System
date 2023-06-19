@@ -9,9 +9,11 @@ namespace Meeting_Manegment_System.Controllers
     public class DocumentController : Controller
     {
         private IDocumentRepository _document;
-        public DocumentController(IDocumentRepository document)
+        private IMeetingRepository _meeting;
+        public DocumentController(IMeetingRepository meeting,IDocumentRepository document)
         {
             _document = document;
+            _meeting = meeting;
         }
         public IActionResult Upload()
         {
@@ -22,15 +24,12 @@ namespace Meeting_Manegment_System.Controllers
             WordDocument wordDoc = _document.GetFileById(id);
             if (wordDoc != null)
             {
-                return File(wordDoc.FileContent, "application/vnd.openxmlformats-officedocument.wordprocessingml.document", wordDoc.FileName);
+                return File(wordDoc.Content, "application/vnd.openxmlformats-officedocument.wordprocessingml.document", wordDoc.FileName);
             }
-            else
-            {
-                return NotFound();
-            }
+            return NotFound();
         }
         [HttpPost]
-        public ActionResult Upload(IFormFile file)
+        public ActionResult Upload(IFormFile file,int id)
         {
             if (file != null && file.Length > 0)
             {
@@ -49,12 +48,25 @@ namespace Meeting_Manegment_System.Controllers
                     WordDocument wordDoc = new WordDocument
                     {
                         FileName = file.FileName,
-                        FileContent = Content
+                        Content = Content,
+                        MeetingId = id
                     };
 
                     // Save the WordDocument object to the database
-                    _document.Add(wordDoc);
-
+                    WordDocument word = _document.GetFileByMeetingId(id);
+                    if(word!=null)
+                    {
+                        word.FileName=file.FileName;
+                        word.Content=Content;
+                        _document.Update(word);
+                    }
+                    else
+                    {
+                        _document.Add(wordDoc);
+                        Meeting meeting = _meeting.GetMeetingById(id);
+                        meeting.DocumentId = _document.GetFileByMeetingId(id).Id;
+                        _meeting.Update(meeting);
+                    }
                     ViewBag.Message = "File uploaded successfully.";
                 }
                 else
@@ -67,7 +79,7 @@ namespace Meeting_Manegment_System.Controllers
                 ViewBag.Error = "Please choose a file to upload.";
             }
 
-            return View();
+            return RedirectToAction("Index","PreviousMeeting");
         }
 
 

@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Authentication;
+using System.ComponentModel.DataAnnotations;
 
 namespace Meeting_Manegment_System.Models
 {
@@ -9,7 +10,8 @@ namespace Meeting_Manegment_System.Models
         [Required]
         public string FileName { get; set; }
         [Required]
-        public byte[] FileContent { get; set; }
+        public byte[] Content { get; set; }
         public int? MeetingId { get; set; }
+        public Meeting Meeting { get; set; }
     }
 }

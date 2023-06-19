@@ -81,7 +81,10 @@ namespace Meeting_Manegment_System.Data
                 .HasForeignKey(m => m.CommitteeId)
                 .HasPrincipalKey(m => m.CommitteeId);
 
-
+            modelBuilder.Entity<Meeting>()
+                .HasOne(m => m.WordDocument)
+                .WithOne(w => w.Meeting)
+                .HasForeignKey<WordDocument>(w => w.MeetingId);
             base.OnModelCreating(modelBuilder);
 
         }

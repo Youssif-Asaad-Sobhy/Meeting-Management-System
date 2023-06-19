@@ -11,6 +11,10 @@ namespace Meeting_Manegment_System.Repository
         {
             _context = applicationDbContext;
         }
+        public WordDocument GetFileByMeetingId(int id)
+        {
+            return _context.WordDocuments.Where(x => x.MeetingId == id).FirstOrDefault();
+        }
         public bool Add(WordDocument wordDocument)
         {
             _context.Add(wordDocument);

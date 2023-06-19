@@ -62,6 +62,9 @@ namespace Meeting_Manegment_System.Migrations
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
 
+                    b.Property<int>("DocumentId")
+                        .HasColumnType("int");
+
                     b.Property<bool>("Emergency")
                         .HasColumnType("bit");
 
@@ -69,17 +72,9 @@ namespace Meeting_Manegment_System.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("WordDocumentId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("WordDocumentId1")
-                        .HasColumnType("int");
-
                     b.HasKey("MeetingId");
 
                     b.HasIndex("CommitteeId");
-
-                    b.HasIndex("WordDocumentId1");
 
                     b.ToTable("Meeting");
                 });
@@ -267,7 +262,7 @@ namespace Meeting_Manegment_System.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<byte[]>("FileContent")
+                    b.Property<byte[]>("Content")
                         .IsRequired()
                         .HasColumnType("varbinary(max)");
 
@@ -276,9 +271,13 @@ namespace Meeting_Manegment_System.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("MeetingId")
+                        .IsRequired()
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("MeetingId")
+                        .IsUnique();
 
                     b.ToTable("WordDocuments");
                 });
@@ -301,13 +300,7 @@ namespace Meeting_Manegment_System.Migrations
                         .HasForeignKey("CommitteeId")
                         .IsRequired();
 
-                    b.HasOne("Meeting_Manegment_System.Models.WordDocument", "WordDocument")
-                        .WithMany()
-                        .HasForeignKey("WordDocumentId1");
-
                     b.Navigation("Committee");
-
-                    b.Navigation("WordDocument");
                 });
 
             modelBuilder.Entity("Meeting_Manegment_System.Models.MemberAnswers", b =>
@@ -394,6 +387,17 @@ namespace Meeting_Manegment_System.Migrations
                     b.Navigation("Meeting");
                 });
 
+            modelBuilder.Entity("Meeting_Manegment_System.Models.WordDocument", b =>
+                {
+                    b.HasOne("Meeting_Manegment_System.Models.Meeting", "Meeting")
+                        .WithOne("WordDocument")
+                        .HasForeignKey("Meeting_Manegment_System.Models.WordDocument", "MeetingId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Meeting");
+                });
+
             modelBuilder.Entity("Meeting_Manegment_System.Models.Committee", b =>
                 {
                     b.Navigation("Meetings");
@@ -406,6 +410,9 @@ namespace Meeting_Manegment_System.Migrations
                     b.Navigation("MemberAnswers");
 
                     b.Navigation("Votings");
+
+                    b.Navigation("WordDocument")
+                        .IsRequired();
 
                     b.Navigation("memberMeetings");
                 });

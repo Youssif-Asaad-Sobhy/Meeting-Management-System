@@ -15,6 +15,10 @@ namespace Meeting_Manegment_System.Repository
         {
             return _context.Meeting.Where(x => x.CommitteeId == id).ToList();
         }
+        public Meeting GetMeetingById(int id)
+        {
+            return _context.Meeting.Where(x => x.MeetingId == id).FirstOrDefault();
+        }
         public bool Add(Meeting meeting)
         {
             _context.Add(meeting);

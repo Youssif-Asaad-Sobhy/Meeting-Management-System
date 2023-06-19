@@ -70,23 +70,27 @@
             <tbody>
                 @foreach (var item in Model.meetings)
                 {
-                    <tr>
-                        <td>
+                    <tr style="width:fit-content;">
+                        <td >
+
+                            <form asp-action="Upload" asp-controller="Document" method="post" enctype="multipart/form-data">
+                                <input type="file" name="file">
+                                <button type="submit">تأكيد الرفع</button>
+                                <input type="hidden" name="id" value="@item.MeetingId">
+
                             <button>
                                 <span class="material-symbols-outlined">print</span>
-                                @*
-
-                                <a href="@Url.Action("Download","Document",new{id=item.WordDocumentId})">
+                                <a style="text-decoration:none;color:black;" href="@Url.Action("Download","Document",new{id=item.DocumentId})">
 
                                 طباعة محضر الجلسة
                                 </a>
-                                *@
 
                             </button>
                             <button>
                                 <span class="material-symbols-outlined">info</span>
                                 التفاصيل
                             </button>
+                        </form>
                         </td>
                         @if(item.Emergency)
                         {

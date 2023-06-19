@@ -16,7 +16,7 @@
 </nav>
 <section class="add-member-main_sectionee">
     <div class="add-member-containeree">
-        <form class="formee" method="post" asp-action="Create">
+        <form class="formee" method="post" asp-action="Create" onsubmit="return validatePasswordChangeForm()">
             <h2> اضافة عضو جديد</h2>
             <input asp-for="Name" type="text" class="box" placeholder="اسم العضو">
             <span asp-validation-for="Name"></span>
@@ -24,8 +24,9 @@
             <span asp-validation-for="Phone"></span>
             <input asp-for="Email" type="text" class="box" placeholder="البريد الالكتروني">
             <span asp-validation-for="Email"></span>
-            <input asp-for="Password" type="text" class="box" placeholder="كلمة المرور">
+            <input asp-for="Password" id="password" type="text" class="box" placeholder="كلمة المرور">
             <span asp-validation-for="Password"></span>
+            <text id="alert">@ViewBag.Error</text>
             <input type="submit" value="اضافة" id="submit">
         </form>
     </div>
@@ -34,3 +35,25 @@
 <footer>
     <p>جميع الحقوق محفوظة &copy; 2023 by team 7</p>
 </footer>
+
+<script>
+    function validatePasswordChangeForm() {
+        var newPasswordInput = document.getElementById("password");
+        var txt = document.getElementById("alert");
+
+        // Validate new password
+        var newPassword = newPasswordInput.value;
+        if (!newPassword || newPassword.trim() === "") {
+            txt.innerText = "يرجى إدخال كلمة المرور الجديدة.";
+            return false;
+        }
+
+        // Validate password length
+        if (newPassword.length < 8) {
+            txt.innerText = "يجب أن تحتوي كلمة المرور الجديدة على الأقل على 8 أحرف.";
+            return false;
+        }
+
+        return true; // Submit the form
+    }
+</script>

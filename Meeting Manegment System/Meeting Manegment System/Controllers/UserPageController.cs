@@ -26,10 +26,6 @@ namespace Meeting_Manegment_System.Controllers
         {
             return View(new Member());
         }
-        public IActionResult Delete()
-        {
-            return RedirectToAction("Index", "Member");
-        }
         public IActionResult NewMember()
         {
             return RedirectToAction("Create","Member");

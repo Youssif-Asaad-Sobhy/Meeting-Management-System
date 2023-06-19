@@ -1,0 +1,37 @@
+﻿@model Member
+<header>
+    <a href="#" class="logo">meetme</a>
+
+    <a href="#" class="logo">old trafford</a>
+
+</header>
+<div class="user-info">
+    <p>وظيفة المستخدم</p>
+    <p>اسم المستخدم</p>
+</div>
+<section class="add-member-main_sectionee">
+    <div class="add-member-containeree">
+        <form class="add-member-formee" asp-action="Edit" method="post">
+            <h2> تعديل بيانات عضو</h2>
+            <label>اسم العضو</label>
+            <input type="hidden" asp-for="@Model.MemberId" value="@Model.MemberId" />
+            <span asp-validation-for="MemberId"></span>
+            <input type="text" asp-for="@Model.Name" class="box"  value="@Model.Name">
+            <span asp-validation-for="Name"></span>
+            <label>رقم الهاتف</label>
+            <input type="text" asp-for="@Model.Phone" class="box" value="@Model.Phone">
+            <span asp-validation-for="Phone"></span>
+            <label>البريد الالكترونى</label>
+            <input type="text" asp-for="@Model.Email" class="box" value="@Model.Email">
+            <span asp-validation-for="Email"></span>
+            <label>كلمة المرور</label>
+            <input type="text" asp-for="@Model.Password" class="box" value="@Model.Password">
+            <span asp-validation-for="Password"></span>
+            <input type="submit" value="حفظ" id="submit">
+        </form>
+    </div>
+</section>
+
+<footer>
+    <p>جميع الحقوق محفوظة &copy; 2023 by team 7</p>
+</footer>
