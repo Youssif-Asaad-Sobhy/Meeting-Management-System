@@ -11,7 +11,10 @@ namespace Meeting_Manegment_System.Repository
         {
             _context = context;
         }
-
+        public List<Voting> GetAllVotingsByMeetingId(int id)
+        {
+            return _context.Votings.Where(x=>x.MeetingId == id).ToList();
+        }
         public bool Add(Voting voting)
         {
             _context.Add(voting);

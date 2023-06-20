@@ -59,7 +59,7 @@
                             if(item.Response==State.Attend)
                             {
                                 <button>
-                                    <a style="text-decoration: none;color:black;" href="@Url.Action("EnterMeeting","UpcommingMeeting",new{MeetingId = item.Meeting.MeetingId})">
+                                    <a style="text-decoration: none;color:black;" href="@Url.Action("Index","CurMeeting",new{MeetingId = item.Meeting.MeetingId})">
                                         <b>
                                             <span class="material-symbols-outlined">close</span>
                                             دخول

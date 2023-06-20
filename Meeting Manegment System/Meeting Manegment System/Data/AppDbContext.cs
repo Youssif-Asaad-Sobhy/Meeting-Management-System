@@ -101,7 +101,6 @@ namespace Meeting_Manegment_System.Data
         public DbSet<MemberAnswers> MembersAnswers { get; set; }
         public DbSet<MemberCommittee> MemberCommittees { get; set; }
         public DbSet<Organization> Organizations { get; set; }
-        public DbSet<Report> Reports { get; set; }
         public DbSet<Voting> Votings { get; set; }
         public DbSet<WordDocument> WordDocuments { get; set; }
     }

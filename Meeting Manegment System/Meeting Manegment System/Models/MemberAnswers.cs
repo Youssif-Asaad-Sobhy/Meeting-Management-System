@@ -4,6 +4,12 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Meeting_Manegment_System.Models
 {
+    public enum Reply
+    {
+        Accept,
+        Deny,
+        Abstain
+    }
     public class MemberAnswers
     {
         [Key]
@@ -14,8 +20,7 @@ namespace Meeting_Manegment_System.Models
         public int MeetingId { get; set; }
         [Required]
         public int MemberId { get; set; }
-        [Required]
-        public int CommitteeId { get; set; }
+        public Reply Response { get; set; }
         public string? Comment { get; set; }
         public Voting Voting { get; set; }
         public Meeting Meeting { get; set; }

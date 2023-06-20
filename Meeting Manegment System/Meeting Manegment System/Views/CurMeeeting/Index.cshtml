@@ -1,5 +1,98 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿@model List<Voting>
+
+<header>
+    <a href="#" class="logo">meetme</a>
+
+    <a href="#" class="logo">old trafford</a>
+
+</header>
+
+<nav class="navigation">
+    <a href="@Url.Action("Logout","Main")">تسجيل الخروج</a>
+    <a href="@Url.Action("Index","UserPage")">الحساب الشخصي</a>
+    <a href="@Url.Action("Index","PreviousMeeting")">الجلسات السابقة</a>
+    <a href="@Url.Action("Index","UpcommingMeeting")">جلسة قيد الاجراء</a>
+    <a href="@Url.Action("CommitteeMembers","Main")">تشكيل المجلس</a>
+    <a href="@Url.Action("SelectCommittee","Main")">الصفحه الرئيسية</a>
+</nav>
+<section class="information-main_sectione">
+    <div class="info_pagee_head">
+        <p>
+            موضوعات الجلسة
+        </p>
+    </div>
+
+    <form class="information-formee">
+        @{
+            var i = 1;
+            foreach(var item in Model)
+            {
+                <h2>موضوع رقم (@i)</h2>
+                <div class="infoo_infoo">
+
+                    <p>@item.Question</p>
+
+                </div>
+                <label>عنوان الموضوع</label>
+                <br>
+
+                <div class="infoo_infoo">
+                    <p>@item.Description</p>
+                </div>
+                <label>الموضوع</label>
+
+                <div class="infoo_infoo">
+                    <form id="votingForm">
+                        <div class="infoo_infoo">
+                            <label for="option1">
+                                <input type="radio" name="vote" id="option1" value="Option 1"> موافق
+                            </label><br>
+                            <label for="option2">
+                                <input type="radio" name="vote" id="option1" value="Option 2"> غير موافق
+                            </label><br>
+
+                            <label for="option3">
+                                <input type="radio" name="vote" id="option2" value="Option 3">امتنع
+                            </label><br>
+
+                        </div>
+                        <label>الرأى</label>
+                    </form>
+                </div>
+
+                <div class="infoo_infoo">
+                    <input type="submit" value="ارسال الرأى والتعليق" id="comment_submit">
+
+                    <textarea name="comment" cols="35" rows="6"></textarea>
+                </div>
+                <label>التعليق</label>
+                i++;
+            }
+        }
+    </form>
+
+
+    <!-- <hr> -->
+    <!-- </div> -->
+</section>
+
+<footer>
+    <p>جميع الحقوق محفوظة &copy; 2023 by team 7</p>
+</footer>
+<script>
+    function submitVote() {
+        // Get the selected value
+        var selectedOption = document.querySelector('input[name="vote"]:checked');
+
+        if (selectedOption) {
+            // Display the selected option
+            alert("You voted for: " + selectedOption.value);
+
+            // Reset the form
+            document.getElementById("votingForm").reset();
+        } else {
+            // No option selected
+            alert("Please select an option to vote.");
+        }
+    }
+</script>
