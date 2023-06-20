@@ -769,6 +769,20 @@ namespace Meeting_Manegment_System.Data
                     await userManager.CreateAsync(newVicePresedint, "VicePresedint@123");
                     await userManager.AddToRoleAsync(newVicePresedint, UserRoles.VicePresedint);
                 }
+
+                string SecretaryEmail = "Secretary@meeting.com";
+                var Secretary = await userManager.FindByEmailAsync(SecretaryEmail);
+                if (appUser == null)
+                {
+                    var newSecretary = new ApplicationUser()
+                    {
+                        FullName = "Secretary",
+                        Email = SecretaryEmail,
+                        EmailConfirmed = true
+                    };
+                    await userManager.CreateAsync(newSecretary, "Secretary@123");
+                    await userManager.AddToRoleAsync(newSecretary, UserRoles.Secretary);
+                }
             }
         }
     }

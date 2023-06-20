@@ -17,9 +17,9 @@
 </nav>
 
 <div class="previous_meet_searchbar">
-    <form>
+    <form asp-controller="PreviousMeeting" asp-action="Filter">
         <button type="submit" id="search">بحث</button>
-        <input for="search" type="search" placeholder="ابحث">
+        <input name="searchString" for="search" type="search" placeholder="ابحث">
     </form>
 
     <p>
@@ -43,7 +43,7 @@
 
     <div class="Filter-type" id="type-number-filter">
         <select id="type">
-            <option value="type1">الكل</option>
+            <option value="type3">الكل</option>
             <option value="type1">عادية</option>
             <option value="type2">طارئة</option>
         </select>
@@ -113,3 +113,54 @@
 <footer>
     <p>جميع الحقوق محفوظة &copy; 2023 by team 7</p>
 </footer>
+
+
+<script>
+    // Search functionality
+    const searchForm = document.querySelector('form');
+    const searchStringInput = document.querySelector('input[name="searchString"]');
+    searchForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const searchString = searchStringInput.value.trim();
+        filterTable(searchString);
+    });
+
+    // Filtering functionality
+    const filterDateToInput = document.getElementById('filter-date');
+    const filterDateFromInput = document.getElementById('filter-date');
+    const filterTypeSelect = document.getElementById('type');
+    const filterNumberInput = document.getElementById('number');
+
+    [filterDateToInput, filterDateFromInput, filterTypeSelect, filterNumberInput].forEach((element) => {
+        element.addEventListener('change', filterTable);
+    });
+
+    function filterTable() {
+        const filterDateTo = filterDateToInput.value;
+        const filterDateFrom = filterDateFromInput.value;
+        const filterType = filterTypeSelect.value;
+        const filterNumber = filterNumberInput.value;
+
+        const rows = document.querySelectorAll('tbody tr');
+        rows.forEach((row) => {
+            const type = row.querySelector('td:nth-child(2)').textContent.trim();
+            const startDate = row.querySelector('td:nth-child(3)').textContent.trim();
+            const meetingId = row.querySelector('td:nth-child(4)').textContent.trim();
+
+            const typeMatch = (filterType === 'type1' && type.toLowerCase() === 'عادية') ||
+                (filterType === 'type2' && type.toLowerCase() === 'طارئة')||
+                (filterType === 'type3' && type.toLowerCase() != 'siuu' )
+                ;
+
+            const dateMatch = (filterDateTo === '' || startDate <= filterDateTo) &&
+                (filterDateFrom === '' || startDate >= filterDateFrom);
+            const numberMatch = filterNumber === '' || meetingId.includes(filterNumber);
+
+            if (typeMatch && dateMatch && numberMatch) {
+                row.style.display = '';
+            } else {
+                row.style.display = 'none';
+            }
+        });
+    }
+</script>

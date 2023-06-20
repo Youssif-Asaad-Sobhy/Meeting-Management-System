@@ -1,6 +1,9 @@
 using Meeting_Manegment_System.Data;
 using Meeting_Manegment_System.Interface;
+using Meeting_Manegment_System.Models;
 using Meeting_Manegment_System.Repository;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 
@@ -19,13 +22,24 @@ builder.Services.AddScoped<IVotingRepository, VotingRepository>();
 builder.Services.AddScoped<IMeetingRepository, MeetingRepository>();
 builder.Services.AddScoped<IDocumentRepository, DocumentRepository>();
 builder.Services.AddScoped<ICommitteeRepository, CommitteeRepository>();
-builder.Services.AddSingleton<IHttpContextAccessor,HttpContextAccessor>();
+builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 builder.Services.AddScoped<IMemberAnswerRepository, MemberAnswerRepository>();
 builder.Services.AddScoped<IMemberMeetingRepository, MemberMeetingRepository>();
 builder.Services.AddScoped<IOrganizationRepository, OrganizationRctorepository>();
 builder.Services.AddScoped<IMemberCommitteeRepository, MemberCommitteeRepository>();
 
+builder.Services.AddIdentityCore<ApplicationUser>()
+    .AddUserManager<UserManager<ApplicationUser>>()
+    .AddSignInManager<SignInManager<ApplicationUser>>()
+    .AddRoles<IdentityRole>() // Register the RoleManager<IdentityRole> service
+    .AddEntityFrameworkStores<ApplicationDbContext>()
+    .AddDefaultTokenProviders();
+
+builder.Services.AddSingleton<ISystemClock, SystemClock>();
+
 var app = builder.Build();
+
+
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
@@ -39,10 +53,15 @@ app.UseStaticFiles();
 
 //Seed DataBase
 AppDbInitializer.Seed(app);
-AppDbInitializer.SeedUsersAndRulesAsync(app).Wait();
+await AppDbInitializer.SeedUsersAndRulesAsync(app);
+
+
 
 app.UseRouting();
 app.UseSession();
+app.UseAuthentication();
+app.UseAuthorization();
+
 app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",

@@ -26,6 +26,12 @@ namespace Meeting_Manegment_System.Controllers
             PMV.MemberId = MemberId; 
             return View(PMV);
         }
+        /*
+        public
+        public async Task<IActionResult>Filter(string searchString)
+        {
+            var AllMeetings = await _service.GetAllASync(n => n.)
+        }*/
         
     }
 }
