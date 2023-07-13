@@ -1,0 +1,62 @@
+﻿@model MemberCommittee
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+
+@{
+    var session = HttpContextAccessor.HttpContext.Session;
+
+    var sessionId = (RoleType)session.GetInt32("Role");
+    var username = session.GetString("UserName");
+}
+
+
+<header>
+    <a href="#" class="logo">meetme</a>
+
+    <a href="#" class="logo">old trafford</a>
+
+</header>
+
+<nav class="navigation">
+    <a href="@Url.Action("Logout","Main")">تسجيل الخروج</a>
+    <a href="@Url.Action("Index","UserPage")" style="color:rgb(120,226,230);">الحساب الشخصي</a>
+    <a href="@Url.Action("Index","PreviousMeeting")">الجلسات السابقة</a>
+    <a href="@Url.Action("Index","UpcommingMeeting")">جلسة قيد الاجراء</a>
+    <a href="@Url.Action("CommitteeMembers","Main")">تشكيل المجلس</a>
+    <a href="@Url.Action("SelectCommittee","Main")">الصفحه الرئيسية</a>
+</nav>
+
+<div class="user-info">
+    <p>@sessionId</p>
+    <p>@username</p>
+</div>
+<div class="info_page_head">
+    <p>
+        انشاء جلسة جديده
+    </p>
+</div>
+
+
+<section class="information-main_sectione">
+    <form class="information-forme"  asp-action="AddToCommittee" method="post">
+        <h2>اضافة عضو</h2>
+        <div class="info_info_place">
+            <input type="text" name="email" class="box_info">
+            <span asp-validation-for="@Model.Member.Email"></span>
+            <label>الايميل</label>
+        </div>
+        <div class="info_info_place">
+            <select name="role">
+                <option value="1">عضو</option>
+                <option value="2">نائب رئيس</option>
+                <option value="3">امين اللجنه</option>
+            </select>
+            <span asp-validation-for="@Model.Role"></span>
+            <label>الدور</label>
+        </div>
+        @ViewBag.Error
+        <div class="info_info">
+            <input type="submit" id="submit" />
+        </div>
+    </form>
+
+</section>

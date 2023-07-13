@@ -38,6 +38,7 @@ namespace Meeting_Manegment_System.Controllers
             if (member!=null)
             {
                 _session.HttpContext.Session.SetInt32("MemberId",member.MemberId);
+                _session.HttpContext.Session.SetString("UserName",member.Name);
                 return RedirectToAction("SelectCommittee","Main");
             }
             ViewBag.IsGood = false;

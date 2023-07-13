@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+﻿@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 * {
     font-family: 'Poppins', sans-serif;
@@ -33,9 +33,9 @@ header {
     .navigation a {
         text-decoration: none;
         color: #f0f0f0;
-        font-size: 15px;
-        font-weight: 400;
-        margin:10px;
+        font-size: 20px;
+        font-weight: 500;
+
     }
 
         .navigation a:hover {
@@ -343,7 +343,6 @@ footer p {
     border-radius: 15px;
     margin-bottom: 40px;
     transition: 0.7s ease;
-    cursor:pointer;
 }
 
     .card-btn:hover {
@@ -597,13 +596,20 @@ footer p {
     flex-direction: column;
     width: 55%;
     align-items: center;
+    justify-content: right;
     background-color: whitesmoke;
     box-shadow: 0 5px 25px rgba(1 1 1 /15%);
 }
 
     .add-committee-formee h2 {
         margin-top: 20px;
+        text-align: center;
     }
+
+    .add-committee-formee label {
+        text-align: right;
+    }
+
 
 
 /* report design*/
@@ -719,20 +725,21 @@ footer p {
     background-color: whitesmoke;
     width: 30em;
     box-shadow: 0 3px 10px rgba(1 1 1 /10%);
-    padding: 15px;
-    margin: 10px;
+    border-radius: 10px;
+    padding: 25px;
+    margin: 15px;
     justify-content: center;
 }
 
     .info_info select {
         width: 50%;
         margin-right: 10px;
+        border-radius: 20px;
     }
 
     .info_info input {
         margin-right: 10px;
         border-radius: 20px;
-        cursor:pointer;
     }
 
 .info_info_place {
@@ -752,7 +759,7 @@ footer p {
         /*border-radius: 20px;*/
     }
 
-/*    ----------------------------------------------------------------------------------------------*/
+/*    غطرش----------------------------------------------------------------------------------------------*/
 .information-formee {
     margin: 50px;
     display: flex;
@@ -811,6 +818,7 @@ footer p {
 
     .infoo_infoo_place input {
         margin-right: 40px;
+        border-radius: 20px;
     }
 
 .box_infoo {
@@ -844,14 +852,12 @@ footer p {
     }
 
 #comment_submit {
-    padding: 0px 20px;
+    padding: 10px;
     width: 20%;
-    margin-top: 30px;
+    margin-top:30px;
     background-color: #002b36;
     color: white;
     font-weight: bold;
-    border: none;
-    outline: none;
     border-radius: 20px;
     height: 50px;
 }
@@ -871,6 +877,7 @@ footer p {
     align-items: center;
     padding: 5px 200px;
     border-radius: 15px;
+    margin-top: 30px;
 }
 
     .info_pagee_head p {
@@ -969,4 +976,186 @@ footer p {
     padding: 9px 7px 6px 7px;
     background-color: rgb(126, 144, 175);
     border: hidden;
+}
+
+
+/*////////////////////*/
+
+/*view entities table*/
+
+
+
+
+
+
+.informationn-formee {
+    margin: 50px;
+    display: flex;
+    flex-direction: row;
+    width: 70%;
+    align-items: center;
+    justify-content: center;
+    background-color: whitesmoke;
+    box-shadow: 0 5px 25px rgba(1 1 1 /15%);
+    flex-wrap: wrap;
+}
+
+    .informationn-formee h2 {
+        width: 100%;
+        text-align: center;
+    }
+
+    .informationn-formee label {
+        text-align: right;
+    }
+
+
+
+.innfoo_infoo {
+    display: flex;
+    flex-direction: row;
+    background-color: whitesmoke;
+    width: 30em;
+    box-shadow: 0 3px 10px rgba(1 1 1 /10%);
+    border-radius: 10px;
+    padding: 25px;
+    margin: 15px;
+    justify-content: center;
+}
+
+    .innfoo_infoo input {
+        margin-right: 30px;
+        /*border-radius: 20px;*/
+    }
+
+.x1 {
+    display: flex;
+    flex-direction: row;
+    /* border: #002b36 2px solid; */
+    justify-content: center;
+    align-items: center;
+}
+
+.x2 {
+    display: flex;
+    flex-direction: column;
+    background-color: whitesmoke;
+    width: 30em;
+    box-shadow: 0 3px 10px rgba(1 1 1 /10%);
+    border-radius: 10px;
+    padding: 25px;
+    margin: 15px;
+    justify-content: center;
+    /* border: #002b36 2px solid; */
+}
+
+
+.x3 {
+    display: flex;
+    flex-direction: column;
+    background-color: whitesmoke;
+    width: 30em;
+    box-shadow: 0 3px 10px rgba(1 1 1 /10%);
+    border-radius: 10px;
+    padding: 25px;
+    margin: 15px;
+    justify-content: center;
+    height: 300px;
+    /* border: #002b36 2px solid; */
+}
+
+    .x3 p {
+        border: #002b36 solid 2px;
+        height: 200px;
+        padding: 5px;
+        text-align: right;
+    }
+
+.x4 {
+    display: flex;
+    /* flex-direction: column; */
+}
+
+.x5 {
+    display: flex;
+    flex-direction: column;
+    background-color: whitesmoke;
+    width: 30em;
+    box-shadow: 0 3px 10px rgba(1 1 1 /10%);
+    border-radius: 10px;
+    padding: 25px;
+    margin: 15px;
+    justify-content: center;
+    height: 80px;
+    /* border: #002b36 2px solid; */
+}
+
+    .x5 p {
+        border: #002b36 solid 2px;
+        height: 50px;
+        padding: 5px;
+        text-align: right;
+    }
+
+/* .informationn-formee-x{
+  margin: 50px;
+  display: flex;
+  flex-direction: row;
+  width: 70%;
+  align-items: center;
+  justify-content: center;
+  background-color: whitesmoke;
+  box-shadow: 0 5px 25px rgba(1 1 1 /15%);
+  flex-wrap: wrap;
+} */
+
+
+
+
+.time {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.xy {
+    display: flex;
+    flex-direction: row;
+    background-color: whitesmoke;
+    width: 400px;
+    box-shadow: 0 3px 10px rgba(1 1 1 /10%);
+    border-radius: 10px;
+    padding: 25px;
+    margin: 15px;
+    justify-content: center;
+}
+
+    .xy input {
+        margin-right: 15px;
+    }
+
+
+.box_info-p {
+    padding: 5px;
+    width: 70%;
+    height: 4vh;
+    text-align: right;
+    background-color: white;
+    border: 2px solid black;
+    margin-right: 15px;
+    border-radius: 10px;
+}
+
+.box_info-p-p {
+    width: 70%;
+    height: 4vh;
+    text-align: right;
+    background-color: white;
+    border: 2px solid black;
+    margin-right: 15px;
+    padding: 5px;
+    border-radius: 10px;
 }

@@ -8,7 +8,8 @@ namespace Meeting_Manegment_System.Models
     {
         Accept,
         Deny,
-        Abstain
+        Abstain,
+        NotAnswered
     }
     public class MemberAnswers
     {

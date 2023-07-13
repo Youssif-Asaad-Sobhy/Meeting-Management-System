@@ -11,6 +11,14 @@ namespace Meeting_Manegment_System.Repository
         {
             _context = context;
         }
+        public int GetMaxId()
+        {
+            return _context.Votings.Max(x => x.VotingId);
+        }
+        public Voting GetById(int id)
+        {
+            return _context.Votings.FirstOrDefault(x => x.VotingId == id);
+        }
         public List<Voting> GetAllVotingsByMeetingId(int id)
         {
             return _context.Votings.Where(x=>x.MeetingId == id).ToList();

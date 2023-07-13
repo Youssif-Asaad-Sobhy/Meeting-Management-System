@@ -6,5 +6,6 @@ namespace Meeting_Manegment_System.ViewModels
     {
         public int MemberId { get; set; }
         public List<Meeting> meetings { get; set; }
+        public RoleType Role { get; set; }
     }
 }

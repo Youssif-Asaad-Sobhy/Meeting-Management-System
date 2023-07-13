@@ -12,6 +12,11 @@ namespace Meeting_Manegment_System.Repository
         {
             _context = context;
         }
+        public bool CheckMemberInCommittee(string email)
+        {
+            return _context.MemberCommittees.Include(x => x.Member).FirstOrDefault(x => x.Member.Email == email)!=null;
+        }
+
         public RoleType GetRoleTypeById(int MemberId,int CommitteeId) 
         { 
             return _context.MemberCommittees.Where(x=>x.MemberId==MemberId&&x.CommitteeId==CommitteeId).FirstOrDefault().Role;

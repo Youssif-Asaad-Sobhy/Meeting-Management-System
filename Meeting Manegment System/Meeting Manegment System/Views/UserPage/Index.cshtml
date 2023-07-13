@@ -12,7 +12,7 @@
 
 <nav class="navigation">
     <a href="@Url.Action("Logout","Main")">تسجيل الخروج</a>
-    <a href="@Url.Action("Index","UserPage")">الحساب الشخصي</a>
+    <a href="@Url.Action("Index","UserPage")" style="color:rgb(120,226,230);">الحساب الشخصي</a>
     <a href="@Url.Action("Index","PreviousMeeting")">الجلسات السابقة</a>
     <a href="@Url.Action("Index","UpcommingMeeting")">جلسة قيد الاجراء</a>
     <a href="@Url.Action("CommitteeMembers","Main")">تشكيل المجلس</a>
@@ -46,7 +46,7 @@
                     <i class="fa-solid fa-user-minus"></i>
                 </div>
                 <div class="info2">
-                    <a href="@Url.Action("Delete")" class="card2-btn">ازالة عضو</a>
+                    <a href="@Url.Action("Delete")" class="card2-btn">ازالة او تعديل عضو</a>
                 </div>
             </div>
 
@@ -70,8 +70,16 @@
                 </div>
             </div>
     }
-    @if(Model.Role!=RoleType.Member)
+    @if(Model.Role!=RoleType.Member&&Model.Role!=RoleType.Admin)
     {
+            <div class="card2">
+                <div class="icon2">
+                    <i class="fa-solid fa-people-line"></i>
+                </div>
+                <div class="info2">
+                    <a href="@Url.Action("AddToCommittee","Member")" class="card2-btn">اضافة عضو</a>
+                </div>
+            </div>
             <div class="card2">
                 <div class="icon2">
                     <i class="fa-solid fa-people-line"></i>

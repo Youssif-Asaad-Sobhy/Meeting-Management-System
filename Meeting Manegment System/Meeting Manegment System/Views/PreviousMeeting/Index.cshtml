@@ -1,5 +1,15 @@
 ﻿@using Meeting_Manegment_System.ViewModels
 @model PreviousMeetingView
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+
+@{
+    var session = HttpContextAccessor.HttpContext.Session;
+
+    var sessionId = (RoleType)session.GetInt32("Role");
+    var username = session.GetString("UserName");
+}
+
+
 <header>
     <a href="#" class="logo">meetme</a>
 
@@ -10,22 +20,16 @@
 <nav class="navigation">
     <a href="@Url.Action("Logout","Main")">تسجيل الخروج</a>
     <a href="@Url.Action("Index","UserPage")">الحساب الشخصي</a>
-    <a href="@Url.Action("Index","PreviousMeeting")">الجلسات السابقة</a>
+    <a href="@Url.Action("Index","PreviousMeeting")" style="color:rgb(120,226,230)">الجلسات السابقة</a>
     <a href="@Url.Action("Index","UpcommingMeeting")">جلسة قيد الاجراء</a>
     <a href="@Url.Action("CommitteeMembers","Main")">تشكيل المجلس</a>
     <a href="@Url.Action("SelectCommittee","Main")">الصفحه الرئيسية</a>
 </nav>
-
-<div class="previous_meet_searchbar">
-    <form>
-        <button type="submit" id="search">بحث</button>
-        <input for="search" type="search" placeholder="ابحث">
-    </form>
-
-    <p>
-        الجلسات السابقة
-    </p>
+<div class="user-info">
+    <p>@sessionId</p>
+    <p>@username</p>
 </div>
+
 
 <div class="filter-bar">
 
@@ -43,7 +47,7 @@
 
     <div class="Filter-type" id="type-number-filter">
         <select id="type">
-            <option value="type1">الكل</option>
+            <option value="type3">الكل</option>
             <option value="type1">عادية</option>
             <option value="type2">طارئة</option>
         </select>
@@ -71,28 +75,31 @@
                 @foreach (var item in Model.meetings)
                 {
                     <tr style="width:fit-content;">
-                        <td >
+                        <td>
 
                             <form asp-action="Upload" asp-controller="Document" method="post" enctype="multipart/form-data">
+                                @if(Model.Role!=RoleType.Member)
+                                {
                                 <input type="file" name="file">
-                                <button type="submit">تأكيد الرفع</button>
-                                <input type="hidden" name="id" value="@item.MeetingId">
+                                <button type="submit" style="cursor:pointer;">تأكيد الرفع</button>
+                                <input type="hidden" name="id" value="@item.MeetingId" />  
+                                }
 
-                            <button>
-                                <span class="material-symbols-outlined">print</span>
-                                <a style="text-decoration:none;color:black;" href="@Url.Action("Download","Document",new{id=item.DocumentId})">
+                                <button>
+                                    <span class="material-symbols-outlined">print</span>
+                                    <a style="text-decoration:none;color:black;" href="@Url.Action("Download","Document",new{id=item.DocumentId})">
 
-                                طباعة محضر الجلسة
-                                </a>
+                                        طباعة محضر الجلسة
+                                    </a>
 
-                            </button>
-                            <button>
-                                <span class="material-symbols-outlined">info</span>
-                                التفاصيل
-                            </button>
-                        </form>
+                                </button>
+                                <button>
+                                    <span class="material-symbols-outlined">info</span>
+                                    التفاصيل
+                                </button>
+                            </form>
                         </td>
-                        @if(item.Emergency)
+                        @if (item.Emergency)
                         {
                             <td>طارئة</td>
                         }
@@ -113,3 +120,54 @@
 <footer>
     <p>جميع الحقوق محفوظة &copy; 2023 by team 7</p>
 </footer>
+
+
+<script>
+    // Search functionality
+    const searchForm = document.querySelector('form');
+    const searchStringInput = document.querySelector('input[name="searchString"]');
+    searchForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const searchString = searchStringInput.value.trim();
+        filterTable(searchString);
+    });
+
+    // Filtering functionality
+    const filterDateToInput = document.getElementById('filter-date');
+    const filterDateFromInput = document.getElementById('filter-date');
+    const filterTypeSelect = document.getElementById('type');
+    const filterNumberInput = document.getElementById('number');
+
+    [filterDateToInput, filterDateFromInput, filterTypeSelect, filterNumberInput].forEach((element) => {
+        element.addEventListener('change', filterTable);
+    });
+
+    function filterTable() {
+        const filterDateTo = filterDateToInput.value;
+        const filterDateFrom = filterDateFromInput.value;
+        const filterType = filterTypeSelect.value;
+        const filterNumber = filterNumberInput.value;
+
+        const rows = document.querySelectorAll('tbody tr');
+        rows.forEach((row) => {
+            const type = row.querySelector('td:nth-child(2)').textContent.trim();
+            const startDate = row.querySelector('td:nth-child(3)').textContent.trim();
+            const meetingId = row.querySelector('td:nth-child(4)').textContent.trim();
+
+            const typeMatch = (filterType === 'type1' && type.toLowerCase() === 'عادية') ||
+                (filterType === 'type2' && type.toLowerCase() === 'طارئة') ||
+                (filterType === 'type3' && type.toLowerCase() != 'siuu')
+                ;
+
+            const dateMatch = (filterDateTo === '' || startDate <= filterDateTo) &&
+                (filterDateFrom === '' || startDate >= filterDateFrom);
+            const numberMatch = filterNumber === '' || meetingId.includes(filterNumber);
+
+            if (typeMatch && dateMatch && numberMatch) {
+                row.style.display = '';
+            } else {
+                row.style.display = 'none';
+            }
+        });
+    }
+</script>

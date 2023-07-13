@@ -1,9 +1,30 @@
 ﻿@model Committee
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+
+@{
+    var session = HttpContextAccessor.HttpContext.Session;
+
+    var sessionId = (RoleType)session.GetInt32("Role");
+    var username = session.GetString("UserName");
+}
+
 
 @{
     ViewData["Title"] = "Create";
 }
+<nav class="navigation">
+    <a href="@Url.Action("Logout","Main")">تسجيل الخروج</a>
+    <a href="@Url.Action("Index","UserPage")" style="color:rgb(120,226,230);">الحساب الشخصي</a>
+    <a href="@Url.Action("Index","PreviousMeeting")">الجلسات السابقة</a>
+    <a href="@Url.Action("Index","UpcommingMeeting")">جلسة قيد الاجراء</a>
+    <a href="@Url.Action("CommitteeMembers","Main")">تشكيل المجلس</a>
+    <a href="@Url.Action("SelectCommittee","Main")">الصفحه الرئيسية</a>
+</nav>
 
+<div class="user-info">
+    <p>@sessionId</p>
+    <p>@username</p>
+</div>
 <h1>Create</h1>
 
 <h4>Committee</h4>

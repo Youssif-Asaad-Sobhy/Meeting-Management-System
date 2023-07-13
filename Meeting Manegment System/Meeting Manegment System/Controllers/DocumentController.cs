@@ -3,9 +3,11 @@ using Meeting_Manegment_System.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
 using Meeting_Manegment_System.Interface;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Meeting_Manegment_System.Controllers
 {
+    
     public class DocumentController : Controller
     {
         private IDocumentRepository _document;
@@ -17,10 +19,18 @@ namespace Meeting_Manegment_System.Controllers
         }
         public IActionResult Upload()
         {
+            if (HttpContext.Session.GetInt32("Role") == null)
+            {
+                return RedirectToAction("Login", "Home");
+            }
             return View();
         }
         public IActionResult Download(int id)
         {
+            if (HttpContext.Session.GetInt32("Role") == null)
+            {
+                return RedirectToAction("Login", "Home");
+            }
             WordDocument wordDoc = _document.GetFileById(id);
             if (wordDoc != null)
             {
@@ -31,6 +41,10 @@ namespace Meeting_Manegment_System.Controllers
         [HttpPost]
         public ActionResult Upload(IFormFile file,int id)
         {
+            if (HttpContext.Session.GetInt32("Role") == null || (RoleType)HttpContext.Session.GetInt32("Role") ==RoleType.Member )
+            {
+                return RedirectToAction("Login", "Home");
+            }
             if (file != null && file.Length > 0)
             {
                 // Check if the file is a Word document
@@ -81,7 +95,5 @@ namespace Meeting_Manegment_System.Controllers
 
             return RedirectToAction("Index","PreviousMeeting");
         }
-
-
     }
 }

@@ -1,0 +1,73 @@
+﻿@model List<MemberAnswers>
+
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+
+@{
+    var session = HttpContextAccessor.HttpContext.Session;
+
+    var sessionId = (RoleType)session.GetInt32("Role");
+    var username = session.GetString("UserName");
+}
+
+
+<header>
+    <a href="#" class="logo">meetme</a>
+
+    <a href="#" class="logo">old trafford</a>
+
+</header>
+<nav class="navigation">
+    <a href="@Url.Action("Logout","Main")">تسجيل الخروج</a>
+    <a href="@Url.Action("Index","UserPage")">الحساب الشخصي</a>
+    <a href="@Url.Action("Index","PreviousMeeting")">الجلسات السابقة</a>
+    <a href="@Url.Action("Index","UpcommingMeeting")" style="color:rgb(120,226,230);">جلسة قيد الاجراء</a>
+    <a href="@Url.Action("CommitteeMembers","Main")">تشكيل المجلس</a>
+    <a href="@Url.Action("SelectCommittee","Main")">الصفحه الرئيسية</a>
+</nav>
+<div class="user-info">
+    <p>@sessionId</p>
+    <p>@username</p>
+</div>
+<section class="main_section">
+    <div class="table-responsive">
+        <table class="table">
+            <thead id="thead">
+                <tr>
+                    <th>التعليق</th>
+                    <th>التصويت</th>
+                    <th>اسم العضو</th>
+                </tr>
+            </thead>
+            <tbody>
+            @foreach(var item in Model)
+            {
+                    @if (item.Response == Reply.NotAnswered) continue;
+                <tr>
+                <td>@item.Comment</td>
+                @if(item.Response==Reply.Accept)
+                {
+                    <td>موافق</td>
+                }
+                else if(item.Response==Reply.Deny)
+                {
+                    <td>غير موافق</td>
+                }
+                else
+                {
+                    <td>امتنع</td>        
+                }
+                <td>@item.Member.Name</td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+    <div>
+        <a id="submit" style="text-decoration:none;" href="@Url.Action("index","CurMeeting",new{MeetingId=Model[0].MeetingId})">رجوع الى الاجتماع</a>
+    </div>
+</section>
+
+<footer>
+    <p>جميع الحقوق محفوظة &copy; 2023 by team 7</p>
+</footer>
+

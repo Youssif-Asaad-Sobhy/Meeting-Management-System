@@ -10856,11 +10856,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\MMV\\Meeting-Manegment-System\\Meeting Manegment System\\Meeting Manegment System\\MeetingManagementSystem.csproj",
+      "projectUniqueName": "D:\\GitHub Repos\\MMV\\Meeting-Manegment-System\\Meeting Manegment System\\Meeting Manegment System\\MeetingManagementSystem.csproj",
       "projectName": "MeetingManagementSystem",
-      "projectPath": "D:\\MMV\\Meeting-Manegment-System\\Meeting Manegment System\\Meeting Manegment System\\MeetingManagementSystem.csproj",
+      "projectPath": "D:\\GitHub Repos\\MMV\\Meeting-Manegment-System\\Meeting Manegment System\\Meeting Manegment System\\MeetingManagementSystem.csproj",
       "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
-      "outputPath": "D:\\MMV\\Meeting-Manegment-System\\Meeting Manegment System\\Meeting Manegment System\\obj\\",
+      "outputPath": "D:\\GitHub Repos\\MMV\\Meeting-Manegment-System\\Meeting Manegment System\\Meeting Manegment System\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config",

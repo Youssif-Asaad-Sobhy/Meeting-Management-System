@@ -1,4 +1,4 @@
-﻿@model Meeting
+﻿@model Voting
 @inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
 
 @{
@@ -15,7 +15,6 @@
     <a href="#" class="logo">old trafford</a>
 
 </header>
-
 <nav class="navigation">
     <a href="@Url.Action("Logout","Main")">تسجيل الخروج</a>
     <a href="@Url.Action("Index","UserPage")">الحساب الشخصي</a>
@@ -31,46 +30,31 @@
 
 <div class="info_page_head">
     <p>
-        تفاصيل الجلسة
+        موضوع جديد
     </p>
 </div>
+<section class="information-main_sectione" style="flex-direction:column;">
+    <form class="information-formee" asp-action="Create" method="post">
+        <h2 style="text-align: center;">موضوع جديد</h2>
 
-
-<section class="information-main_sectione">
-        <h2>تفاصيل الجلسة</h2>
-        <div class="info_info_place">
-            <p>@Model.Name</p>
-            <label>اسم الجلسة</label>
+        <div class="infoo_infoo" style="display: flex; flex-direction: column; align-items: center;">
+            <label style="text-align: center;">عنوان الموضوع</label>
+            <input type="text" asp-for="Question" class="box_infoeo" style="width: 300px;">
         </div>
-        <div class="info_info_place">
-            <p>@Model.EndDate</p>
-            <label>الى</label>
+        
+        <div class="infoo_infoo" style="display: flex; flex-direction: column; align-items: center;">
+            <label style="text-align: center;">الموضوع</label>
+            <textarea asp-for="Description" cols="45" rows="6" style="width: 300px;"></textarea>
         </div>
-        <div class="info_info_place">
-            <p>@Model.StartDate</p>
-            <label>من</label>
+        
+        <input type="hidden" asp-for="MeetingId" value="@Model.MeetingId" />
+        
+        <div class="infoo-infoo" style="display: flex; justify-content: center;">
+            <input type="submit" style="width: fit-content;justify-content:center;align-items:center;" value="ارسال" id="submit" />
         </div>
-        <label>التوقيت</label>
-        <div class="info_info_place">
-            <p>@Model.Place</p>
-        </div>
-        <label>مكان الانعقاد</label>
-        <div class="info_info_place">
-            <p>@Model.Goal</p>
-        </div>
-        <label>اهداف الجلسه</label>
-        <div class="info_info" id="type-number-filter">
-            @if(Model.Emergency)
-            {
-                <p>طارئة</p>
-            }
-            else
-            {
-                <p>عادية</p>
-            }
-            <label for="type">نوع الجلسة</label>
-        </div>
+    </form>
 </section>
+
 
 <footer>
     <p>جميع الحقوق محفوظة &copy; 2023 by team 7</p>

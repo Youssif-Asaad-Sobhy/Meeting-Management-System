@@ -1,0 +1,125 @@
+﻿@using Meeting_Manegment_System.ViewModels
+@model VotingView
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+
+@{
+    var session = HttpContextAccessor.HttpContext.Session;
+
+    var sessionId = (RoleType)session.GetInt32("Role");
+    var username = session.GetString("UserName");
+}
+
+
+<header>
+    <a href="#" class="logo">meetme</a>
+    <a href="#" class="logo">old trafford</a>
+</header>
+
+<nav class="navigation">
+    <a href="@Url.Action("Logout","Main")">تسجيل الخروج</a>
+    <a href="@Url.Action("Index","UserPage")">الحساب الشخصي</a>
+    <a href="@Url.Action("Index","PreviousMeeting")">الجلسات السابقة</a>
+    <a href="@Url.Action("Index","UpcommingMeeting")" style="color:rgb(120,226,230);">جلسة قيد الاجراء</a>
+    <a href="@Url.Action("CommitteeMembers","Main")">تشكيل المجلس</a>
+    <a href="@Url.Action("SelectCommittee","Main")">الصفحة الرئيسية</a>
+</nav>
+<div class="user-info">
+    <p>@sessionId</p>
+    <p>@username</p>
+</div>
+
+<section class="information-main_sectione" style="flex-direction:column;" >
+            <div class="info_pagee_head">
+                <p>
+                   موضوعات الجلسة
+                </p>
+            </div>
+            @{
+                var i = 0;
+                var index = 1;
+                string nme;
+                foreach(var item in Model.Votings)
+                {
+                    nme = item.VotingId.ToString();
+                    <form class="information-formee" asp-action="Vote" method="post">
+                        <h2>الموضوع رقم ( @index )</h2>
+                        <div class="infoo_infoo">
+                            <input type="text" placeholder="@item.Question" disabled name="meet_number" class="box_infoeo">
+                        </div>
+                        <label>عنوان الموضوع</label>
+                        <br>
+                        <div class="infoo_infoo">           
+                            <textarea disabled name="desc" placeholder="@item.Description" cols="45" rows="6"></textarea>
+                        </div>
+                        <label>الموضوع</label>    
+                        <div class="infoo_infoo">
+                        <input type="hidden" value="@item.VotingId" name="VoteId"/>
+                        <input type="hidden" value="@item.MeetingId" name="MeetId"/>
+                        @if(Model.MemberAnswers[i].Response==Reply.NotAnswered)
+                        {
+                            <label>موافق</label>
+                            <input type="radio" name="vote" value="0"  />
+                            <label>غير موافق</label>
+                            <input type="radio" name="vote" value="1" />
+                            <label>امتنع</label>
+                            <input type="radio" name="vote" value="2" />
+                            <input type="radio" style="display:none;" checked name="vote" value="3" />
+                        }
+                        else
+                        {
+                            @if(Model.MemberAnswers[i].Response==Reply.Accept)
+                            {
+                                <label>موافق</label>
+                            }
+                            else if (Model.MemberAnswers[i].Response == Reply.Deny)
+                            {
+                                <label>غير موافق</label>
+                            }
+                            else
+                            {
+                                <label>امتنع</label>
+                            }
+                        }
+                        </div>
+                        <label>الرأى</label>
+                        @if(Model.MemberAnswers[i].Response!=Reply.NotAnswered)
+                        {
+                            <div class="infoo_infoo">
+                                <textarea name="comment" placeholder="@Model.MemberAnswers[i].Comment" disabled cols="35" rows="6"></textarea>
+                            </div>
+                            <label>التعليق</label>
+                        }
+                        else
+                        {
+                            <div class="infoo_infoo">
+                                <input type="submit" value="حفظ التعليق" id="comment_submit">
+                                <textarea name="comment" cols="35" rows="6"></textarea>
+                            </div>
+                            <label>التعليق</label>
+                        }
+                        @if(Model.Role!=RoleType.Member)
+                        {
+                            <div class="infoo_infoo">
+                                <a id="submit" onclick="return warning();" style="width:fit-content;text-decoration:none;margin-right:10px;" href="@Url.Action("Delete",new {voteid =item.VotingId,meetid=item.MeetingId})">حذف</a>
+                                <a id="submit" style="width:fit-content;text-decoration:none;" href="@Url.Action("ShowVote",new{voteid=item.VotingId,meetid=item.MeetingId})">عرض الردود</a>
+                            </div>
+                        }
+                    </form>
+                    index++;
+                    i++;
+                }
+            }
+            @if (Model.Role != RoleType.Member)
+            {
+                <a class="card-btn" href="@Url.Action("Create","Voting", new { MeetingId = Model.MeetingId })"> اضافة موضوع</a>
+            }
+</section>
+
+<footer>
+    <p>جميع الحقوق محفوظة &copy; 2023 by team 7</p>
+</footer>
+<script>
+    function warning(){
+        return confirm("انت على وشك حذف التصويت");
+    }
+</script>

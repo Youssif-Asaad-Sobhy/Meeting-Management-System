@@ -1,4 +1,13 @@
 ﻿@model List<MemberMeeting>
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+
+@{
+    var session = HttpContextAccessor.HttpContext.Session;
+
+    var sessionId = (RoleType)session.GetInt32("Role");
+    var username = session.GetString("UserName");
+}
+
 
 <header>
     <a href="#" class="logo">meetme</a>
@@ -11,16 +20,15 @@
     <a href="@Url.Action("Logout","Main")">تسجيل الخروج</a>
     <a href="@Url.Action("Index","UserPage")">الحساب الشخصي</a>
     <a href="@Url.Action("Index","PreviousMeeting")">الجلسات السابقة</a>
-    <a href="@Url.Action("Index","UpcommingMeeting")">جلسة قيد الاجراء</a>
+    <a href="@Url.Action("Index","UpcommingMeeting")" style="color:rgb(120,226,230);">جلسة قيد الاجراء</a>
     <a href="@Url.Action("CommitteeMembers","Main")">تشكيل المجلس</a>
     <a href="@Url.Action("SelectCommittee","Main")">الصفحه الرئيسية</a>
 </nav>
-
-<div class="process-bar">
-    <p>
-        جلسة قيد الاجراء
-    </p>
+<div class="user-info">
+    <p>@sessionId</p>
+    <p>@username</p>
 </div>
+
 
 <section class="main_section">
     <div class="table-responsive">
@@ -54,14 +62,14 @@
                             }
                         </td>
                     <td>
-                        @if(item.Meeting.StartDate>=DateTime.Now&&item.Meeting.EndDate<=DateTime.Now)
+                        @if(item.Meeting.StartDate<=DateTime.Now && item.Meeting.EndDate>=DateTime.Now)
                         {
                             if(item.Response==State.Attend)
                             {
                                 <button>
                                     <a style="text-decoration: none;color:black;" href="@Url.Action("Index","CurMeeting",new{MeetingId = item.Meeting.MeetingId})">
                                         <b>
-                                            <span class="material-symbols-outlined">close</span>
+                                            <span class="material-symbols-outlined">done</span>
                                             دخول
                                         </b>
                                     </a>

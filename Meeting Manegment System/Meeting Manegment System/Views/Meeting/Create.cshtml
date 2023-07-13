@@ -1,4 +1,13 @@
 ﻿@model Meeting
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+
+@{
+    var session = HttpContextAccessor.HttpContext.Session;
+
+    var sessionId =(RoleType) session.GetInt32("Role");
+    var username = session.GetString("UserName");
+}
+
 
 <header>
     <a href="#" class="logo">meetme</a>
@@ -8,18 +17,18 @@
 </header>
 
 <nav class="navigation">
-    <a href="#">الحساب الشخصي</a>
-    <a href="#">تسجيل الجروج</a>
-
-    <a href="#">الجلسات السابقة</a>
-    <a href="#">جلسة قيد الاجراء</a>
-    <a href="#">تشكيل المجلس</a>
-    <a href="#">الصفحة الرئيسية</a>
+    <a href="@Url.Action("Logout","Main")">تسجيل الخروج</a>
+    <a href="@Url.Action("Index","UserPage")" style="color:rgb(120,226,230);">الحساب الشخصي</a>
+    <a href="@Url.Action("Index","PreviousMeeting")">الجلسات السابقة</a>
+    <a href="@Url.Action("Index","UpcommingMeeting")">جلسة قيد الاجراء</a>
+    <a href="@Url.Action("CommitteeMembers","Main")">تشكيل المجلس</a>
+    <a href="@Url.Action("SelectCommittee","Main")">الصفحه الرئيسية</a>
 </nav>
 <div class="user-info">
-    <p>وظيفة المستخدم</p>
-    <p>اسم المستخدم</p>
+    <p>@sessionId</p>
+    <p>@username</p>
 </div>
+
 <div class="info_page_head">
     <p>
         انشاء جلسة جديده
@@ -64,7 +73,10 @@
             <span asp-validation-for="@Model.Emergency"></span>
             <label for="type">نوع الجلسة</label>
         </div>
-        <input type="submit"/>
+        <div class="info_info">
+
+        <input type="submit" id="submit" />
+        </div>
     </form>
 
 </section>

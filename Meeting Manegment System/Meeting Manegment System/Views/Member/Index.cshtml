@@ -1,5 +1,14 @@
 ﻿@model List<Member>
 
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+
+@{
+    var session = HttpContextAccessor.HttpContext.Session;
+
+    var sessionId = (RoleType)session.GetInt32("Role");
+    var username = session.GetString("UserName");
+}
+
 
 <header>
     <a href="#" class="logo">meetme</a>
@@ -10,16 +19,17 @@
 
 <nav class="navigation">
     <a href="@Url.Action("Logout","Main")">تسجيل الخروج</a>
-    <a href="@Url.Action("Index","UserPage")">الحساب الشخصي</a>
+    <a href="@Url.Action("Index","UserPage")" style="color:rgb(120,226,230);">الحساب الشخصي</a>
     <a href="@Url.Action("Index","PreviousMeeting")">الجلسات السابقة</a>
     <a href="@Url.Action("Index","UpcommingMeeting")">جلسة قيد الاجراء</a>
     <a href="@Url.Action("CommitteeMembers","Main")">تشكيل المجلس</a>
     <a href="@Url.Action("SelectCommittee","Main")">الصفحه الرئيسية</a>
 </nav>
 <div class="user-info">
-    <p></p>
-    <p></p>
+    <p>@sessionId</p>
+    <p>@username</p>
 </div>
+
 <div class="info_page_head">
     <p>
         الاعضاء
@@ -49,7 +59,7 @@
                                     <span class="material-symbols-outlined">
                                         edit_note
                                     </span>
-                                    <a href="@Url.Action("Edit","Member",new {id=item.MemberId})">
+                                    <a style="text-decoration:none;color:black;" href="@Url.Action("Edit","Member",new {id=item.MemberId})">
                                     تعديل البيانات
                                     </a>
                                 </button>
@@ -57,7 +67,7 @@
                                     <span class="material-symbols-outlined">
                                         close
                                     </span>
-                                    <a id="del" href="@Url.Action("Delete","Member",new {id=item.MemberId})" onclick="return confirm('Are you sure you want to delete this member?')">
+                                    <a id="del" style="text-decoration:none;color:black;" href="@Url.Action("Delete","Member",new {id=item.MemberId})" onclick="return confirm('Are you sure you want to delete this member?')">
                                     حذف
                                     </a>
                                 </button>

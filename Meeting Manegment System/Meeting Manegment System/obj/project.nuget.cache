@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "+zgQMymAGpsRUuaKB4RwAbD1oe1UtzTMU/jSMUztlpK26CScl5bIAhct1REpHeU60MmAJsPRFqZZwmh7ZNHi8A==",
+  "dgSpecHash": "ckRxoi9Kv/QqwDoqa7Xe/WQJqO/N9Zpd2oP40/0Cfov6AmAdkoDBW1yjfj6DIZHNpXhgja5BEgSr/j64+tWZYA==",
   "success": true,
-  "projectFilePath": "D:\\MMV\\Meeting-Manegment-System\\Meeting Manegment System\\Meeting Manegment System\\MeetingManagementSystem.csproj",
+  "projectFilePath": "D:\\GitHub Repos\\MMV\\Meeting-Manegment-System\\Meeting Manegment System\\Meeting Manegment System\\MeetingManagementSystem.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\HP\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\HP\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",

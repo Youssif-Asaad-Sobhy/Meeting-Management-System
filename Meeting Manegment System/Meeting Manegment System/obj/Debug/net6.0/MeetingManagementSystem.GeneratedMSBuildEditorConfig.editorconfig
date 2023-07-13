@@ -9,105 +9,117 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Meeting_Manegment_System
 build_property.RootNamespace = Meeting_Manegment_System
-build_property.ProjectDir = D:\MMV\Meeting-Manegment-System\Meeting Manegment System\Meeting Manegment System\
+build_property.ProjectDir = D:\GitHub Repos\MMV\Meeting-Manegment-System\Meeting Manegment System\Meeting Manegment System\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = D:\MMV\Meeting-Manegment-System\Meeting Manegment System\Meeting Manegment System
+build_property.MSBuildProjectDirectory = D:\GitHub Repos\MMV\Meeting-Manegment-System\Meeting Manegment System\Meeting Manegment System
 build_property._RazorSourceGeneratorDebug = 
 
-[D:/MMV/Meeting-Manegment-System/Meeting Manegment System/Meeting Manegment System/Views/Committee/Create.cshtml]
+[D:/GitHub Repos/MMV/Meeting-Manegment-System/Meeting Manegment System/Meeting Manegment System/Views/Committee/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tbWl0dGVlXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/MMV/Meeting-Manegment-System/Meeting Manegment System/Meeting Manegment System/Views/CurMeeeting/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VyTWVlZXRpbmdcSW5kZXguY3NodG1s
+[D:/GitHub Repos/MMV/Meeting-Manegment-System/Meeting Manegment System/Meeting Manegment System/Views/CurMeeting/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VyTWVldGluZ1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/MMV/Meeting-Manegment-System/Meeting Manegment System/Meeting Manegment System/Views/Home/ForgetPassword.cshtml]
+[D:/GitHub Repos/MMV/Meeting-Manegment-System/Meeting Manegment System/Meeting Manegment System/Views/Home/ForgetPassword.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxGb3JnZXRQYXNzd29yZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/MMV/Meeting-Manegment-System/Meeting Manegment System/Meeting Manegment System/Views/Home/Index.cshtml]
+[D:/GitHub Repos/MMV/Meeting-Manegment-System/Meeting Manegment System/Meeting Manegment System/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/MMV/Meeting-Manegment-System/Meeting Manegment System/Meeting Manegment System/Views/Home/Privacy.cshtml]
+[D:/GitHub Repos/MMV/Meeting-Manegment-System/Meeting Manegment System/Meeting Manegment System/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/MMV/Meeting-Manegment-System/Meeting Manegment System/Meeting Manegment System/Views/Main/CommitteeMembers.cshtml]
+[D:/GitHub Repos/MMV/Meeting-Manegment-System/Meeting Manegment System/Meeting Manegment System/Views/Main/CommitteeMembers.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFpblxDb21taXR0ZWVNZW1iZXJzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/MMV/Meeting-Manegment-System/Meeting Manegment System/Meeting Manegment System/Views/Main/Index.cshtml]
+[D:/GitHub Repos/MMV/Meeting-Manegment-System/Meeting Manegment System/Meeting Manegment System/Views/Main/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFpblxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/MMV/Meeting-Manegment-System/Meeting Manegment System/Meeting Manegment System/Views/Main/SelectCommittee.cshtml]
+[D:/GitHub Repos/MMV/Meeting-Manegment-System/Meeting Manegment System/Meeting Manegment System/Views/Main/SelectCommittee.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFpblxTZWxlY3RDb21taXR0ZWUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/MMV/Meeting-Manegment-System/Meeting Manegment System/Meeting Manegment System/Views/Meeting/Create.cshtml]
+[D:/GitHub Repos/MMV/Meeting-Manegment-System/Meeting Manegment System/Meeting Manegment System/Views/Meeting/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVldGluZ1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/MMV/Meeting-Manegment-System/Meeting Manegment System/Meeting Manegment System/Views/MemberCommittee/Create.cshtml]
+[D:/GitHub Repos/MMV/Meeting-Manegment-System/Meeting Manegment System/Meeting Manegment System/Views/MemberCommittee/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVtYmVyQ29tbWl0dGVlXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/MMV/Meeting-Manegment-System/Meeting Manegment System/Meeting Manegment System/Views/MemberCommittee/Index.cshtml]
+[D:/GitHub Repos/MMV/Meeting-Manegment-System/Meeting Manegment System/Meeting Manegment System/Views/MemberCommittee/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVtYmVyQ29tbWl0dGVlXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/MMV/Meeting-Manegment-System/Meeting Manegment System/Meeting Manegment System/Views/Member/Create.cshtml]
+[D:/GitHub Repos/MMV/Meeting-Manegment-System/Meeting Manegment System/Meeting Manegment System/Views/Member/AddToCommittee.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVtYmVyXEFkZFRvQ29tbWl0dGVlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/GitHub Repos/MMV/Meeting-Manegment-System/Meeting Manegment System/Meeting Manegment System/Views/Member/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVtYmVyXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/MMV/Meeting-Manegment-System/Meeting Manegment System/Meeting Manegment System/Views/Member/Edit.cshtml]
+[D:/GitHub Repos/MMV/Meeting-Manegment-System/Meeting Manegment System/Meeting Manegment System/Views/Member/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVtYmVyXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/MMV/Meeting-Manegment-System/Meeting Manegment System/Meeting Manegment System/Views/Member/Index.cshtml]
+[D:/GitHub Repos/MMV/Meeting-Manegment-System/Meeting Manegment System/Meeting Manegment System/Views/Member/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVtYmVyXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/MMV/Meeting-Manegment-System/Meeting Manegment System/Meeting Manegment System/Views/PreviousMeeting/Index.cshtml]
+[D:/GitHub Repos/MMV/Meeting-Manegment-System/Meeting Manegment System/Meeting Manegment System/Views/PreviousMeeting/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJldmlvdXNNZWV0aW5nXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/MMV/Meeting-Manegment-System/Meeting Manegment System/Meeting Manegment System/Views/Shared/Error.cshtml]
+[D:/GitHub Repos/MMV/Meeting-Manegment-System/Meeting Manegment System/Meeting Manegment System/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/MMV/Meeting-Manegment-System/Meeting Manegment System/Meeting Manegment System/Views/Shared/_ValidationScriptsPartial.cshtml]
+[D:/GitHub Repos/MMV/Meeting-Manegment-System/Meeting Manegment System/Meeting Manegment System/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/MMV/Meeting-Manegment-System/Meeting Manegment System/Meeting Manegment System/Views/UpcommingMeeting/Details.cshtml]
+[D:/GitHub Repos/MMV/Meeting-Manegment-System/Meeting Manegment System/Meeting Manegment System/Views/UpcommingMeeting/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXBjb21taW5nTWVldGluZ1xEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/MMV/Meeting-Manegment-System/Meeting Manegment System/Meeting Manegment System/Views/UpcommingMeeting/Index.cshtml]
+[D:/GitHub Repos/MMV/Meeting-Manegment-System/Meeting Manegment System/Meeting Manegment System/Views/UpcommingMeeting/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXBjb21taW5nTWVldGluZ1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/MMV/Meeting-Manegment-System/Meeting Manegment System/Meeting Manegment System/Views/UserPage/ForgetPassword.cshtml]
+[D:/GitHub Repos/MMV/Meeting-Manegment-System/Meeting Manegment System/Meeting Manegment System/Views/UserPage/ForgetPassword.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclBhZ2VcRm9yZ2V0UGFzc3dvcmQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/MMV/Meeting-Manegment-System/Meeting Manegment System/Meeting Manegment System/Views/UserPage/Index.cshtml]
+[D:/GitHub Repos/MMV/Meeting-Manegment-System/Meeting Manegment System/Meeting Manegment System/Views/UserPage/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclBhZ2VcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/MMV/Meeting-Manegment-System/Meeting Manegment System/Meeting Manegment System/Views/_ViewImports.cshtml]
+[D:/GitHub Repos/MMV/Meeting-Manegment-System/Meeting Manegment System/Meeting Manegment System/Views/Voting/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVm90aW5nXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/GitHub Repos/MMV/Meeting-Manegment-System/Meeting Manegment System/Meeting Manegment System/Views/Voting/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVm90aW5nXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/GitHub Repos/MMV/Meeting-Manegment-System/Meeting Manegment System/Meeting Manegment System/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/MMV/Meeting-Manegment-System/Meeting Manegment System/Meeting Manegment System/Views/_ViewStart.cshtml]
+[D:/GitHub Repos/MMV/Meeting-Manegment-System/Meeting Manegment System/Meeting Manegment System/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/MMV/Meeting-Manegment-System/Meeting Manegment System/Meeting Manegment System/Views/Shared/_Layout.cshtml]
+[D:/GitHub Repos/MMV/Meeting-Manegment-System/Meeting Manegment System/Meeting Manegment System/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-ap8qsunxog

@@ -4,6 +4,7 @@ namespace Meeting_Manegment_System.Interface
 {
     public interface IMemberCommitteeRepository
     {
+        bool CheckMemberInCommittee(string email);
         List<MemberCommittee> GetMembersInCommittee(int CommitteeId);
         List<Committee> GetCommitteesByMemberId(int memberId);
         RoleType GetRoleTypeById(int MemberId,int CommitteeId);

@@ -1,9 +1,11 @@
 ﻿using Meeting_Manegment_System.Interface;
 using Meeting_Manegment_System.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Meeting_Manegment_System.Controllers
 {
+   
     public class MeetingController : Controller
     {
         private readonly IMeetingRepository _meeting;
@@ -13,6 +15,10 @@ namespace Meeting_Manegment_System.Controllers
         }
         public IActionResult Index()
         {
+            if (HttpContext.Session.GetInt32("Role") == null || (RoleType)HttpContext.Session.GetInt32("Role") == RoleType.Member)
+            {
+                return RedirectToAction("Login", "Home");
+            }
             return View();
         }
         public IActionResult Create()
